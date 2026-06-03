@@ -1,0 +1,26 @@
+# --- Environnement Virtuel ---
+.venv/
+venv/
+ENV/
+
+# --- Caches Python et IDE ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.pypy/
+
+# --- Cache spécifique OSMnx / Matplotlib ---
+cache/
+.matplotlib/
+
+# --- Fichiers de Données ---
+data/*.geojson
+data/*.graphml
+
+# --- Fichiers système macOS ---
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
