@@ -1,6 +1,7 @@
 import osmnx as ox
 import geopandas as gpd
 import os
+import networkx as nx
 
 def check_and_create_data_dir():
     """S'assure que le dossier data/ existe."""
@@ -10,69 +11,84 @@ def check_and_create_data_dir():
 
 def export_quartier_data(quartier_name, short_name):
     """
-    Télécharge et exporte la zone (polygone) et le réseau de rues enrichi
-    pour un quartier spécifique de Montréal.
+    Télécharge la zone (polygone) et le réseau de rues enrichi.
+    Ajoute les tags spécifiques aux 3 scénarios (Sécuritaire, Social, Économique).
+    Retourne (area_gdf, edges_gdf).
     """
     print(f"\n=== TRACE ET EXTRACTION : {quartier_name.upper()} ===")
+    area_filtered = None
+    edges_filtered = None
     
-    # 1. EXTRACTION ET EXPORT DE LA ZONE (POLYGONE)
+    # 1. EXTRACTION DE LA ZONE (POLYGONE EXACT)
     try:
         print(f"[{short_name}] Récupération de la limite administrative (polygone)...")
         area_gdf = ox.geocode_to_gdf(quartier_name)
-        area_filtered = area_gdf[['geometry', 'display_name']]
+        area_filtered = area_gdf[['geometry', 'display_name']].copy()
+        area_filtered['quartier'] = short_name
         
         zone_filename = f"data/{short_name}_zone.geojson"
         area_filtered.to_file(zone_filename, driver="GeoJSON")
         print(f"-> Succès : {zone_filename} créé.")
     except Exception as e:
-        print(f" Erreur lors de l'extraction de la zone pour {short_name} : {e}")
+        print(f" ❌ Erreur zone pour {short_name} : {e}")
 
     # 2. EXTRACTION ET ENRICHISSEMENT DES RUES (GRAPH/LIGNES)
     try:
         print(f"[{short_name}] Récupération du réseau routier (drive)...")
-        G = ox.graph_from_place(quartier_name, network_type="drive")
         
-        print(f"[{short_name}] Enrichissement du graphe avec les règles métiers...")
+        # METHODE 3 : Gestion propre du cas Verdun / Île des Sœurs
+        if short_name == "verdun":
+            print(f"[{short_name}] Téléchargement combiné de Verdun et de l'Île des Sœurs...")
+            G_main = ox.graph_from_place("Verdun, Montreal, Canada", network_type="drive")
+            G_ile = ox.graph_from_place("Île des Sœurs, Montreal, Canada", network_type="drive")
+            G = nx.compose(G_main, G_ile)
+        else:
+            G = ox.graph_from_place(quartier_name, network_type="drive")
+        
+        print(f"[{short_name}] Enrichissement du graphe avec les 3 axes de priorisation...")
+        
         for u, v, k, data in G.edges(keys=True, data=True):
-            # Distance en km (d_ij)
             data['length_km'] = data.get('length', 0) / 1000.0
-            
-            # Type de route
             highway_type = data.get('highway', 'residential')
             if isinstance(highway_type, list):
                 highway_type = highway_type[0]
-                
-            # Scénario 1 : Axe Économique & Mobilité (Artères majeures)
-            if highway_type in ['primary', 'secondary', 'motorway', 'tertiary']:
-                data['is_crit_economique'] = True
-            else:
-                data['is_crit_economique'] = False
-                
-            # Scénario 2 : Axe Social & Sécuritaire (Voies rapides / Proximité bus)
-            if highway_type in ['primary', 'secondary'] or data.get('bus_guideway') == 'yes':
-                data['is_crit_securitaire'] = True
-            else:
-                data['is_crit_securitaire'] = False
+            nom_rue = str(data.get('name', '')).lower()
+            
+            # AXE SÉCURITAIRE
+            is_secu_infrastructure = any(mot in nom_rue for mot in ['hopital', 'hospital', 'clinique', 'sante', 'pompier'])
+            is_major_axis = highway_type in ['motorway', 'trunk', 'primary']
+            data['is_crit_security'] = bool(is_secu_infrastructure or is_major_axis)
 
-        # Conversion des arêtes en GeoDataFrame
+            # AXE SOCIAL
+            is_social_infrastructure = any(mot in nom_rue for mot in ['ecole', 'school', 'college', 'recreation', 'communautaire'])
+            data['is_crit_social'] = bool(is_social_infrastructure or highway_type in ['secondary', 'tertiary'])
+
+            # AXE ÉCONOMIQUE
+            is_bus_route = data.get('bus_guideway') == 'yes' or data.get('lanes:bus') is not None
+            is_commercial_axis = highway_type in ['primary', 'secondary', 'motorway', 'tertiary']
+            data['is_crit_economique'] = bool(is_bus_route or is_commercial_axis or 'commercial' in nom_rue)
+
         _, edges_gdf = ox.graph_to_gdfs(G, nodes=True, edges=True)
-        
-        # Sélection des colonnes utiles pour Felt
-        columns_to_keep = ['geometry', 'highway', 'length_km', 'is_crit_economique', 'is_crit_securitaire']
+        columns_to_keep = [
+            'geometry', 'highway', 'length_km', 
+            'is_crit_security', 'is_crit_social', 'is_crit_economique'
+        ]
+        edges_filtered = edges_gdf[columns_to_keep].copy()
+        edges_filtered['quartier'] = short_name
         
         rues_filename = f"data/{short_name}_rues.geojson"
-        edges_gdf[columns_to_keep].to_file(rues_filename, driver="GeoJSON")
-        print(f"-> Succès : {rues_filename} créé (Arcs E_crit et E_res taggués).")
+        edges_filtered.to_file(rues_filename, driver="GeoJSON")
+        print(f"-> Succès : {rues_filename} créé.")
         
     except Exception as e:
-        print(f" Erreur lors de l'extraction des rues pour {short_name} : {e}")
+        print(f" ❌ Erreur rues pour {short_name} : {e}")
+
+    return area_filtered, edges_filtered
 
 
 if __name__ == "__main__":
     check_and_create_data_dir()
     
-    # Dictionnaire des 4 secteurs demandés dans l'énoncé de l'AP3
-    # Format : "Nom exact pour OpenStreetMap": "Nom court pour le fichier"
     quartiers_montreal = {
         "Outremont, Montreal, Canada": "outremont",
         "Verdun, Montreal, Canada": "verdun",
@@ -80,8 +96,27 @@ if __name__ == "__main__":
         "Rivière-des-Prairies-Pointe-aux-Trembles, Montreal, Canada": "riviere_des_prairies"
     }
     
-    # Boucle d'exécution automatique
+    all_zones = []
+    all_rues = []
+    
     for full_name, short_name in quartiers_montreal.items():
-        export_quartier_data(full_name, short_name)
+        zone_gdf, rues_gdf = export_quartier_data(full_name, short_name)
+        if zone_gdf is not None:
+            all_zones.append(zone_gdf)
+        if rues_gdf is not None:
+            all_rues.append(rues_gdf)
+            
+    # Exportation consolidée
+    if all_zones:
+        print("\n=== EXPORTATION CONSOLIDÉE DES ZONES ===")
+        combined_zones = gpd.GeoDataFrame(gpd.pd.concat(all_zones, ignore_index=True), crs=all_zones[0].crs)
+        combined_zones.to_file("data/tous_quartiers_zones.geojson", driver="GeoJSON")
+        print("-> data/tous_quartiers_zones.geojson créé.")
+
+    if all_rues:
+        print("\n=== EXPORTATION CONSOLIDÉE DES RUES ===")
+        combined_rues = gpd.GeoDataFrame(gpd.pd.concat(all_rues, ignore_index=True), crs=all_rues[0].crs)
+        combined_rues.to_file("data/tous_quartiers_rues.geojson", driver="GeoJSON")
+        print("-> data/tous_quartiers_rues.geojson créé.")
         
-    print("\n Tout est prêt ! Tes 8 fichiers GeoJSON t'attendent dans le dossier data/.")
+    print("\n[FIN] Tes fichiers GeoJSON consolidés sont prêts !")
