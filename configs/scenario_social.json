@@ -1,0 +1,14 @@
+{
+	"scenario_name": "Axe Social - Populations Vulnerables",
+	"target_criterion": "is_crit_social",
+	"parameters": {
+	  "vitesse_moyenne_kmh": 10.0,
+	  "cout_fixe_journalier": 500.0,
+	  "cout_kilometrique": 1.1,
+	  "cout_horaire_base": 1.1,
+	  "cout_horaire_majore": 1.3,
+	  "seuil_neige_min_cm": 2.5,
+	  "seuil_neige_max_cm": 15.0,
+	  "budget_max_mairie": 150000.0
+	}
+  }
