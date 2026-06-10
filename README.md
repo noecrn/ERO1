@@ -37,19 +37,24 @@ Le projet est divisé en 3 phases distinctes :
 
 **Action :** Requête l'API OpenStreetMap (via `osmnx`) pour récupérer les graphes routiers et les Points d'Intérêt (hôpitaux, écoles, etc.).
 **Inputs :** Noms des quartiers en dur dans le script.
-**Outputs :** Fichiers géospatiaux `.geojson` générés dans le dossier `data/` (`scenario_economique.geojson`, `scenario_social.geojson`, `scenario_securitaire.geojson`).
-**Logique métier :** Le script enrichit chaque arête (rue) avec des booléens de priorité (`is_crit_security`, `is_crit_social`, `is_crit_economique`) basés sur la toponymie et le type de route.
+**Outputs :**
+* `data/scenario_*.geojson` : Tracés des rues par scénario.
+* `data/infrastructures_secours.geojson` : Points d'intérêt (hôpitaux, casernes) séparés.
+* `data/tous_quartiers_zones.geojson` : Limites administratives.
+**Logique métier :** Le script enrichit chaque arête (rue) avec des booléens de priorité et préserve la topologie du graphe (nœuds source `u` et cible `v`).
 
 ### 2. Phase de Transformation RO (Module : `src/exporter.py`)
 
 **Action :** Convertit les données géographiques brutes en une structure mathématique de graphe exploitable par nos algorithmes de Recherche Opérationnelle (RO).
-**Inputs :** `data/scenario_economique.geojson` (utilisé comme base unifiée).
+**Inputs :** `data/scenario_economique.geojson` (utilisé pour la structure du réseau).
 **Outputs :** `data/reseau_arcs_ro.json`
 **Schéma de données généré (Crucial pour les solvers) :**
 
 ```json
 {
   "id_arc": "int",
+  "noeud_source": "int",
+  "noeud_cible": "int",
   "quartier": "string",
   "type_route": "string",
   "distance_km": "float",
@@ -84,6 +89,7 @@ Le projet est divisé en 3 phases distinctes :
 ├── data/                       # [INPUTS/OUTPUTS] Données générées et formatées
 │   ├── reseau_arcs_ro.json          # [INPUT SOLVER] Graphe modélisé pour la RO
 │   ├── scenario_*.geojson           # Tracés cartographiques des scénarios
+│   ├── infrastructures_secours.geojson # POIs (Hôpitaux, casernes)
 │   └── tous_quartiers_zones.geojson # Limites géographiques des quartiers
 ├── demo_visualisation.ipynb    # Notebook d'analyse et de visualisation
 ├── main.py                     # [ENTRY POINT] Script principal de la démonstration

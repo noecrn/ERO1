@@ -1,25 +1,30 @@
-# --- Environnement Virtuel ---
+# Python environments
 .venv/
 venv/
 ENV/
+env/
 
-# --- Caches Python et IDE ---
+# Python cache and build artifacts
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 .pytest_cache/
-.pypy/
+.ipynb_checkpoints/
+dist/
+build/
+*.egg-info/
 
-# --- Cache spécifique OSMnx / Matplotlib ---
+# Project specific data and cache
 cache/
+data/
 .matplotlib/
 
-# --- Fichiers de Données ---
-data/*.geojson
-data/*.graphml
+# Environment secrets
+.env
+*.secret
 
-# --- Fichiers système macOS ---
+# macOS system files
 .DS_Store
 .AppleDouble
 .LSOverride
