@@ -1,0 +1,12 @@
+{
+  "zone_id": 1,
+  "distance_km": 31.3,
+  "temps_h": 3.13,
+  "cout_fixe": 500.0,
+  "cout_km": 34.43,
+  "cout_horaire": 3.443,
+  "Z_total": 537.873,
+  "CO2_kg": 8.451,
+  "surcout_reparation_km": 1.1,
+  "surcout_dcpp_km": 8.8
+}
