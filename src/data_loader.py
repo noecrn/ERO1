@@ -38,8 +38,7 @@ def save_graph_to_json(G, short_name, output_dir="data"):
             "key": k,
             "length_km": data.get("length_km", data.get("length", 0) / 1000.0),
             "highway": data.get("highway", "residential"),
-            "is_crit_security": data.get("is_crit_security", False),
-            "is_crit_social": data.get("is_crit_social", False),
+            "is_crit_security_social": data.get("is_crit_security_social", False),
             "is_crit_economique": data.get("is_crit_economique", False)
         }
         edges_list.append(edge_entry)
@@ -84,15 +83,14 @@ def annotate_graph_priorities(G):
         
         nom_rue = str(data.get('name', '')).lower()
         
-        # Security criteria: Hospitals, fire stations, major roads
+        # Security & Social criteria: Hospitals, fire stations, schools, major roads
         is_secu_infra = any(keyword in nom_rue for keyword in ['hopital', 'hospital', 'clinique', 'sante', 'pompier'])
         is_major_secu = highway_type in ['motorway', 'trunk', 'primary']
-        data['is_crit_security'] = bool(is_secu_infra or is_major_secu)
-
-        # Social criteria: Schools, secondary roads
+        
         is_social_infra = any(keyword in nom_rue for keyword in ['ecole', 'school', 'college'])
         is_major_social = highway_type in ['secondary', 'tertiary']
-        data['is_crit_social'] = bool(is_social_infra or is_major_social)
+        
+        data['is_crit_security_social'] = bool(is_secu_infra or is_major_secu or is_social_infra or is_major_social)
 
         # Economic criteria: Bus lanes, commercial areas, major economic axes
         is_bus = data.get('bus_guideway') == 'yes' or data.get('lanes:bus') is not None
@@ -126,7 +124,7 @@ def get_street_network(quartier_name, short_name):
         edges_gdf = edges_gdf.reset_index()
         
         # Select relevant columns for the final dataset
-        cols = ['u', 'v', 'key', 'geometry', 'highway', 'length_km', 'is_crit_security', 'is_crit_social', 'is_crit_economique']
+        cols = ['u', 'v', 'key', 'geometry', 'highway', 'length_km', 'is_crit_security_social', 'is_crit_economique']
         existing_cols = [c for c in cols if c in edges_gdf.columns]
         edges_filtered = edges_gdf[existing_cols].copy()
         edges_filtered['quartier'] = short_name
@@ -136,16 +134,18 @@ def get_street_network(quartier_name, short_name):
         print(f"ERROR: Could not retrieve streets for {short_name}: {e}")
         return None, None
 
-def get_security_pois(quartier_name, short_name):
+def get_infrastructure_pois(quartier_name, short_name):
     """
-    Retrieves security-related Points of Interest (hospitals, fire stations).
+    Retrieves infrastructure POIs for security and social scenarios (hospitals, schools, etc.).
     """
     try:
-        print(f"[{short_name}] Fetching security infrastructure POIs...")
+        print(f"[{short_name}] Fetching infrastructure POIs (Security & Social)...")
         tags = {
-            'amenity': ['hospital', 'fire_station', 'clinic', 'police', 'doctors'],
-            'healthcare': True
+            'amenity': ['hospital', 'fire_station', 'clinic', 'police', 'doctors', 'school', 'university', 'college', 'social_facility'],
+            'healthcare': True,
+            'social_facility:for': ['senior', 'disability', 'disabled']
         }
+        
         if short_name == "verdun":
             p1 = ox.features_from_place("Verdun, Montreal, Canada", tags=tags)
             p2 = ox.features_from_place("Île des Sœurs, Montreal, Canada", tags=tags)
@@ -154,18 +154,49 @@ def get_security_pois(quartier_name, short_name):
             pois = ox.features_from_place(quartier_name, tags=tags)
         
         if not pois.empty:
-            # Keep only point geometries to avoid large building polygons
+            # Keep only Point geometries for POIs
             pois = pois[pois.geometry.type == 'Point'].copy()
+            
             if not pois.empty:
                 if 'name' not in pois.columns: 
                     pois['name'] = "Unknown"
-                pois_filtered = pois[['geometry', 'name']].copy()
+                
+                # Categorization and Styling
+                def categorize(row):
+                    name = str(row.get('name', '')).lower()
+                    amenity = row.get('amenity')
+                    social = row.get('social_facility:for')
+                    
+                    if amenity == 'hospital' or row.get('healthcare') == 'hospital' or 'hôpital' in name:
+                        return 'hospital', 'hospital', '#e74c3c', 'medium', 2
+                    if amenity == 'fire_station' or 'caserne' in name:
+                        return 'fire_station', 'fire-station', '#e67e22', 'medium', 2
+                    if amenity == 'police' or 'poste de quartier' in name:
+                        return 'police', 'police', '#2980b9', 'medium', 2
+                    if amenity in ['clinic', 'doctors'] or 'clinique' in name or 'clsc' in name:
+                        return 'clinic', 'hospital', '#e74c3c', 'medium', 2
+                    if amenity in ['school', 'university', 'college'] or 'école' in name:
+                        return 'school', 'school', '#3498db', 'medium', 2
+                    if social in ['senior', 'elderly'] or 'résidence' in name:
+                        return 'senior_home', 'home', '#a0522d', 'medium', 2
+                    if social in ['disability', 'disabled'] or row.get('wheelchair') == 'yes' or 'pmr' in name:
+                        return 'pmr_facility', 'wheelchair', '#9b59b6', 'medium', 2
+                    
+                    return 'infrastructure_secours', 'marker', '#7f8c8d', 'medium', 2
+
+                results = pois.apply(categorize, axis=1)
+                pois['type'] = [r[0] for r in results]
+                pois['marker-symbol'] = [r[1] for r in results]
+                pois['marker-color'] = [r[2] for r in results]
+                pois['marker-size'] = [r[3] for r in results]
+                pois['stroke-width'] = [r[4] for r in results]
+                pois['stroke'] = pois['marker-color'] # Match stroke color to marker color
+                
+                pois_filtered = pois[['geometry', 'name', 'type', 'marker-symbol', 'marker-color', 'marker-size', 'stroke', 'stroke-width']].copy()
                 pois_filtered['quartier'] = short_name
-                pois_filtered['type'] = "infrastructure_secours"
                 return pois_filtered
-    except Exception:
-        # Some areas might not return POIs for these specific tags
-        print(f"WARNING: No security POIs found for {short_name}")
+    except Exception as e:
+        print(f"WARNING: Issue fetching POIs for {short_name}: {e}")
     
     return None
 
@@ -201,8 +232,8 @@ def run_data_pipeline():
             all_streets.append(streets_gdf)
             save_graph_to_json(G, short_name)
         
-        # 3. Security Points of Interest
-        pois = get_security_pois(full_name, short_name)
+        # 3. Infrastructure POIs (Security & Social)
+        pois = get_infrastructure_pois(full_name, short_name)
         if pois is not None: 
             all_pois.append(pois)
             
@@ -211,7 +242,7 @@ def run_data_pipeline():
         combined_areas = gpd.GeoDataFrame(pd.concat(all_areas, ignore_index=True), crs=all_areas[0].crs)
         combined_areas.to_file("data/tous_quartiers_zones.geojson", driver="GeoJSON")
 
-    # Export simplified security POIs
+    # Export simplified infrastructure POIs
     if all_pois:
         combined_pois = gpd.GeoDataFrame(pd.concat(all_pois, ignore_index=True), crs=all_pois[0].crs)
         combined_pois.to_file("data/infrastructures_secours.geojson", driver="GeoJSON")
@@ -221,7 +252,7 @@ def run_data_pipeline():
         combined_streets = gpd.GeoDataFrame(pd.concat(all_streets, ignore_index=True), crs=all_streets[0].crs)
         
         # Scenario 1: Security and Social Priority
-        combined_streets['scenario_1'] = (combined_streets['is_crit_security'] == True) | (combined_streets['is_crit_social'] == True)
+        combined_streets['scenario_1'] = (combined_streets['is_crit_security_social'] == True)
         
         # Scenario 2: Economic Priority
         combined_streets['scenario_2'] = (combined_streets['is_crit_economique'] == True)

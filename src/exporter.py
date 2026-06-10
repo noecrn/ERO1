@@ -45,8 +45,7 @@ def exporter_pour_algorithmes(geojson_rues_path):
             "road_type": type_route,
             "distance_km": float(row.get("length_km", 0.0)),
             "priorities": {
-                "security": bool(row.get("is_crit_security", False)),
-                "social": bool(row.get("is_crit_social", False)),
+                "security_social": bool(row.get("is_crit_security_social", False)),
                 "economic": bool(row.get("is_crit_economique", False))
             },
             "scenarios": {
