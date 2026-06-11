@@ -3,17 +3,17 @@
 ## Contexte du projet
 
 **Objectif principal :** Résoudre un problème d'optimisation de tournées (variante du problème du Postier Chinois / *Chinese Postman Problem*) pour le déneigement des rues de Montréal (secteurs : Outremont, Verdun, Anjou, Rivière-des-prairies-pointe-aux-trembles).
-Le but est de minimiser le coût de déblaiement (basé sur un modèle de coût horaire et kilométrique) tout en respectant **trois scénarios de priorisation** (Économique, Social, Sécuritaire).
+Le but est de minimiser le coût de déblaiement (basé sur un modèle de coût horaire et kilométrique) tout en respectant **deux types de priorisation** (Sécurité & Social, Économique).
 
 ---
 
 ## Définition des Scénarios de Priorisation
 
-Le projet évalue trois stratégies d'intervention distinctes. L'algorithme reste mathématiquement identique pour chaque scénario ; c'est uniquement le fichier de configuration (l'input) qui modifie le comportement de l'optimisation.
+Le projet évalue trois stratégies d'intervention distinctes à partir de deux indicateurs de priorité.
 
-* **Scénario 1 : Axe Sécurité et Social.** Dégagement en priorité absolue des voies permettant de sauver des vies et de rompre l'isolement (hôpitaux, cliniques, casernes, écoles, infrastructures PMR).
-* **Scénario 2 : Axe Économique.** Dégagement prioritaire des grands axes et des voies de transport en commun pour assurer la continuité du trafic commercial. Ce scénario offre une flexibilité financière à la ville en acceptant que certaines zones purement résidentielles soient traitées ultérieurement.
-* **Scénario 3 : Baseline (Méthode globale).** Modélisation d'un déneigement complet de l'ensemble du graphe routier sans priorisation. Ce scénario sert d'étalon de mesure pour valider l'efficacité brute de l'algorithme sur un réseau étendu.
+* **Scénario 1 : Axe Sécurité et Social.** Dégagement en priorité absolue des voies permettant de sauver des vies et de rompre l'isolement (hôpitaux, cliniques, casernes, écoles, infrastructures PMR, résidences aînés).
+* **Scénario 2 : Axe Économique.** Dégagement prioritaire des grands axes, des voies de bus et des zones commerciales pour assurer la continuité du trafic économique.
+* **Scénario 3 : Baseline (Méthode globale).** Déneigement complet de l'ensemble du graphe routier sans priorisation.
 
 ---
 
@@ -46,31 +46,28 @@ Le projet est divisé en 3 phases distinctes :
 ### 2. Phase de Transformation RO (Module : `src/exporter.py`)
 
 **Action :** Convertit les données géographiques brutes en une structure mathématique de graphe exploitable par nos algorithmes de Recherche Opérationnelle (RO).
-**Inputs :** `data/scenario_economique.geojson` (utilisé pour la structure du réseau).
-**Outputs :** `data/reseau_arcs_ro.json`
+**Inputs :** `data/reseau_rues_complet.geojson`.
+**Outputs :** `data/graph_*.json` (un par quartier)
 **Schéma de données généré (Crucial pour les solvers) :**
 
 ```json
 {
   "id_arc": "int",
-  "noeud_source": "int",
-  "noeud_cible": "int",
-  "quartier": "string",
-  "type_route": "string",
+  "source_node": "int",
+  "target_node": "int",
+  "neighborhood": "string",
+  "road_type": "string",
   "distance_km": "float",
-  "priorites": {
-    "securitaire": "bool",
-    "social": "bool",
-    "economique": "bool"
+  "priorities": {
+    "security_social": "bool",
+    "economic": "bool"
   }
 }
-
 ```
-
 ### 3. Phase d'Optimisation et Calculs (Modules : `src/solvers.py`, `src/metrics.py`, `main.py`)
 
-**Action :** Charge le graphe RO, applique les algorithmes de parcours (Eulerien/Postier Chinois) pour minimiser les distances à vide, et calcule les coûts financiers.
-**Inputs :** `data/reseau_arcs_ro.json` + fichiers de configuration dans `configs/`.
+**Action :** Charge le graphe RO, applique les algorithmes de parcours pour minimiser les distances à vide, et calcule les coûts financiers.
+**Inputs :** `data/graph_*.json` + fichier de configuration `configs/scenarios.json`.
 **Outputs :** Résultats dans la console, itinéraires générés et métriques d'évaluation.
 
 ---
@@ -79,18 +76,17 @@ Le projet est divisé en 3 phases distinctes :
 
 ```text
 .
-├── AUTHORS                     # Liste des auteurs (noe.cornu, clara.verrier, etc.)
+├── AUTHORS                     # Liste des auteurs
 ├── README.md                   # Documentation actuelle
 ├── cache/                      # Fichiers de cache générés par OSMnx
-├── configs/                    # Configurations des paramètres pour les 3 scénarios
-│   ├── scenario_economique.json
-│   ├── scenario_securitaire.json
-│   └── scenario_social.json
-├── data/                       # [INPUTS/OUTPUTS] Données générées et formatées
-│   ├── reseau_arcs_ro.json          # [INPUT SOLVER] Graphe modélisé pour la RO
-│   ├── scenario_*.geojson           # Tracés cartographiques des scénarios
-│   ├── infrastructures_secours.geojson # POIs (Hôpitaux, casernes)
-│   └── tous_quartiers_zones.geojson # Limites géographiques des quartiers
+├── configs/                    # Configuration des scénarios
+│   └── scenarios.json          # Fichier unique de configuration
+├── data/                       # [INPUTS/OUTPUTS] Données générées
+│   ├── graph_*.json            # [INPUT SOLVER] Graphes modélisés par quartier
+│   ├── reseau_rues_complet.geojson # Tracés complets avec flags
+│   ├── infrastructures_secours.geojson # POIs uniquement (Hôpitaux, écoles, etc.)
+│   └── tous_quartiers_zones.geojson # Limites géographiques
+```
 ├── demo_visualisation.ipynb    # Notebook d'analyse et de visualisation
 ├── main.py                     # [ENTRY POINT] Script principal de la démonstration
 ├── requirements.txt            # Dépendances (osmnx, geopandas, networkx, etc.)

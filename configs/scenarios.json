@@ -1,0 +1,49 @@
+{
+  "scenarios": [
+    {
+      "id": 1,
+      "name": "Axe Sécurité et Social",
+      "target_criterion": "is_crit_security_social",
+      "parameters": {
+        "vitesse_moyenne_kmh": 10.0,
+        "cout_fixe_journalier": 500.0,
+        "cout_kilometrique": 1.1,
+        "cout_horaire_base": 1.1,
+        "cout_horaire_majore": 1.3,
+        "seuil_neige_min_cm": 2.5,
+        "seuil_neige_max_cm": 15.0,
+        "budget_max_mairie": 180000.0
+      }
+    },
+    {
+      "id": 2,
+      "name": "Axe Économique",
+      "target_criterion": "is_crit_economique",
+      "parameters": {
+        "vitesse_moyenne_kmh": 10.0,
+        "cout_fixe_journalier": 500.0,
+        "cout_kilometrique": 1.1,
+        "cout_horaire_base": 1.1,
+        "cout_horaire_majore": 1.3,
+        "seuil_neige_min_cm": 2.5,
+        "seuil_neige_max_cm": 15.0,
+        "budget_max_mairie": 250000.0
+      }
+    },
+    {
+      "id": 3,
+      "name": "Baseline (Méthode globale)",
+      "target_criterion": null,
+      "parameters": {
+        "vitesse_moyenne_kmh": 10.0,
+        "cout_fixe_journalier": 500.0,
+        "cout_kilometrique": 1.1,
+        "cout_horaire_base": 1.1,
+        "cout_horaire_majore": 1.3,
+        "seuil_neige_min_cm": 2.5,
+        "seuil_neige_max_cm": 15.0,
+        "budget_max_mairie": 500000.0
+      }
+    }
+  ]
+}
