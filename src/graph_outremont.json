@@ -1,0 +1,6333 @@
+{
+  "quartier": "outremont",
+  "nodes": {
+    "29239079": {
+      "lat": 45.5161351,
+      "lon": -73.5968218
+    },
+    "29795235": {
+      "lat": 45.5158884,
+      "lon": -73.5944049
+    },
+    "29795236": {
+      "lat": 45.5157397,
+      "lon": -73.5931958
+    },
+    "29795237": {
+      "lat": 45.5160787,
+      "lon": -73.5918987
+    },
+    "31700055": {
+      "lat": 45.5101943,
+      "lon": -73.6122236
+    },
+    "31700076": {
+      "lat": 45.5091575,
+      "lon": -73.6099728
+    },
+    "31700077": {
+      "lat": 45.5099713,
+      "lon": -73.6117161
+    },
+    "31700078": {
+      "lat": 45.5108032,
+      "lon": -73.6134882
+    },
+    "31700224": {
+      "lat": 45.5135449,
+      "lon": -73.6121351
+    },
+    "31700225": {
+      "lat": 45.5139592,
+      "lon": -73.6114035
+    },
+    "31700226": {
+      "lat": 45.5142015,
+      "lon": -73.6107074
+    },
+    "31700228": {
+      "lat": 45.5152892,
+      "lon": -73.6063294
+    },
+    "31700229": {
+      "lat": 45.5155011,
+      "lon": -73.6052538
+    },
+    "31700231": {
+      "lat": 45.5158853,
+      "lon": -73.6011137
+    },
+    "31700818": {
+      "lat": 45.5168319,
+      "lon": -73.5963052
+    },
+    "31700819": {
+      "lat": 45.5170957,
+      "lon": -73.5960742
+    },
+    "31701022": {
+      "lat": 45.5237835,
+      "lon": -73.6119538
+    },
+    "31776941": {
+      "lat": 45.5180617,
+      "lon": -73.5971871
+    },
+    "31776942": {
+      "lat": 45.5174549,
+      "lon": -73.5977167
+    },
+    "31776943": {
+      "lat": 45.5169131,
+      "lon": -73.5981773
+    },
+    "31777152": {
+      "lat": 45.5162145,
+      "lon": -73.5941
+    },
+    "31777153": {
+      "lat": 45.5168336,
+      "lon": -73.5935793
+    },
+    "124502593": {
+      "lat": 45.5193961,
+      "lon": -73.6021131
+    },
+    "124504833": {
+      "lat": 45.5158251,
+      "lon": -73.602091
+    },
+    "124524581": {
+      "lat": 45.5196994,
+      "lon": -73.6044404
+    },
+    "124524582": {
+      "lat": 45.5163084,
+      "lon": -73.5967568
+    },
+    "124531262": {
+      "lat": 45.5171932,
+      "lon": -73.6004197
+    },
+    "126066962": {
+      "lat": 45.5184122,
+      "lon": -73.6055894
+    },
+    "126068173": {
+      "lat": 45.5242152,
+      "lon": -73.6146116
+    },
+    "126073336": {
+      "lat": 45.5149245,
+      "lon": -73.6133375
+    },
+    "126073338": {
+      "lat": 45.5162515,
+      "lon": -73.6121529
+    },
+    "126092384": {
+      "lat": 45.5161807,
+      "lon": -73.6059535
+    },
+    "126094068": {
+      "lat": 45.5167581,
+      "lon": -73.6070659
+    },
+    "126094069": {
+      "lat": 45.520371,
+      "lon": -73.6149963
+    },
+    "126094908": {
+      "lat": 45.5248442,
+      "lon": -73.6125164
+    },
+    "126102457": {
+      "lat": 45.5146708,
+      "lon": -73.6089907
+    },
+    "209364967": {
+      "lat": 45.5185851,
+      "lon": -73.6215153
+    },
+    "209364977": {
+      "lat": 45.5170145,
+      "lon": -73.617995
+    },
+    "209364980": {
+      "lat": 45.5157404,
+      "lon": -73.6151581
+    },
+    "209365004": {
+      "lat": 45.5173144,
+      "lon": -73.6227689
+    },
+    "209365009": {
+      "lat": 45.5165977,
+      "lon": -73.6233986
+    },
+    "209365013": {
+      "lat": 45.515889,
+      "lon": -73.6240363
+    },
+    "209374806": {
+      "lat": 45.5191312,
+      "lon": -73.6229407
+    },
+    "209387023": {
+      "lat": 45.5130146,
+      "lon": -73.6176151
+    },
+    "209387031": {
+      "lat": 45.5163407,
+      "lon": -73.6250339
+    },
+    "209387036": {
+      "lat": 45.5176997,
+      "lon": -73.6238057
+    },
+    "209387046": {
+      "lat": 45.5149885,
+      "lon": -73.6198045
+    },
+    "209387049": {
+      "lat": 45.5137153,
+      "lon": -73.6169787
+    },
+    "209387056": {
+      "lat": 45.5124292,
+      "lon": -73.6141684
+    },
+    "209387103": {
+      "lat": 45.5057085,
+      "lon": -73.618023
+    },
+    "209387112": {
+      "lat": 45.5094536,
+      "lon": -73.6146718
+    },
+    "209387127": {
+      "lat": 45.5086823,
+      "lon": -73.6153656
+    },
+    "209387136": {
+      "lat": 45.5070501,
+      "lon": -73.6168309
+    },
+    "209387140": {
+      "lat": 45.5063876,
+      "lon": -73.6174223
+    },
+    "209387147": {
+      "lat": 45.5050803,
+      "lon": -73.6185902
+    },
+    "209390670": {
+      "lat": 45.515696,
+      "lon": -73.6191698
+    },
+    "209390674": {
+      "lat": 45.5144326,
+      "lon": -73.6163394
+    },
+    "209390694": {
+      "lat": 45.5190181,
+      "lon": -73.616205
+    },
+    "209390697": {
+      "lat": 45.5191664,
+      "lon": -73.6186355
+    },
+    "213649392": {
+      "lat": 45.511528,
+      "lon": -73.6078628
+    },
+    "213649401": {
+      "lat": 45.5119973,
+      "lon": -73.6066111
+    },
+    "213649404": {
+      "lat": 45.5127859,
+      "lon": -73.6058914
+    },
+    "213649409": {
+      "lat": 45.5129989,
+      "lon": -73.6131074
+    },
+    "213649418": {
+      "lat": 45.5145825,
+      "lon": -73.6093183
+    },
+    "213649427": {
+      "lat": 45.5117603,
+      "lon": -73.6037515
+    },
+    "213649430": {
+      "lat": 45.5121847,
+      "lon": -73.6021206
+    },
+    "213649435": {
+      "lat": 45.5125072,
+      "lon": -73.601023
+    },
+    "213649445": {
+      "lat": 45.5116671,
+      "lon": -73.6010494
+    },
+    "213649452": {
+      "lat": 45.5133897,
+      "lon": -73.6044619
+    },
+    "213649468": {
+      "lat": 45.5121631,
+      "lon": -73.6000091
+    },
+    "213649471": {
+      "lat": 45.5126533,
+      "lon": -73.601056
+    },
+    "213649485": {
+      "lat": 45.5144271,
+      "lon": -73.6005349
+    },
+    "213649488": {
+      "lat": 45.5146884,
+      "lon": -73.6000354
+    },
+    "213649866": {
+      "lat": 45.514647,
+      "lon": -73.6010447
+    },
+    "213649874": {
+      "lat": 45.5146786,
+      "lon": -73.6005024
+    },
+    "213649886": {
+      "lat": 45.5157068,
+      "lon": -73.6006644
+    },
+    "213649928": {
+      "lat": 45.5132988,
+      "lon": -73.6070171
+    },
+    "213649936": {
+      "lat": 45.5139323,
+      "lon": -73.6056981
+    },
+    "213649947": {
+      "lat": 45.5143994,
+      "lon": -73.6048859
+    },
+    "213649957": {
+      "lat": 45.5146653,
+      "lon": -73.6028468
+    },
+    "213649961": {
+      "lat": 45.5147108,
+      "lon": -73.6023625
+    },
+    "213649963": {
+      "lat": 45.5135299,
+      "lon": -73.602749
+    },
+    "213649987": {
+      "lat": 45.514061,
+      "lon": -73.6044763
+    },
+    "213666597": {
+      "lat": 45.5100769,
+      "lon": -73.6141185
+    },
+    "213955306": {
+      "lat": 45.5194291,
+      "lon": -73.6220777
+    },
+    "213955379": {
+      "lat": 45.5189085,
+      "lon": -73.6215077
+    },
+    "213955395": {
+      "lat": 45.5189458,
+      "lon": -73.6222801
+    },
+    "213955429": {
+      "lat": 45.5192935,
+      "lon": -73.6209981
+    },
+    "213955444": {
+      "lat": 45.5186232,
+      "lon": -73.6216251
+    },
+    "221075916": {
+      "lat": 45.5171175,
+      "lon": -73.5969526
+    },
+    "221091275": {
+      "lat": 45.5208237,
+      "lon": -73.6034368
+    },
+    "221091281": {
+      "lat": 45.5190679,
+      "lon": -73.6050041
+    },
+    "221091287": {
+      "lat": 45.5202263,
+      "lon": -73.6039701
+    },
+    "221091652": {
+      "lat": 45.5177565,
+      "lon": -73.6061747
+    },
+    "221101690": {
+      "lat": 45.5182292,
+      "lon": -73.5994861
+    },
+    "221101697": {
+      "lat": 45.5177069,
+      "lon": -73.5999509
+    },
+    "221101701": {
+      "lat": 45.5188315,
+      "lon": -73.5989382
+    },
+    "221106359": {
+      "lat": 45.5222942,
+      "lon": -73.6067545
+    },
+    "221106363": {
+      "lat": 45.5231067,
+      "lon": -73.608578
+    },
+    "221106368": {
+      "lat": 45.5225141,
+      "lon": -73.6091116
+    },
+    "221106378": {
+      "lat": 45.5213539,
+      "lon": -73.6101456
+    },
+    "221106382": {
+      "lat": 45.5207018,
+      "lon": -73.6107347
+    },
+    "221106387": {
+      "lat": 45.520048,
+      "lon": -73.6113323
+    },
+    "221106392": {
+      "lat": 45.5191318,
+      "lon": -73.6121688
+    },
+    "221106397": {
+      "lat": 45.5184175,
+      "lon": -73.6127974
+    },
+    "221106400": {
+      "lat": 45.5170725,
+      "lon": -73.613968
+    },
+    "221106405": {
+      "lat": 45.5164072,
+      "lon": -73.6145623
+    },
+    "221106420": {
+      "lat": 45.519684,
+      "lon": -73.6156104
+    },
+    "221106425": {
+      "lat": 45.5213102,
+      "lon": -73.6141634
+    },
+    "221106429": {
+      "lat": 45.5226189,
+      "lon": -73.6129941
+    },
+    "221106435": {
+      "lat": 45.5232536,
+      "lon": -73.6124254
+    },
+    "221106437": {
+      "lat": 45.5243631,
+      "lon": -73.6114318
+    },
+    "221106464": {
+      "lat": 45.5211766,
+      "lon": -73.6077603
+    },
+    "221106468": {
+      "lat": 45.5217064,
+      "lon": -73.6072877
+    },
+    "221108180": {
+      "lat": 45.5188703,
+      "lon": -73.6025821
+    },
+    "221108317": {
+      "lat": 45.517589,
+      "lon": -73.6037371
+    },
+    "221110240": {
+      "lat": 45.5169365,
+      "lon": -73.6043266
+    },
+    "221110584": {
+      "lat": 45.5171189,
+      "lon": -73.604728
+    },
+    "221112922": {
+      "lat": 45.5160885,
+      "lon": -73.6076636
+    },
+    "221112989": {
+      "lat": 45.5176239,
+      "lon": -73.6110337
+    },
+    "221113177": {
+      "lat": 45.522795,
+      "lon": -73.6154163
+    },
+    "221113204": {
+      "lat": 45.52344,
+      "lon": -73.6148427
+    },
+    "221113274": {
+      "lat": 45.5240671,
+      "lon": -73.6142835
+    },
+    "221128630": {
+      "lat": 45.5155872,
+      "lon": -73.6127444
+    },
+    "300103857": {
+      "lat": 45.5105597,
+      "lon": -73.6130166
+    },
+    "303431774": {
+      "lat": 45.5113577,
+      "lon": -73.6186599
+    },
+    "303432802": {
+      "lat": 45.5125631,
+      "lon": -73.6163768
+    },
+    "303433230": {
+      "lat": 45.5100215,
+      "lon": -73.6134891
+    },
+    "310090260": {
+      "lat": 45.5153264,
+      "lon": -73.5949961
+    },
+    "310090261": {
+      "lat": 45.514697,
+      "lon": -73.5950458
+    },
+    "310683067": {
+      "lat": 45.5192324,
+      "lon": -73.6094942
+    },
+    "391531806": {
+      "lat": 45.5159063,
+      "lon": -73.6006812
+    },
+    "428525931": {
+      "lat": 45.5199414,
+      "lon": -73.6203285
+    },
+    "437719105": {
+      "lat": 45.5163438,
+      "lon": -73.6185917
+    },
+    "437719778": {
+      "lat": 45.5183439,
+      "lon": -73.6168034
+    },
+    "437729754": {
+      "lat": 45.5219691,
+      "lon": -73.613579
+    },
+    "437731034": {
+      "lat": 45.5187197,
+      "lon": -73.5966188
+    },
+    "437732887": {
+      "lat": 45.5194861,
+      "lon": -73.5983591
+    },
+    "437733314": {
+      "lat": 45.5180138,
+      "lon": -73.5952668
+    },
+    "437788045": {
+      "lat": 45.5229476,
+      "lon": -73.6061747
+    },
+    "437788057": {
+      "lat": 45.5214734,
+      "lon": -73.6028568
+    },
+    "437788171": {
+      "lat": 45.5176783,
+      "lon": -73.6174017
+    },
+    "437788242": {
+      "lat": 45.5237475,
+      "lon": -73.6080129
+    },
+    "437865622": {
+      "lat": 45.5255325,
+      "lon": -73.6140353
+    },
+    "438111575": {
+      "lat": 45.5255732,
+      "lon": -73.6121188
+    },
+    "438111583": {
+      "lat": 45.5186331,
+      "lon": -73.5966936
+    },
+    "438111584": {
+      "lat": 45.5182946,
+      "lon": -73.5959257
+    },
+    "471725443": {
+      "lat": 45.5198898,
+      "lon": -73.6089123
+    },
+    "471725446": {
+      "lat": 45.5205444,
+      "lon": -73.6083178
+    },
+    "491202324": {
+      "lat": 45.5177958,
+      "lon": -73.6133377
+    },
+    "514112190": {
+      "lat": 45.5207288,
+      "lon": -73.6158042
+    },
+    "514112191": {
+      "lat": 45.5216695,
+      "lon": -73.6149676
+    },
+    "526533273": {
+      "lat": 45.5205115,
+      "lon": -73.6174373
+    },
+    "526533292": {
+      "lat": 45.5183018,
+      "lon": -73.6103261
+    },
+    "596988490": {
+      "lat": 45.5148172,
+      "lon": -73.5912848
+    },
+    "596988509": {
+      "lat": 45.5154069,
+      "lon": -73.5907566
+    },
+    "596988539": {
+      "lat": 45.5157881,
+      "lon": -73.5902655
+    },
+    "596999732": {
+      "lat": 45.5130975,
+      "lon": -73.615592
+    },
+    "596999735": {
+      "lat": 45.512744,
+      "lon": -73.6148041
+    },
+    "596999743": {
+      "lat": 45.513808,
+      "lon": -73.6149744
+    },
+    "596999744": {
+      "lat": 45.5133226,
+      "lon": -73.6125329
+    },
+    "596999769": {
+      "lat": 45.5199666,
+      "lon": -73.6140126
+    },
+    "596999772": {
+      "lat": 45.5176892,
+      "lon": -73.6134292
+    },
+    "596999773": {
+      "lat": 45.5169441,
+      "lon": -73.6114344
+    },
+    "596999774": {
+      "lat": 45.516836,
+      "lon": -73.611528
+    },
+    "596999783": {
+      "lat": 45.5169007,
+      "lon": -73.6116802
+    },
+    "596999784": {
+      "lat": 45.5170085,
+      "lon": -73.6115837
+    },
+    "596999788": {
+      "lat": 45.5187443,
+      "lon": -73.611317
+    },
+    "596999794": {
+      "lat": 45.5174658,
+      "lon": -73.6084965
+    },
+    "596999795": {
+      "lat": 45.5175548,
+      "lon": -73.6108934
+    },
+    "596999797": {
+      "lat": 45.5178644,
+      "lon": -73.6093628
+    },
+    "596999811": {
+      "lat": 45.5195273,
+      "lon": -73.613036
+    },
+    "596999812": {
+      "lat": 45.5204372,
+      "lon": -73.6122208
+    },
+    "596999813": {
+      "lat": 45.5208774,
+      "lon": -73.6132124
+    },
+    "596999815": {
+      "lat": 45.522566,
+      "lon": -73.6170091
+    },
+    "596999847": {
+      "lat": 45.5183953,
+      "lon": -73.6076403
+    },
+    "661852604": {
+      "lat": 45.5145981,
+      "lon": -73.5923946
+    },
+    "664167873": {
+      "lat": 45.5142831,
+      "lon": -73.6204361
+    },
+    "865023812": {
+      "lat": 45.5201783,
+      "lon": -73.6208883
+    },
+    "1420077700": {
+      "lat": 45.5187972,
+      "lon": -73.6085216
+    },
+    "1420077705": {
+      "lat": 45.5196736,
+      "lon": -73.6104744
+    },
+    "1765630408": {
+      "lat": 45.5110056,
+      "lon": -73.6162905
+    },
+    "1765630409": {
+      "lat": 45.5171594,
+      "lon": -73.620438
+    },
+    "1765630410": {
+      "lat": 45.5198334,
+      "lon": -73.6180413
+    },
+    "1765657075": {
+      "lat": 45.5104142,
+      "lon": -73.6168235
+    },
+    "1765657078": {
+      "lat": 45.5151119,
+      "lon": -73.6222703
+    },
+    "1765657079": {
+      "lat": 45.515821,
+      "lon": -73.6216269
+    },
+    "1765657080": {
+      "lat": 45.516518,
+      "lon": -73.6210048
+    },
+    "1765657081": {
+      "lat": 45.5178321,
+      "lon": -73.6198309
+    },
+    "1765657082": {
+      "lat": 45.5185047,
+      "lon": -73.6192337
+    },
+    "1825900796": {
+      "lat": 45.525022,
+      "lon": -73.6108413
+    },
+    "1851835123": {
+      "lat": 45.5177078,
+      "lon": -73.5955344
+    },
+    "1857963725": {
+      "lat": 45.5219925,
+      "lon": -73.6095833
+    },
+    "1969920684": {
+      "lat": 45.5131891,
+      "lon": -73.6158136
+    },
+    "1975853544": {
+      "lat": 45.5113431,
+      "lon": -73.6170791
+    },
+    "1975853546": {
+      "lat": 45.5109896,
+      "lon": -73.6177207
+    },
+    "1975853548": {
+      "lat": 45.5111671,
+      "lon": -73.6181212
+    },
+    "1975853560": {
+      "lat": 45.511782,
+      "lon": -73.6170727
+    },
+    "1975853561": {
+      "lat": 45.5119969,
+      "lon": -73.6175513
+    },
+    "2378096434": {
+      "lat": 45.5198148,
+      "lon": -73.6206074
+    },
+    "3165394666": {
+      "lat": 45.5077254,
+      "lon": -73.616226
+    },
+    "3382995922": {
+      "lat": 45.5120665,
+      "lon": -73.6152552
+    },
+    "3405413274": {
+      "lat": 45.5148055,
+      "lon": -73.6084948
+    },
+    "3405413277": {
+      "lat": 45.5147969,
+      "lon": -73.6073896
+    },
+    "3691019539": {
+      "lat": 45.5166375,
+      "lon": -73.6110779
+    },
+    "3733743016": {
+      "lat": 45.5102605,
+      "lon": -73.60025
+    },
+    "3964969147": {
+      "lat": 45.5111271,
+      "lon": -73.6091075
+    },
+    "4171683688": {
+      "lat": 45.5117204,
+      "lon": -73.6155322
+    },
+    "4504112773": {
+      "lat": 45.5160659,
+      "lon": -73.5987386
+    },
+    "4504112778": {
+      "lat": 45.5163648,
+      "lon": -73.5986381
+    },
+    "4514457621": {
+      "lat": 45.5200778,
+      "lon": -73.6206345
+    },
+    "4514524164": {
+      "lat": 45.5137491,
+      "lon": -73.6026969
+    },
+    "4514524184": {
+      "lat": 45.5140981,
+      "lon": -73.5997141
+    },
+    "4559009211": {
+      "lat": 45.5231294,
+      "lon": -73.6182257
+    },
+    "4559009212": {
+      "lat": 45.526166,
+      "lon": -73.6154794
+    },
+    "4605973276": {
+      "lat": 45.5167429,
+      "lon": -73.6109899
+    },
+    "5412399376": {
+      "lat": 45.5261216,
+      "lon": -73.6179485
+    },
+    "5412399379": {
+      "lat": 45.5273475,
+      "lon": -73.6166612
+    },
+    "5413741435": {
+      "lat": 45.5158219,
+      "lon": -73.5939384
+    },
+    "5415829801": {
+      "lat": 45.5109291,
+      "lon": -73.6138181
+    },
+    "5415829803": {
+      "lat": 45.5106675,
+      "lon": -73.6132355
+    },
+    "5415829806": {
+      "lat": 45.5107668,
+      "lon": -73.6135199
+    },
+    "5415829812": {
+      "lat": 45.511346,
+      "lon": -73.6159805
+    },
+    "5415927950": {
+      "lat": 45.513641,
+      "lon": -73.6023407
+    },
+    "5515305964": {
+      "lat": 45.5237839,
+      "lon": -73.6176328
+    },
+    "5515312073": {
+      "lat": 45.5232554,
+      "lon": -73.6164309
+    },
+    "6100220186": {
+      "lat": 45.520411,
+      "lon": -73.6214133
+    },
+    "6453375160": {
+      "lat": 45.5208551,
+      "lon": -73.6223868
+    },
+    "9307175743": {
+      "lat": 45.5136001,
+      "lon": -73.5986134
+    },
+    "9680726834": {
+      "lat": 45.5221276,
+      "lon": -73.6159994
+    },
+    "9680726835": {
+      "lat": 45.5182365,
+      "lon": -73.6031426
+    },
+    "9943289208": {
+      "lat": 45.5150753,
+      "lon": -73.6157759
+    },
+    "10073196740": {
+      "lat": 45.5106285,
+      "lon": -73.6169933
+    },
+    "11509620002": {
+      "lat": 45.5127952,
+      "lon": -73.6149172
+    },
+    "11540366862": {
+      "lat": 45.5211942,
+      "lon": -73.6168291
+    },
+    "12844070435": {
+      "lat": 45.5253384,
+      "lon": -73.613593
+    }
+  },
+  "edges": [
+    {
+      "source": "29239079",
+      "target": "124524582",
+      "key": 0,
+      "length_km": 0.020547755272541407,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "29239079",
+      "target": "29795235",
+      "key": 0,
+      "length_km": 0.19064489993247846,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "29239079",
+      "target": "4504112773",
+      "key": 0,
+      "length_km": 0.14958940104405274,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "29795235",
+      "target": "31777152",
+      "key": 0,
+      "length_km": 0.04334982929453735,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "29795235",
+      "target": "310090260",
+      "key": 0,
+      "length_km": 0.18281149079364042,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "29795235",
+      "target": "29239079",
+      "key": 0,
+      "length_km": 0.1906448999324785,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "29795235",
+      "target": "5413741435",
+      "key": 0,
+      "length_km": 0.03922508144923561,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "29795236",
+      "target": "29795237",
+      "key": 0,
+      "length_km": 0.10870113382503403,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "29795236",
+      "target": "5413741435",
+      "key": 0,
+      "length_km": 0.05875801446673836,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "29795237",
+      "target": "596988539",
+      "key": 0,
+      "length_km": 0.1386280588263821,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "29795237",
+      "target": "29795236",
+      "key": 0,
+      "length_km": 0.10870113382503405,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "29795237",
+      "target": "661852604",
+      "key": 0,
+      "length_km": 0.18365334889200144,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "31700055",
+      "target": "31700077",
+      "key": 0,
+      "length_km": 0.04668894683765711,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "31700055",
+      "target": "300103857",
+      "key": 0,
+      "length_km": 0.0739821636954493,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "31700076",
+      "target": "31700077",
+      "key": 0,
+      "length_km": 0.16322959536891468,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "31700077",
+      "target": "31700055",
+      "key": 0,
+      "length_km": 0.04668894683765712,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "31700077",
+      "target": "31700076",
+      "key": 0,
+      "length_km": 0.16322959536891465,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "31700077",
+      "target": "3964969147",
+      "key": 0,
+      "length_km": 0.24438066622201202,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "31700078",
+      "target": "5415829806",
+      "key": 0,
+      "length_km": 0.004741720053408006,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "31700078",
+      "target": "5415829801",
+      "key": 0,
+      "length_km": 0.029502203617377626,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "31700224",
+      "target": "31700225",
+      "key": 0,
+      "length_km": 0.07329305856353253,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "31700224",
+      "target": "596999744",
+      "key": 0,
+      "length_km": 0.03964564562651242,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "31700224",
+      "target": "213649392",
+      "key": 0,
+      "length_km": 0.4016858464801263,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "31700225",
+      "target": "31700224",
+      "key": 0,
+      "length_km": 0.07329305856353253,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "31700225",
+      "target": "31700226",
+      "key": 0,
+      "length_km": 0.060833542563591435,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "31700226",
+      "target": "213649418",
+      "key": 0,
+      "length_km": 0.11623545368753611,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "31700226",
+      "target": "31700225",
+      "key": 0,
+      "length_km": 0.060833542563591435,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "31700228",
+      "target": "221112922",
+      "key": 0,
+      "length_km": 0.1427027450507055,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "31700228",
+      "target": "31700229",
+      "key": 0,
+      "length_km": 0.0872682213294934,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "31700228",
+      "target": "3405413274",
+      "key": 0,
+      "length_km": 0.1774064279201088,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "31700229",
+      "target": "124504833",
+      "key": 0,
+      "length_km": 0.24958161844781473,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "31700229",
+      "target": "126092384",
+      "key": 0,
+      "length_km": 0.09441993541861432,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "31700229",
+      "target": "31700228",
+      "key": 0,
+      "length_km": 0.08726822132949338,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "31700231",
+      "target": "391531806",
+      "key": 0,
+      "length_km": 0.03377932902000595,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "31700231",
+      "target": "221108317",
+      "key": 0,
+      "length_km": 0.2926393340631727,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "31700231",
+      "target": "124504833",
+      "key": 0,
+      "length_km": 0.07644209873701854,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "31700818",
+      "target": "31700819",
+      "key": 0,
+      "length_km": 0.03441764704463501,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "31700818",
+      "target": "124524582",
+      "key": 0,
+      "length_km": 0.0680290459593823,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "31700819",
+      "target": "31700818",
+      "key": 0,
+      "length_km": 0.03441764704463501,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "31700819",
+      "target": "1851835123",
+      "key": 0,
+      "length_km": 0.08000854675975799,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "31701022",
+      "target": "5515312073",
+      "key": 0,
+      "length_km": 0.4616316376759178,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "31701022",
+      "target": "221106368",
+      "key": 0,
+      "length_km": 0.26260729954793033,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "31701022",
+      "target": "221106437",
+      "key": 0,
+      "length_km": 0.07620764648373941,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "31701022",
+      "target": "221106435",
+      "key": 0,
+      "length_km": 0.06943885015074437,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "31776941",
+      "target": "221101701",
+      "key": 0,
+      "length_km": 0.16106500569679894,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "31776941",
+      "target": "31776942",
+      "key": 0,
+      "length_km": 0.07909027317231966,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "31776941",
+      "target": "438111583",
+      "key": 0,
+      "length_km": 0.07426655030557228,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "31776942",
+      "target": "221075916",
+      "key": 0,
+      "length_km": 0.07036926589204558,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "31776942",
+      "target": "31776943",
+      "key": 0,
+      "length_km": 0.070138536999218,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "31776942",
+      "target": "31776941",
+      "key": 0,
+      "length_km": 0.07909027317231966,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "31776943",
+      "target": "221101697",
+      "key": 0,
+      "length_km": 0.1639961685911605,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "31776943",
+      "target": "4504112778",
+      "key": 0,
+      "length_km": 0.07077364286114365,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "31776943",
+      "target": "31776942",
+      "key": 0,
+      "length_km": 0.070138536999218,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "31777152",
+      "target": "31777153",
+      "key": 0,
+      "length_km": 0.07991076406425614,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "31777152",
+      "target": "29795235",
+      "key": 0,
+      "length_km": 0.04334982929453735,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "31777152",
+      "target": "29795236",
+      "key": 0,
+      "length_km": 0.08984383238326098,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "31777152",
+      "target": "31700819",
+      "key": 0,
+      "length_km": 0.18237798961990714,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "31777153",
+      "target": "31777152",
+      "key": 0,
+      "length_km": 0.07991076406425614,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "31777153",
+      "target": "29795237",
+      "key": 0,
+      "length_km": 0.15560220417749307,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "31777153",
+      "target": "1851835123",
+      "key": 0,
+      "length_km": 0.18070510456161576,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "124502593",
+      "target": "221108180",
+      "key": 0,
+      "length_km": 0.06894573256206774,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "124502593",
+      "target": "221101690",
+      "key": 0,
+      "length_km": 0.2423425539234549,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "124504833",
+      "target": "31700231",
+      "key": 0,
+      "length_km": 0.07644209873701854,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "124504833",
+      "target": "31700229",
+      "key": 0,
+      "length_km": 0.24958161844781476,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "124524581",
+      "target": "221091287",
+      "key": 0,
+      "length_km": 0.06910285399323202,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "124524581",
+      "target": "221091281",
+      "key": 0,
+      "length_km": 0.08282286279148696,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "124524582",
+      "target": "31700818",
+      "key": 0,
+      "length_km": 0.0680290459593823,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "124524582",
+      "target": "29239079",
+      "key": 0,
+      "length_km": 0.020547755272541407,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "124524582",
+      "target": "31776943",
+      "key": 0,
+      "length_km": 0.12952975875127584,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "124531262",
+      "target": "4504112778",
+      "key": 0,
+      "length_km": 0.16702060190797355,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "124531262",
+      "target": "221101697",
+      "key": 0,
+      "length_km": 0.06780168401510192,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "124531262",
+      "target": "9680726835",
+      "key": 0,
+      "length_km": 0.2438104530662183,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "126066962",
+      "target": "221091652",
+      "key": 0,
+      "length_km": 0.08599723716970216,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "126066962",
+      "target": "221091281",
+      "key": 0,
+      "length_km": 0.08599695277544005,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "126068173",
+      "target": "221113274",
+      "key": 0,
+      "length_km": 0.030406049638651508,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "126073336",
+      "target": "221128630",
+      "key": 0,
+      "length_km": 0.08698345845735563,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "126073336",
+      "target": "31700225",
+      "key": 0,
+      "length_km": 0.1874489980540811,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "126073338",
+      "target": "596999774",
+      "key": 0,
+      "length_km": 0.082527588471016,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "126073338",
+      "target": "221106400",
+      "key": 0,
+      "length_km": 0.1683344779254516,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "126073338",
+      "target": "221128630",
+      "key": 0,
+      "length_km": 0.0870686952115764,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "126092384",
+      "target": "126094068",
+      "key": 0,
+      "length_km": 0.10789527915376289,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "126092384",
+      "target": "31700229",
+      "key": 0,
+      "length_km": 0.09441993541861433,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "126094068",
+      "target": "596999794",
+      "key": 0,
+      "length_km": 0.13645997242122593,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "126094068",
+      "target": "126092384",
+      "key": 0,
+      "length_km": 0.10789527915376289,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "126094068",
+      "target": "221112922",
+      "key": 0,
+      "length_km": 0.08782068125208144,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "126094068",
+      "target": "221091652",
+      "key": 0,
+      "length_km": 0.130943789858306,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "126094069",
+      "target": "221106425",
+      "key": 0,
+      "length_km": 0.12295244199684921,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "126094069",
+      "target": "221106420",
+      "key": 0,
+      "length_km": 0.09013765604873578,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "126094069",
+      "target": "596999769",
+      "key": 0,
+      "length_km": 0.088969434498652,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "126094908",
+      "target": "221106437",
+      "key": 0,
+      "length_km": 0.10000547419863375,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "126102457",
+      "target": "213649418",
+      "key": 0,
+      "length_km": 0.02734898757123205,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "126102457",
+      "target": "126073338",
+      "key": 0,
+      "length_km": 0.30575682708709184,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "126102457",
+      "target": "3405413274",
+      "key": 0,
+      "length_km": 0.041441340782452346,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "209364967",
+      "target": "213955429",
+      "key": 0,
+      "length_km": 0.0905402063801872,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209364967",
+      "target": "1765657081",
+      "key": 0,
+      "length_km": 0.15567919413296688,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209364977",
+      "target": "437719105",
+      "key": 0,
+      "length_km": 0.0878842543947851,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "209364977",
+      "target": "437788171",
+      "key": 0,
+      "length_km": 0.0870917140865068,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "209364977",
+      "target": "209364980",
+      "key": 0,
+      "length_km": 0.2625500052765187,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209364980",
+      "target": "9943289208",
+      "key": 0,
+      "length_km": 0.08824733202058499,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209364980",
+      "target": "221106405",
+      "key": 0,
+      "length_km": 0.08748080088762848,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209364980",
+      "target": "126073336",
+      "key": 0,
+      "length_km": 0.16839218496340508,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209365004",
+      "target": "209365009",
+      "key": 0,
+      "length_km": 0.09359291645966569,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209365004",
+      "target": "1765630409",
+      "key": 0,
+      "length_km": 0.21803090501561603,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209365004",
+      "target": "1765657080",
+      "key": 0,
+      "length_km": 0.1635063168947203,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209365009",
+      "target": "209365013",
+      "key": 0,
+      "length_km": 0.09316027298698647,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209365009",
+      "target": "209365004",
+      "key": 0,
+      "length_km": 0.09359291645966568,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209365009",
+      "target": "1765657079",
+      "key": 0,
+      "length_km": 0.16283770258717892,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209365013",
+      "target": "209365009",
+      "key": 0,
+      "length_km": 0.09316027298698647,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209365013",
+      "target": "209387031",
+      "key": 0,
+      "length_km": 0.09254660539561445,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209365013",
+      "target": "1765657078",
+      "key": 0,
+      "length_km": 0.16248948284720452,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209374806",
+      "target": "213955395",
+      "key": 0,
+      "length_km": 0.05565015099288265,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "209374806",
+      "target": "6100220186",
+      "key": 0,
+      "length_km": 0.19330249858911866,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "209387023",
+      "target": "664167873",
+      "key": 0,
+      "length_km": 0.2612078008920275,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209387023",
+      "target": "209387049",
+      "key": 0,
+      "length_km": 0.09236174233237705,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209387031",
+      "target": "209387036",
+      "key": 0,
+      "length_km": 0.17886635654203079,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209387031",
+      "target": "209365013",
+      "key": 0,
+      "length_km": 0.09254660539561445,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209387036",
+      "target": "209387031",
+      "key": 0,
+      "length_km": 0.17886635654203079,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209387046",
+      "target": "209387049",
+      "key": 0,
+      "length_km": 0.2619653178816088,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209387046",
+      "target": "1765657079",
+      "key": 0,
+      "length_km": 0.16951539682524774,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209387046",
+      "target": "209390670",
+      "key": 0,
+      "length_km": 0.09292376924407247,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "209387046",
+      "target": "664167873",
+      "key": 0,
+      "length_km": 0.09259738271523782,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "209387049",
+      "target": "209390674",
+      "key": 0,
+      "length_km": 0.09404569578342856,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209387049",
+      "target": "209387023",
+      "key": 0,
+      "length_km": 0.09236174233237704,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209387049",
+      "target": "1969920684",
+      "key": 0,
+      "length_km": 0.10800741529481783,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209387056",
+      "target": "4171683688",
+      "key": 0,
+      "length_km": 0.1323424267409958,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "209387056",
+      "target": "596999735",
+      "key": 0,
+      "length_km": 0.06080926651471129,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209387056",
+      "target": "213649409",
+      "key": 0,
+      "length_km": 0.10417002272329005,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "209387103",
+      "target": "209387147",
+      "key": 0,
+      "length_km": 0.08266571965864061,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209387112",
+      "target": "1765657075",
+      "key": 0,
+      "length_km": 0.1988027547814666,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209387112",
+      "target": "209387127",
+      "key": 0,
+      "length_km": 0.1013853422371835,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209387127",
+      "target": "3165394666",
+      "key": 0,
+      "length_km": 0.12576531937586669,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209387136",
+      "target": "209387140",
+      "key": 0,
+      "length_km": 0.08689525546216302,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209387140",
+      "target": "209387103",
+      "key": 0,
+      "length_km": 0.0888455123263162,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209390670",
+      "target": "209387046",
+      "key": 0,
+      "length_km": 0.09292376924407247,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "209390670",
+      "target": "437719105",
+      "key": 0,
+      "length_km": 0.08495745901201285,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "209390674",
+      "target": "596999743",
+      "key": 0,
+      "length_km": 0.1271068281331981,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209390674",
+      "target": "9943289208",
+      "key": 0,
+      "length_km": 0.08388314644786658,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209390674",
+      "target": "209387049",
+      "key": 0,
+      "length_km": 0.09404569578342856,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209390674",
+      "target": "209390670",
+      "key": 0,
+      "length_km": 0.261524380182044,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209390694",
+      "target": "221106420",
+      "key": 0,
+      "length_km": 0.08734558758714595,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "209390694",
+      "target": "596999772",
+      "key": 0,
+      "length_km": 0.2643833545576608,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209390694",
+      "target": "437719778",
+      "key": 0,
+      "length_km": 0.08828470774152983,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "209390697",
+      "target": "1765657082",
+      "key": 0,
+      "length_km": 0.08710467601462704,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209390697",
+      "target": "1765630410",
+      "key": 0,
+      "length_km": 0.08742965639805349,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "209390697",
+      "target": "428525931",
+      "key": 0,
+      "length_km": 0.15757018482470636,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "213649392",
+      "target": "31700224",
+      "key": 0,
+      "length_km": 0.4016858464801262,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649392",
+      "target": "213649401",
+      "key": 0,
+      "length_km": 0.11150084158339174,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649392",
+      "target": "3964969147",
+      "key": 0,
+      "length_km": 0.10677770185428771,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649401",
+      "target": "31700226",
+      "key": 0,
+      "length_km": 0.41468351705238377,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649401",
+      "target": "213649404",
+      "key": 0,
+      "length_km": 0.10409447597070358,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649401",
+      "target": "213649427",
+      "key": 0,
+      "length_km": 0.2553463259125954,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649401",
+      "target": "213649392",
+      "key": 0,
+      "length_km": 0.11150084158339173,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649404",
+      "target": "213649401",
+      "key": 0,
+      "length_km": 0.10409447597070358,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649404",
+      "target": "213649452",
+      "key": 0,
+      "length_km": 0.1396740297583602,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649404",
+      "target": "213649427",
+      "key": 0,
+      "length_km": 0.20342159999875373,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649404",
+      "target": "213649928",
+      "key": 0,
+      "length_km": 0.10462508569579325,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649409",
+      "target": "596999744",
+      "key": 0,
+      "length_km": 0.05744244200121224,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "213649409",
+      "target": "209387056",
+      "key": 0,
+      "length_km": 0.10417002272329007,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "213649409",
+      "target": "3964969147",
+      "key": 0,
+      "length_km": 0.3749729919417897,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649418",
+      "target": "126102457",
+      "key": 0,
+      "length_km": 0.02734898757123205,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "213649418",
+      "target": "213649928",
+      "key": 0,
+      "length_km": 0.23520962938557197,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649418",
+      "target": "31700226",
+      "key": 0,
+      "length_km": 0.11623545368753611,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "213649427",
+      "target": "213649430",
+      "key": 0,
+      "length_km": 0.13556336113896555,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649427",
+      "target": "213649401",
+      "key": 0,
+      "length_km": 0.2553463259125954,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649427",
+      "target": "213649404",
+      "key": 0,
+      "length_km": 0.20342159999875373,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649430",
+      "target": "213649435",
+      "key": 0,
+      "length_km": 0.09284721322079256,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649430",
+      "target": "213649445",
+      "key": 0,
+      "length_km": 0.10150554625128207,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649430",
+      "target": "213649427",
+      "key": 0,
+      "length_km": 0.13556336113896555,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649430",
+      "target": "213649452",
+      "key": 0,
+      "length_km": 0.22870325399874974,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649435",
+      "target": "213649471",
+      "key": 0,
+      "length_km": 0.016447842109795323,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649435",
+      "target": "213649468",
+      "key": 0,
+      "length_km": 0.08858517982956807,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649435",
+      "target": "213649430",
+      "key": 0,
+      "length_km": 0.09284721322079255,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649445",
+      "target": "213649430",
+      "key": 0,
+      "length_km": 0.10150554625128207,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649452",
+      "target": "213649987",
+      "key": 0,
+      "length_km": 0.09610304307619802,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649452",
+      "target": "213649404",
+      "key": 0,
+      "length_km": 0.1396740297583602,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649452",
+      "target": "213649963",
+      "key": 0,
+      "length_km": 0.13843904265491308,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649452",
+      "target": "213649430",
+      "key": 0,
+      "length_km": 0.22870325399874977,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649468",
+      "target": "3733743016",
+      "key": 0,
+      "length_km": 0.21624279669854735,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649468",
+      "target": "9307175743",
+      "key": 0,
+      "length_km": 0.19329116252567133,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649468",
+      "target": "213649435",
+      "key": 0,
+      "length_km": 0.08858517982956807,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649471",
+      "target": "213649435",
+      "key": 0,
+      "length_km": 0.016447842109795323,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649471",
+      "target": "213649963",
+      "key": 0,
+      "length_km": 0.16654768335751857,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649471",
+      "target": "4514524184",
+      "key": 0,
+      "length_km": 0.1916909797292662,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649485",
+      "target": "4514524184",
+      "key": 0,
+      "length_km": 0.07411824932319964,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649485",
+      "target": "5415927950",
+      "key": 0,
+      "length_km": 0.1657291260838197,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649485",
+      "target": "213649488",
+      "key": 0,
+      "length_km": 0.04863080056968933,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649488",
+      "target": "213649485",
+      "key": 0,
+      "length_km": 0.04863080056968934,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649488",
+      "target": "310090260",
+      "key": 0,
+      "length_km": 0.40931903536891096,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649866",
+      "target": "213649886",
+      "key": 0,
+      "length_km": 0.15848931630544735,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649866",
+      "target": "213649485",
+      "key": 0,
+      "length_km": 0.04691793047717235,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649874",
+      "target": "213649866",
+      "key": 0,
+      "length_km": 0.04240043764740304,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649874",
+      "target": "213649488",
+      "key": 0,
+      "length_km": 0.03641678457016155,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649886",
+      "target": "213649866",
+      "key": 0,
+      "length_km": 0.15848931630544733,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649886",
+      "target": "391531806",
+      "key": 0,
+      "length_km": 0.022273883572556153,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649886",
+      "target": "213649874",
+      "key": 0,
+      "length_km": 0.11551727969493217,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649928",
+      "target": "213649936",
+      "key": 0,
+      "length_km": 0.13213784616743443,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649928",
+      "target": "213649404",
+      "key": 0,
+      "length_km": 0.10462508569579325,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649928",
+      "target": "213649418",
+      "key": 0,
+      "length_km": 0.235209629385572,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649936",
+      "target": "213649947",
+      "key": 0,
+      "length_km": 0.08311453906985275,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649936",
+      "target": "213649947",
+      "key": 1,
+      "length_km": 0.1768914778045022,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649936",
+      "target": "213649928",
+      "key": 0,
+      "length_km": 0.13213784616743443,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649947",
+      "target": "213649957",
+      "key": 0,
+      "length_km": 0.16374787392705817,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649947",
+      "target": "213649936",
+      "key": 0,
+      "length_km": 0.08311453906985274,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649947",
+      "target": "213649936",
+      "key": 1,
+      "length_km": 0.1768914778045022,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649957",
+      "target": "213649961",
+      "key": 0,
+      "length_km": 0.03807304080884886,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649957",
+      "target": "213649947",
+      "key": 0,
+      "length_km": 0.16374787392705817,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649957",
+      "target": "4514524164",
+      "key": 0,
+      "length_km": 0.1030005265836377,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649961",
+      "target": "213649957",
+      "key": 0,
+      "length_km": 0.03807304080884886,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649963",
+      "target": "213649471",
+      "key": 0,
+      "length_km": 0.1665476833575186,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649963",
+      "target": "213649452",
+      "key": 0,
+      "length_km": 0.13843904265491308,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649963",
+      "target": "5415927950",
+      "key": 0,
+      "length_km": 0.03436824127176371,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213649987",
+      "target": "213649452",
+      "key": 0,
+      "length_km": 0.096103043076198,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213666597",
+      "target": "1765630408",
+      "key": 0,
+      "length_km": 0.19861809764888794,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213666597",
+      "target": "209387112",
+      "key": 0,
+      "length_km": 0.08162685523052804,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213955306",
+      "target": "213955429",
+      "key": 0,
+      "length_km": 0.08693433864006732,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "213955306",
+      "target": "213955379",
+      "key": 0,
+      "length_km": 0.09679611936169087,
+      "highway": "tertiary_link",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213955379",
+      "target": "213955444",
+      "key": 0,
+      "length_km": 0.03409560006975286,
+      "highway": "tertiary_link",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213955379",
+      "target": "213955395",
+      "key": 0,
+      "length_km": 0.06341503541490513,
+      "highway": "tertiary_link",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213955395",
+      "target": "209374806",
+      "key": 0,
+      "length_km": 0.05565015099288264,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "213955395",
+      "target": "213955444",
+      "key": 0,
+      "length_km": 0.0625983864473666,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "213955429",
+      "target": "1765657082",
+      "key": 0,
+      "length_km": 0.16308459237698208,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "213955444",
+      "target": "209364967",
+      "key": 0,
+      "length_km": 0.00954628575788403,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221075916",
+      "target": "31700818",
+      "key": 0,
+      "length_km": 0.05962031536726767,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221091275",
+      "target": "221106359",
+      "key": 0,
+      "length_km": 0.3058781338755805,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221091275",
+      "target": "221091287",
+      "key": 0,
+      "length_km": 0.07835171578894717,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221091275",
+      "target": "437788057",
+      "key": 0,
+      "length_km": 0.08521131816029735,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221091281",
+      "target": "471725446",
+      "key": 0,
+      "length_km": 0.3059576455728968,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221091281",
+      "target": "126066962",
+      "key": 0,
+      "length_km": 0.08599695277544005,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221091281",
+      "target": "9680726835",
+      "key": 0,
+      "length_km": 0.17199603218847553,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221091281",
+      "target": "124524581",
+      "key": 0,
+      "length_km": 0.08282286279148697,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221091287",
+      "target": "124502593",
+      "key": 0,
+      "length_km": 0.17162750726927206,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221091287",
+      "target": "124524581",
+      "key": 0,
+      "length_km": 0.06910285399323202,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221091287",
+      "target": "221091275",
+      "key": 0,
+      "length_km": 0.07835171578894717,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221091652",
+      "target": "221110584",
+      "key": 0,
+      "length_km": 0.13317450918471743,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221091652",
+      "target": "126094068",
+      "key": 0,
+      "length_km": 0.130943789858306,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221091652",
+      "target": "126066962",
+      "key": 0,
+      "length_km": 0.08599723716970215,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221101690",
+      "target": "31776942",
+      "key": 0,
+      "length_km": 0.1625422892789765,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221101690",
+      "target": "221101697",
+      "key": 0,
+      "length_km": 0.06846026178954552,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221101690",
+      "target": "221101701",
+      "key": 0,
+      "length_km": 0.07942454488099787,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221101697",
+      "target": "221101690",
+      "key": 0,
+      "length_km": 0.06846026178954553,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221101697",
+      "target": "124531262",
+      "key": 0,
+      "length_km": 0.06780168401510192,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221101697",
+      "target": "221108180",
+      "key": 0,
+      "length_km": 0.2424097402587809,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221101701",
+      "target": "221091275",
+      "key": 0,
+      "length_km": 0.41462939802249066,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221101701",
+      "target": "221101690",
+      "key": 0,
+      "length_km": 0.07942454488099789,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221101701",
+      "target": "437732887",
+      "key": 0,
+      "length_km": 0.08565842371876206,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106359",
+      "target": "221106363",
+      "key": 0,
+      "length_km": 0.16835737962432545,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106359",
+      "target": "437788045",
+      "key": 0,
+      "length_km": 0.08555663259220671,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106359",
+      "target": "221106468",
+      "key": 0,
+      "length_km": 0.07746602359520868,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106363",
+      "target": "221106437",
+      "key": 0,
+      "length_km": 0.2625810584852909,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106363",
+      "target": "437788242",
+      "key": 0,
+      "length_km": 0.08375775464700325,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106363",
+      "target": "221106368",
+      "key": 0,
+      "length_km": 0.0779144971319849,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106368",
+      "target": "221106468",
+      "key": 0,
+      "length_km": 0.16810151681912533,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106368",
+      "target": "221106363",
+      "key": 0,
+      "length_km": 0.0779144971319849,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106368",
+      "target": "1857963725",
+      "key": 0,
+      "length_km": 0.06867937143141115,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106378",
+      "target": "221106429",
+      "key": 0,
+      "length_km": 0.2627524139830776,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106378",
+      "target": "471725446",
+      "key": 0,
+      "length_km": 0.1684668341879076,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106378",
+      "target": "1857963725",
+      "key": 0,
+      "length_km": 0.08343531603485456,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106378",
+      "target": "221106382",
+      "key": 0,
+      "length_km": 0.08582874128915335,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106382",
+      "target": "471725443",
+      "key": 0,
+      "length_km": 0.16829472198612394,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106382",
+      "target": "221106378",
+      "key": 0,
+      "length_km": 0.08582874128915334,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106382",
+      "target": "221106387",
+      "key": 0,
+      "length_km": 0.08643041639909571,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106387",
+      "target": "596999812",
+      "key": 0,
+      "length_km": 0.08164869043758664,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106387",
+      "target": "221106392",
+      "key": 0,
+      "length_km": 0.12097014868821865,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106387",
+      "target": "221106382",
+      "key": 0,
+      "length_km": 0.08643041639909571,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106387",
+      "target": "1420077705",
+      "key": 0,
+      "length_km": 0.07874908830714959,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106392",
+      "target": "596999788",
+      "key": 0,
+      "length_km": 0.07913172240733132,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106392",
+      "target": "221106387",
+      "key": 0,
+      "length_km": 0.12097014868821862,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106392",
+      "target": "221106397",
+      "key": 0,
+      "length_km": 0.09334962605977917,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106397",
+      "target": "221106420",
+      "key": 0,
+      "length_km": 0.26051318872262863,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106397",
+      "target": "221106392",
+      "key": 0,
+      "length_km": 0.09334962605977917,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106397",
+      "target": "491202324",
+      "key": 0,
+      "length_km": 0.08097058263528398,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106400",
+      "target": "221106405",
+      "key": 0,
+      "length_km": 0.08727677887126846,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106400",
+      "target": "437719778",
+      "key": 0,
+      "length_km": 0.2622861495766411,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "221106400",
+      "target": "596999772",
+      "key": 0,
+      "length_km": 0.08040947371060231,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106405",
+      "target": "209364980",
+      "key": 0,
+      "length_km": 0.08748080088762847,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106405",
+      "target": "221128630",
+      "key": 0,
+      "length_km": 0.16845649401794113,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "221106405",
+      "target": "221106400",
+      "key": 0,
+      "length_km": 0.08727677887126846,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106420",
+      "target": "526533273",
+      "key": 0,
+      "length_km": 0.1695018806989026,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106420",
+      "target": "209390694",
+      "key": 0,
+      "length_km": 0.08734558758714595,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "221106420",
+      "target": "126094069",
+      "key": 0,
+      "length_km": 0.09013765604873578,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "221106425",
+      "target": "126094069",
+      "key": 0,
+      "length_km": 0.12295244199684921,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "221106425",
+      "target": "514112191",
+      "key": 0,
+      "length_km": 0.07430788953236574,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106425",
+      "target": "437729754",
+      "key": 0,
+      "length_km": 0.08626424706305952,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "221106425",
+      "target": "596999813",
+      "key": 0,
+      "length_km": 0.08835803332362306,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106429",
+      "target": "221106378",
+      "key": 0,
+      "length_km": 0.2627524139830775,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106429",
+      "target": "221113204",
+      "key": 0,
+      "length_km": 0.17052173206162738,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106429",
+      "target": "221106435",
+      "key": 0,
+      "length_km": 0.08333404679468574,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "221106429",
+      "target": "437729754",
+      "key": 0,
+      "length_km": 0.08543239347668155,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "221106435",
+      "target": "31701022",
+      "key": 0,
+      "length_km": 0.06943885015074437,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "221106435",
+      "target": "221106429",
+      "key": 0,
+      "length_km": 0.08333404679468574,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "221106435",
+      "target": "221113274",
+      "key": 0,
+      "length_km": 0.17071728997770186,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106437",
+      "target": "126094908",
+      "key": 0,
+      "length_km": 0.10000547419863375,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106437",
+      "target": "1825900796",
+      "key": 0,
+      "length_km": 0.08651539310188369,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "221106437",
+      "target": "31701022",
+      "key": 0,
+      "length_km": 0.07620764648373941,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "221106464",
+      "target": "1857963725",
+      "key": 0,
+      "length_km": 0.16853730842876924,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106464",
+      "target": "221106468",
+      "key": 0,
+      "length_km": 0.06948325685164253,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106464",
+      "target": "471725446",
+      "key": 0,
+      "length_km": 0.0826385469867884,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106468",
+      "target": "221091287",
+      "key": 0,
+      "length_km": 0.30642389499007133,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106468",
+      "target": "221106359",
+      "key": 0,
+      "length_km": 0.0774660235952087,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221106468",
+      "target": "221106464",
+      "key": 0,
+      "length_km": 0.06948325685164251,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221108180",
+      "target": "124502593",
+      "key": 0,
+      "length_km": 0.06894573256206774,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221108180",
+      "target": "9680726835",
+      "key": 0,
+      "length_km": 0.08291822794655307,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221108180",
+      "target": "124524581",
+      "key": 0,
+      "length_km": 0.17164458393252258,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221108317",
+      "target": "9680726835",
+      "key": 0,
+      "length_km": 0.08562535543236649,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221108317",
+      "target": "221110240",
+      "key": 0,
+      "length_km": 0.0858774658250432,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221108317",
+      "target": "31700231",
+      "key": 0,
+      "length_km": 0.2926393340631727,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221110240",
+      "target": "124504833",
+      "key": 0,
+      "length_km": 0.21840015859662812,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221110240",
+      "target": "221108317",
+      "key": 0,
+      "length_km": 0.0858774658250432,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221110584",
+      "target": "126092384",
+      "key": 0,
+      "length_km": 0.14460148240180362,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221110584",
+      "target": "221110240",
+      "key": 0,
+      "length_km": 0.037275936478171644,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221112922",
+      "target": "31700228",
+      "key": 0,
+      "length_km": 0.1427027450507055,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221112922",
+      "target": "126094068",
+      "key": 0,
+      "length_km": 0.08782068125208144,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221112922",
+      "target": "596999795",
+      "key": 0,
+      "length_km": 0.299890166729286,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221112989",
+      "target": "596999795",
+      "key": 0,
+      "length_km": 0.013361488185903528,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221112989",
+      "target": "596999784",
+      "key": 0,
+      "length_km": 0.08073994837174493,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221112989",
+      "target": "221106397",
+      "key": 0,
+      "length_km": 0.16330985394577086,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221113177",
+      "target": "437729754",
+      "key": 0,
+      "length_km": 0.17007180714392903,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221113177",
+      "target": "9680726834",
+      "key": 0,
+      "length_km": 0.08704231688497725,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221113177",
+      "target": "221113204",
+      "key": 0,
+      "length_km": 0.08450950968630111,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221113177",
+      "target": "5515312073",
+      "key": 0,
+      "length_km": 0.09418001033878916,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221113204",
+      "target": "221106429",
+      "key": 0,
+      "length_km": 0.17052173206162735,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221113204",
+      "target": "221113177",
+      "key": 0,
+      "length_km": 0.08450950968630111,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221113204",
+      "target": "221113274",
+      "key": 0,
+      "length_km": 0.08222044928683782,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221113274",
+      "target": "221113204",
+      "key": 0,
+      "length_km": 0.08222044928683782,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221113274",
+      "target": "126068173",
+      "key": 0,
+      "length_km": 0.030406049638651508,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221113274",
+      "target": "221106435",
+      "key": 0,
+      "length_km": 0.17071728997770183,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221128630",
+      "target": "126073336",
+      "key": 0,
+      "length_km": 0.08698345845735563,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "221128630",
+      "target": "31700226",
+      "key": 0,
+      "length_km": 0.23198891345657557,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "221128630",
+      "target": "126073338",
+      "key": 0,
+      "length_km": 0.08706869521157641,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "300103857",
+      "target": "5415829803",
+      "key": 0,
+      "length_km": 0.02084794687746856,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "300103857",
+      "target": "31700055",
+      "key": 0,
+      "length_km": 0.07398216369544929,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "300103857",
+      "target": "303433230",
+      "key": 0,
+      "length_km": 0.07032086498209404,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "303431774",
+      "target": "1975853548",
+      "key": 0,
+      "length_km": 0.04752347906741043,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "303432802",
+      "target": "1969920684",
+      "key": 0,
+      "length_km": 0.08229478252644162,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "303432802",
+      "target": "1975853560",
+      "key": 0,
+      "length_km": 0.10239509286880985,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "303432802",
+      "target": "3382995922",
+      "key": 0,
+      "length_km": 0.1033798939611549,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "303433230",
+      "target": "300103857",
+      "key": 0,
+      "length_km": 0.07032086498209404,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "310090260",
+      "target": "310090261",
+      "key": 0,
+      "length_km": 0.0701013955629053,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "310090260",
+      "target": "29795235",
+      "key": 0,
+      "length_km": 0.18281149079364045,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "310090260",
+      "target": "213649488",
+      "key": 0,
+      "length_km": 0.40931903536891107,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "310090261",
+      "target": "661852604",
+      "key": 0,
+      "length_km": 0.2068699825419672,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "310090261",
+      "target": "9307175743",
+      "key": 0,
+      "length_km": 0.32907363149259483,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "310090261",
+      "target": "310090260",
+      "key": 0,
+      "length_km": 0.0701013955629053,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "310683067",
+      "target": "526533292",
+      "key": 0,
+      "length_km": 0.12211044885168286,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "310683067",
+      "target": "1420077700",
+      "key": 0,
+      "length_km": 0.08991050290861671,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "310683067",
+      "target": "1420077705",
+      "key": 0,
+      "length_km": 0.09077897297448476,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "310683067",
+      "target": "471725443",
+      "key": 0,
+      "length_km": 0.08601896810978797,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "391531806",
+      "target": "31700231",
+      "key": 0,
+      "length_km": 0.03377932902000595,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "391531806",
+      "target": "213649886",
+      "key": 0,
+      "length_km": 0.02227388357255615,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "391531806",
+      "target": "4504112773",
+      "key": 0,
+      "length_km": 0.15239557461395334,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "428525931",
+      "target": "2378096434",
+      "key": 0,
+      "length_km": 0.025894106161123368,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "428525931",
+      "target": "4514457621",
+      "key": 0,
+      "length_km": 0.028358609989271907,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "437719105",
+      "target": "1765630409",
+      "key": 0,
+      "length_km": 0.17005587471043623,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "437719105",
+      "target": "209390670",
+      "key": 0,
+      "length_km": 0.08495745901201285,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "437719105",
+      "target": "209364977",
+      "key": 0,
+      "length_km": 0.0878842543947851,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "437719105",
+      "target": "9943289208",
+      "key": 0,
+      "length_km": 0.2608269493535687,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "437719778",
+      "target": "209390697",
+      "key": 0,
+      "length_km": 0.16953221817720043,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "437719778",
+      "target": "209390694",
+      "key": 0,
+      "length_km": 0.08828470774152984,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "437719778",
+      "target": "437788171",
+      "key": 0,
+      "length_km": 0.08746811880819963,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "437729754",
+      "target": "221106382",
+      "key": 0,
+      "length_km": 0.2626195434741935,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "437729754",
+      "target": "221106429",
+      "key": 0,
+      "length_km": 0.08543239347668155,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "437729754",
+      "target": "221106425",
+      "key": 0,
+      "length_km": 0.0862642470630595,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "437731034",
+      "target": "438111583",
+      "key": 0,
+      "length_km": 0.011255685231767591,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "437732887",
+      "target": "221101701",
+      "key": 0,
+      "length_km": 0.08565842371876206,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "437732887",
+      "target": "437788057",
+      "key": 0,
+      "length_km": 0.41432008468346687,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "437733314",
+      "target": "438111584",
+      "key": 0,
+      "length_km": 0.06009102471235876,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "437733314",
+      "target": "1851835123",
+      "key": 0,
+      "length_km": 0.039905538457993175,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "437788045",
+      "target": "437788242",
+      "key": 0,
+      "length_km": 0.16858309224644918,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "437788045",
+      "target": "437788057",
+      "key": 0,
+      "length_km": 0.30610834106288537,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "437788045",
+      "target": "221106359",
+      "key": 0,
+      "length_km": 0.08555663259220672,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "437788057",
+      "target": "221091275",
+      "key": 0,
+      "length_km": 0.08521131816029735,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "437788057",
+      "target": "437732887",
+      "key": 0,
+      "length_km": 0.41432008468346687,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "437788057",
+      "target": "437788045",
+      "key": 0,
+      "length_km": 0.30610834106288537,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "437788171",
+      "target": "209364977",
+      "key": 0,
+      "length_km": 0.0870917140865068,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "437788171",
+      "target": "221106405",
+      "key": 0,
+      "length_km": 0.2625264610431178,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "437788171",
+      "target": "437719778",
+      "key": 0,
+      "length_km": 0.08746811880819963,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "437788242",
+      "target": "437788045",
+      "key": 0,
+      "length_km": 0.16858309224644918,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "437788242",
+      "target": "1825900796",
+      "key": 0,
+      "length_km": 0.2619840604004917,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "437788242",
+      "target": "221106363",
+      "key": 0,
+      "length_km": 0.08375775464700323,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "437865622",
+      "target": "12844070435",
+      "key": 0,
+      "length_km": 0.04065781365980445,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "438111575",
+      "target": "1825900796",
+      "key": 0,
+      "length_km": 0.11687992843431334,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "438111583",
+      "target": "437731034",
+      "key": 0,
+      "length_km": 0.011255685231767591,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "438111583",
+      "target": "438111584",
+      "key": 0,
+      "length_km": 0.07068670631296939,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "438111583",
+      "target": "31776941",
+      "key": 0,
+      "length_km": 0.07426655030557226,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "438111584",
+      "target": "437733314",
+      "key": 0,
+      "length_km": 0.06009102471235876,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "438111584",
+      "target": "438111583",
+      "key": 0,
+      "length_km": 0.07068670631296939,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "438111584",
+      "target": "221075916",
+      "key": 0,
+      "length_km": 0.15340824622711174,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "471725443",
+      "target": "126066962",
+      "key": 0,
+      "length_km": 0.30682901146553804,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "471725443",
+      "target": "471725446",
+      "key": 0,
+      "length_km": 0.08628195418145247,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "471725443",
+      "target": "310683067",
+      "key": 0,
+      "length_km": 0.08601896810978797,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "471725446",
+      "target": "221091281",
+      "key": 0,
+      "length_km": 0.30595764557289684,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "471725446",
+      "target": "221106378",
+      "key": 0,
+      "length_km": 0.16846683418790764,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "471725446",
+      "target": "221106464",
+      "key": 0,
+      "length_km": 0.0826385469867884,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "471725446",
+      "target": "471725443",
+      "key": 0,
+      "length_km": 0.08628195418145244,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "491202324",
+      "target": "596999772",
+      "key": 0,
+      "length_km": 0.013832076164837488,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "491202324",
+      "target": "209390694",
+      "key": 0,
+      "length_km": 0.2629136307650173,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "491202324",
+      "target": "221106397",
+      "key": 0,
+      "length_km": 0.08097058263528396,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "514112190",
+      "target": "126094069",
+      "key": 0,
+      "length_km": 0.07452171368679592,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "514112191",
+      "target": "514112190",
+      "key": 0,
+      "length_km": 0.12324728452057813,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "514112191",
+      "target": "9680726834",
+      "key": 0,
+      "length_km": 0.09517231269634709,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "526533273",
+      "target": "1765630410",
+      "key": 0,
+      "length_km": 0.0888806816611519,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "526533273",
+      "target": "11540366862",
+      "key": 0,
+      "length_km": 0.08948755153089338,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "526533292",
+      "target": "596999788",
+      "key": 0,
+      "length_km": 0.09155107774804158,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "526533292",
+      "target": "596999797",
+      "key": 0,
+      "length_km": 0.0894382150268552,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "526533292",
+      "target": "221112989",
+      "key": 0,
+      "length_km": 0.0945099100018008,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "526533292",
+      "target": "310683067",
+      "key": 0,
+      "length_km": 0.12211044885168287,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596988490",
+      "target": "661852604",
+      "key": 0,
+      "length_km": 0.09498694147899633,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596988509",
+      "target": "596988490",
+      "key": 0,
+      "length_km": 0.07751128240648257,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596988539",
+      "target": "29795237",
+      "key": 0,
+      "length_km": 0.1386280588263821,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "596988539",
+      "target": "596988509",
+      "key": 0,
+      "length_km": 0.058986868242992936,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "596999732",
+      "target": "596999743",
+      "key": 0,
+      "length_km": 0.09251724580914454,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999732",
+      "target": "11509620002",
+      "key": 0,
+      "length_km": 0.06240923656563465,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999732",
+      "target": "1969920684",
+      "key": 0,
+      "length_km": 0.020047240016884387,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999735",
+      "target": "11509620002",
+      "key": 0,
+      "length_km": 0.010491756940075928,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999735",
+      "target": "11509620002",
+      "key": 1,
+      "length_km": 0.12796756446891733,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999735",
+      "target": "209387056",
+      "key": 0,
+      "length_km": 0.06080926651471129,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999743",
+      "target": "209390674",
+      "key": 0,
+      "length_km": 0.1271068281331981,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999743",
+      "target": "596999744",
+      "key": 0,
+      "length_km": 0.2347544260745285,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999743",
+      "target": "596999732",
+      "key": 0,
+      "length_km": 0.09251724580914454,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999744",
+      "target": "31700224",
+      "key": 0,
+      "length_km": 0.03964564562651242,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "596999744",
+      "target": "596999743",
+      "key": 0,
+      "length_km": 0.23475442607452854,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999744",
+      "target": "213649409",
+      "key": 0,
+      "length_km": 0.05744244200121224,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "596999769",
+      "target": "596999813",
+      "key": 0,
+      "length_km": 0.11894291372772005,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999769",
+      "target": "596999811",
+      "key": 0,
+      "length_km": 0.09041932031267695,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999772",
+      "target": "491202324",
+      "key": 0,
+      "length_km": 0.013832076164837488,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999772",
+      "target": "596999783",
+      "key": 0,
+      "length_km": 0.16204588505969472,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999772",
+      "target": "221106400",
+      "key": 0,
+      "length_km": 0.0804094737106023,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999773",
+      "target": "596999784",
+      "key": 0,
+      "length_km": 0.013660029873604936,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999773",
+      "target": "596999795",
+      "key": 0,
+      "length_km": 0.07993499688848268,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999774",
+      "target": "596999773",
+      "key": 0,
+      "length_km": 0.014059499471902966,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999774",
+      "target": "3691019539",
+      "key": 0,
+      "length_km": 0.04144246889039637,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999783",
+      "target": "596999774",
+      "key": 0,
+      "length_km": 0.013870244066455395,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999783",
+      "target": "126073338",
+      "key": 0,
+      "length_km": 0.0823139980475011,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999784",
+      "target": "596999783",
+      "key": 0,
+      "length_km": 0.014149743369842194,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999784",
+      "target": "491202324",
+      "key": 0,
+      "length_km": 0.16230242802176392,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999788",
+      "target": "221106392",
+      "key": 0,
+      "length_km": 0.07913172240733131,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999788",
+      "target": "526533292",
+      "key": 0,
+      "length_km": 0.09155107774804157,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999788",
+      "target": "1420077705",
+      "key": 0,
+      "length_km": 0.12242504259983832,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999794",
+      "target": "596999797",
+      "key": 0,
+      "length_km": 0.08074857654874458,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999794",
+      "target": "126094068",
+      "key": 0,
+      "length_km": 0.1364599724212259,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999794",
+      "target": "596999847",
+      "key": 0,
+      "length_km": 0.1230193552823393,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999795",
+      "target": "221112989",
+      "key": 0,
+      "length_km": 0.013361488185903528,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999795",
+      "target": "526533292",
+      "key": 0,
+      "length_km": 0.09530241915589298,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999795",
+      "target": "221112922",
+      "key": 0,
+      "length_km": 0.2998901667292859,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999797",
+      "target": "526533292",
+      "key": 0,
+      "length_km": 0.0894382150268552,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999797",
+      "target": "596999794",
+      "key": 0,
+      "length_km": 0.08074857654874458,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999797",
+      "target": "1420077700",
+      "key": 0,
+      "length_km": 0.12269469315486353,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999811",
+      "target": "221106392",
+      "key": 0,
+      "length_km": 0.08061625318088902,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999812",
+      "target": "221106387",
+      "key": 0,
+      "length_km": 0.08164869043758663,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999812",
+      "target": "596999813",
+      "key": 0,
+      "length_km": 0.09145599501103654,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999812",
+      "target": "596999811",
+      "key": 0,
+      "length_km": 0.11947223230411896,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999813",
+      "target": "596999812",
+      "key": 0,
+      "length_km": 0.09145599501103654,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999813",
+      "target": "221106425",
+      "key": 0,
+      "length_km": 0.08835803332362306,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999815",
+      "target": "11540366862",
+      "key": 0,
+      "length_km": 0.2140670402075879,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999815",
+      "target": "4559009211",
+      "key": 0,
+      "length_km": 0.1137345679591599,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999847",
+      "target": "596999794",
+      "key": 0,
+      "length_km": 0.12301935528233929,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "596999847",
+      "target": "221091652",
+      "key": 0,
+      "length_km": 0.13448533630306364,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "661852604",
+      "target": "596988490",
+      "key": 0,
+      "length_km": 0.09498694147899633,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "661852604",
+      "target": "310090261",
+      "key": 0,
+      "length_km": 0.20686998254196717,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "661852604",
+      "target": "29795237",
+      "key": 0,
+      "length_km": 0.18365334889200147,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "664167873",
+      "target": "209387046",
+      "key": 0,
+      "length_km": 0.09259738271523782,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "865023812",
+      "target": "4514457621",
+      "key": 0,
+      "length_km": 0.022741885011679973,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "865023812",
+      "target": "4559009211",
+      "key": 0,
+      "length_km": 0.3882176002198657,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "865023812",
+      "target": "6100220186",
+      "key": 0,
+      "length_km": 0.04840098686544566,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "1420077700",
+      "target": "596999847",
+      "key": 0,
+      "length_km": 0.08192586762365126,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1420077700",
+      "target": "596999797",
+      "key": 0,
+      "length_km": 0.12269469315486353,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1420077705",
+      "target": "310683067",
+      "key": 0,
+      "length_km": 0.09077897297448476,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1420077705",
+      "target": "221106387",
+      "key": 0,
+      "length_km": 0.07874908830714959,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1765630408",
+      "target": "5415829812",
+      "key": 0,
+      "length_km": 0.04490200534819719,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "1765630408",
+      "target": "1765657075",
+      "key": 0,
+      "length_km": 0.0777815689756498,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "1765630408",
+      "target": "1975853544",
+      "key": 0,
+      "length_km": 0.0720650061581444,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1765630409",
+      "target": "1765657080",
+      "key": 0,
+      "length_km": 0.08389666603438983,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1765630409",
+      "target": "209365004",
+      "key": 0,
+      "length_km": 0.21803090501561606,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1765630409",
+      "target": "1765657081",
+      "key": 0,
+      "length_km": 0.08850849934607112,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1765630410",
+      "target": "209390694",
+      "key": 0,
+      "length_km": 0.16937260449214922,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1765630410",
+      "target": "209390697",
+      "key": 0,
+      "length_km": 0.08742965639805347,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1765630410",
+      "target": "526533273",
+      "key": 0,
+      "length_km": 0.0888806816611519,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1765657075",
+      "target": "1765630408",
+      "key": 0,
+      "length_km": 0.0777815689756498,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "1765657078",
+      "target": "664167873",
+      "key": 0,
+      "length_km": 0.17008797331212314,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1765657078",
+      "target": "209365013",
+      "key": 0,
+      "length_km": 0.16248948284720455,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1765657078",
+      "target": "1765657079",
+      "key": 0,
+      "length_km": 0.09343581232634388,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1765657079",
+      "target": "209365009",
+      "key": 0,
+      "length_km": 0.16283770258717892,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1765657079",
+      "target": "1765657078",
+      "key": 0,
+      "length_km": 0.09343581232634389,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1765657079",
+      "target": "1765657080",
+      "key": 0,
+      "length_km": 0.09142097504127591,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1765657080",
+      "target": "209390670",
+      "key": 0,
+      "length_km": 0.16969637445082472,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1765657080",
+      "target": "209365004",
+      "key": 0,
+      "length_km": 0.1635063168947203,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1765657080",
+      "target": "1765657079",
+      "key": 0,
+      "length_km": 0.0914209750412759,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1765657080",
+      "target": "1765630409",
+      "key": 0,
+      "length_km": 0.08389666603438983,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1765657081",
+      "target": "209364977",
+      "key": 0,
+      "length_km": 0.16948792011613098,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1765657081",
+      "target": "1765657082",
+      "key": 0,
+      "length_km": 0.08808719357884331,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1765657081",
+      "target": "209364967",
+      "key": 0,
+      "length_km": 0.15567919413296685,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1765657081",
+      "target": "1765630409",
+      "key": 0,
+      "length_km": 0.08850849934607112,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1765657082",
+      "target": "1765657081",
+      "key": 0,
+      "length_km": 0.08808719357884333,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1765657082",
+      "target": "209390697",
+      "key": 0,
+      "length_km": 0.08710467601462703,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1765657082",
+      "target": "437788171",
+      "key": 0,
+      "length_km": 0.16976353639144295,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "1825900796",
+      "target": "438111575",
+      "key": 0,
+      "length_km": 0.11687992843431336,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1825900796",
+      "target": "437788242",
+      "key": 0,
+      "length_km": 0.2619840604004917,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1825900796",
+      "target": "221106437",
+      "key": 0,
+      "length_km": 0.08651539310188368,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "1851835123",
+      "target": "437733314",
+      "key": 0,
+      "length_km": 0.039905538457993175,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "1851835123",
+      "target": "31700819",
+      "key": 0,
+      "length_km": 0.08000854675975799,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "1857963725",
+      "target": "221106435",
+      "key": 0,
+      "length_km": 0.26209397919899025,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1857963725",
+      "target": "221106368",
+      "key": 0,
+      "length_km": 0.06867937143141116,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1857963725",
+      "target": "221106378",
+      "key": 0,
+      "length_km": 0.08343531603485456,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1969920684",
+      "target": "303432802",
+      "key": 0,
+      "length_km": 0.08229478252644162,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1969920684",
+      "target": "596999732",
+      "key": 0,
+      "length_km": 0.020047240016884387,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1969920684",
+      "target": "209387049",
+      "key": 0,
+      "length_km": 0.10800741529481783,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1975853544",
+      "target": "1975853546",
+      "key": 0,
+      "length_km": 0.06504173682120606,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1975853544",
+      "target": "1975853560",
+      "key": 0,
+      "length_km": 0.055480790044173146,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1975853544",
+      "target": "1765630408",
+      "key": 0,
+      "length_km": 0.0720650061581444,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1975853546",
+      "target": "1975853548",
+      "key": 0,
+      "length_km": 0.03692542135555549,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1975853546",
+      "target": "1975853544",
+      "key": 0,
+      "length_km": 0.06504173682120606,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1975853546",
+      "target": "10073196740",
+      "key": 0,
+      "length_km": 0.0698746766816188,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1975853548",
+      "target": "1975853546",
+      "key": 0,
+      "length_km": 0.03692542135555549,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1975853548",
+      "target": "303431774",
+      "key": 0,
+      "length_km": 0.04752347906741043,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1975853548",
+      "target": "1975853561",
+      "key": 0,
+      "length_km": 0.10342767534396768,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1975853560",
+      "target": "1975853561",
+      "key": 0,
+      "length_km": 0.044306107250060935,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1975853560",
+      "target": "303432802",
+      "key": 0,
+      "length_km": 0.10239509286880984,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1975853560",
+      "target": "1975853544",
+      "key": 0,
+      "length_km": 0.05548079004417315,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "1975853561",
+      "target": "1975853560",
+      "key": 0,
+      "length_km": 0.04430610725006094,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "2378096434",
+      "target": "213955429",
+      "key": 0,
+      "length_km": 0.06599331097869161,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "3165394666",
+      "target": "209387136",
+      "key": 0,
+      "length_km": 0.08865965527882319,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "3382995922",
+      "target": "303432802",
+      "key": 0,
+      "length_km": 0.1033798939611549,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "3405413274",
+      "target": "3405413277",
+      "key": 0,
+      "length_km": 0.09539300207580598,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "3405413274",
+      "target": "126102457",
+      "key": 0,
+      "length_km": 0.041441340782452346,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "3405413274",
+      "target": "31700228",
+      "key": 0,
+      "length_km": 0.1774064279201088,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "3405413277",
+      "target": "3405413274",
+      "key": 0,
+      "length_km": 0.09539300207580599,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "3691019539",
+      "target": "4605973276",
+      "key": 0,
+      "length_km": 0.013578248724090638,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "3733743016",
+      "target": "213649468",
+      "key": 0,
+      "length_km": 0.21624279669854735,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "3964969147",
+      "target": "213649392",
+      "key": 0,
+      "length_km": 0.10677770185428771,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "3964969147",
+      "target": "213649409",
+      "key": 0,
+      "length_km": 0.37497299194178974,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "3964969147",
+      "target": "31700077",
+      "key": 0,
+      "length_km": 0.24438066622201202,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "4171683688",
+      "target": "209387056",
+      "key": 0,
+      "length_km": 0.1323424267409958,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "4171683688",
+      "target": "5415829812",
+      "key": 0,
+      "length_km": 0.057815917003369154,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "4171683688",
+      "target": "5415829801",
+      "key": 0,
+      "length_km": 0.16005533614878223,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "4504112773",
+      "target": "29239079",
+      "key": 0,
+      "length_km": 0.14958940104405272,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "4504112773",
+      "target": "391531806",
+      "key": 0,
+      "length_km": 0.15239557461395334,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "4504112773",
+      "target": "4504112778",
+      "key": 0,
+      "length_km": 0.03439084238692637,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "4504112778",
+      "target": "31776943",
+      "key": 0,
+      "length_km": 0.07077364286114367,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "4504112778",
+      "target": "124531262",
+      "key": 0,
+      "length_km": 0.16702060190797355,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "4504112778",
+      "target": "4504112773",
+      "key": 0,
+      "length_km": 0.03439084238692638,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "4514457621",
+      "target": "2378096434",
+      "key": 0,
+      "length_km": 0.030359474841605883,
+      "highway": "tertiary_link",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "4514457621",
+      "target": "865023812",
+      "key": 0,
+      "length_km": 0.022741885011679976,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "4514524164",
+      "target": "213649963",
+      "key": 0,
+      "length_km": 0.024709717471361203,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "4514524164",
+      "target": "213649957",
+      "key": 0,
+      "length_km": 0.10300052658363767,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "4514524184",
+      "target": "213649485",
+      "key": 0,
+      "length_km": 0.07411824932319964,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "4514524184",
+      "target": "9307175743",
+      "key": 0,
+      "length_km": 0.10209098190684612,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "4514524184",
+      "target": "213649471",
+      "key": 0,
+      "length_km": 0.1916909797292662,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "4559009211",
+      "target": "865023812",
+      "key": 0,
+      "length_km": 0.3882176002198656,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "4559009211",
+      "target": "5515305964",
+      "key": 0,
+      "length_km": 0.08620145013084796,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "4559009212",
+      "target": "437865622",
+      "key": 0,
+      "length_km": 0.1327324762518179,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "4559009212",
+      "target": "5515305964",
+      "key": 0,
+      "length_km": 0.31353549316651885,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "4605973276",
+      "target": "3691019539",
+      "key": 0,
+      "length_km": 0.013578248724090638,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "4605973276",
+      "target": "596999773",
+      "key": 0,
+      "length_km": 0.04123124462802022,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "5412399376",
+      "target": "5412399379",
+      "key": 0,
+      "length_km": 0.17405475282592456,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "5412399379",
+      "target": "4559009212",
+      "key": 0,
+      "length_km": 0.1784513033902109,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "5412399379",
+      "target": "5412399376",
+      "key": 0,
+      "length_km": 0.17405475282592459,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "5413741435",
+      "target": "29795236",
+      "key": 0,
+      "length_km": 0.05875801446673837,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "5413741435",
+      "target": "29795235",
+      "key": 0,
+      "length_km": 0.04023997719856109,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "5415829801",
+      "target": "4171683688",
+      "key": 0,
+      "length_km": 0.1600553361487822,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "5415829801",
+      "target": "5415829806",
+      "key": 0,
+      "length_km": 0.029798965244467863,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "5415829803",
+      "target": "300103857",
+      "key": 0,
+      "length_km": 0.02084794687746856,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "5415829803",
+      "target": "31700078",
+      "key": 0,
+      "length_km": 0.025230601486229777,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "5415829806",
+      "target": "5415829803",
+      "key": 0,
+      "length_km": 0.025133972784112966,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "5415829806",
+      "target": "213666597",
+      "key": 0,
+      "length_km": 0.08978278353851414,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "5415829812",
+      "target": "1765630408",
+      "key": 0,
+      "length_km": 0.04490200534819719,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "5415829812",
+      "target": "4171683688",
+      "key": 0,
+      "length_km": 0.05457206977587803,
+      "highway": "secondary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "5415927950",
+      "target": "213649963",
+      "key": 0,
+      "length_km": 0.03436824127176371,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "5415927950",
+      "target": "213649485",
+      "key": 0,
+      "length_km": 0.1657291260838197,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "5415927950",
+      "target": "4514524164",
+      "key": 0,
+      "length_km": 0.030416686171858935,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "5515305964",
+      "target": "5515312073",
+      "key": 0,
+      "length_km": 0.11055444973910254,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "5515305964",
+      "target": "4559009212",
+      "key": 0,
+      "length_km": 0.31353549316651885,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "5515305964",
+      "target": "4559009211",
+      "key": 0,
+      "length_km": 0.08620145013084796,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "5515312073",
+      "target": "5515305964",
+      "key": 0,
+      "length_km": 0.11055444973910254,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "5515312073",
+      "target": "31701022",
+      "key": 0,
+      "length_km": 0.46163163767591814,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "5515312073",
+      "target": "221113177",
+      "key": 0,
+      "length_km": 0.09418001033878916,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "6100220186",
+      "target": "209374806",
+      "key": 0,
+      "length_km": 0.19330249858911866,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "6100220186",
+      "target": "6453375160",
+      "key": 0,
+      "length_km": 0.09078535576809554,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "6100220186",
+      "target": "865023812",
+      "key": 0,
+      "length_km": 0.04840098686544566,
+      "highway": "tertiary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    },
+    {
+      "source": "6453375160",
+      "target": "6100220186",
+      "key": 0,
+      "length_km": 0.09078535576809554,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "9307175743",
+      "target": "310090261",
+      "key": 0,
+      "length_km": 0.3290736314925949,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "9307175743",
+      "target": "213649468",
+      "key": 0,
+      "length_km": 0.19329116252567136,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "9307175743",
+      "target": "4514524184",
+      "key": 0,
+      "length_km": 0.10209098190684612,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "9680726834",
+      "target": "11540366862",
+      "key": 0,
+      "length_km": 0.12228023277934157,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "9680726834",
+      "target": "221113177",
+      "key": 0,
+      "length_km": 0.08704231688497725,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "9680726834",
+      "target": "596999815",
+      "key": 0,
+      "length_km": 0.09254500182304065,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "9680726835",
+      "target": "221108180",
+      "key": 0,
+      "length_km": 0.08291822794655306,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "9680726835",
+      "target": "221108317",
+      "key": 0,
+      "length_km": 0.08562535543236652,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "9680726835",
+      "target": "124531262",
+      "key": 0,
+      "length_km": 0.24381045306621832,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "9680726835",
+      "target": "221091281",
+      "key": 0,
+      "length_km": 0.1719960321884755,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "9943289208",
+      "target": "209364980",
+      "key": 0,
+      "length_km": 0.088247332020585,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "9943289208",
+      "target": "209390674",
+      "key": 0,
+      "length_km": 0.08388314644786658,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "10073196740",
+      "target": "1975853546",
+      "key": 0,
+      "length_km": 0.0698746766816188,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "11509620002",
+      "target": "596999735",
+      "key": 0,
+      "length_km": 0.010491756940075928,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "11509620002",
+      "target": "596999732",
+      "key": 0,
+      "length_km": 0.06240923656563464,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "11540366862",
+      "target": "9680726834",
+      "key": 0,
+      "length_km": 0.12228023277934157,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "11540366862",
+      "target": "514112190",
+      "key": 0,
+      "length_km": 0.09515322441247963,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "11540366862",
+      "target": "526533273",
+      "key": 0,
+      "length_km": 0.08948755153089338,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    },
+    {
+      "source": "12844070435",
+      "target": "437865622",
+      "key": 0,
+      "length_km": 0.04065781365980445,
+      "highway": "residential",
+      "is_crit_security_social": false,
+      "is_crit_economique": false
+    }
+  ]
+}
