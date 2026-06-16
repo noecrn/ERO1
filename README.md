@@ -76,27 +76,26 @@ Le projet est divisé en 3 phases distinctes :
 
 ```text
 .
-├── AUTHORS                     # Liste des auteurs
-├── README.md                   # Documentation actuelle
-├── cache/                      # Fichiers de cache générés par OSMnx
-├── configs/                    # Configuration des scénarios
-│   └── scenarios.json          # Fichier unique de configuration
-├── data/                       # [INPUTS/OUTPUTS] Données générées
-│   ├── graph_*.json            # [INPUT SOLVER] Graphes modélisés par quartier
-│   ├── reseau_rues_complet.geojson # Tracés complets avec flags
-│   ├── infrastructures_secours.geojson # POIs uniquement (Hôpitaux, écoles, etc.)
-│   └── tous_quartiers_zones.geojson # Limites géographiques
-```
-├── demo_visualisation.ipynb    # Notebook d'analyse et de visualisation
-├── main.py                     # [ENTRY POINT] Script principal de la démonstration
-├── requirements.txt            # Dépendances (osmnx, geopandas, networkx, etc.)
-└── src/                        # [SOURCE CODE] Logique métier
+├── AUTHORS                               # Liste des auteurs
+├── README.md                             # Documentation actuelle
+├── cache/                                # Fichiers de cache générés par OSMnx
+├── configs/                              # Configuration des scénarios
+│   └── scenarios.json                    # Fichier unique de configuration
+├── data/                                 # [INPUTS/OUTPUTS] Données générées
+│   ├── graph_*.json                      # [INPUT SOLVER] Graphes modélisés par quartier
+│   ├── reseau_rues_complet.geojson       # Tracés complets avec flags
+│   ├── infrastructures_secours.geojson   # POIs uniquement (Hôpitaux, écoles, etc.)
+│   └── tous_quartiers_zones.geojson      # Limites géographiques
+├── demo_visualisation.ipynb              # Notebook d'analyse et de visualisation
+├── main.py                               # [ENTRY POINT] Script principal de la démonstration
+├── requirements.txt                      # Dépendances (osmnx, geopandas, networkx, etc.)
+└── src/                                  # [SOURCE CODE] Logique métier
     ├── __init__.py
-    ├── data_loader.py          # [ETL] Récupération OSM -> GeoJSON
-    ├── exporter.py             # [ETL] GeoJSON -> JSON RO
-    ├── metrics.py              # Calcul des coûts (fixe, km, horaire) et KPIs
-    ├── solvers.py              # Algorithmes RO (Postier Chinois, Euler)
-    └── weather.py              # Facteurs météo (neige 2.5cm à 15cm)
+    ├── data_loader.py                    # [ETL] Récupération OSM -> GeoJSON
+    ├── exporter.py                       # [ETL] GeoJSON -> JSON RO
+    ├── metrics.py                        # Calcul des coûts (fixe, km, horaire) et KPIs
+    ├── solvers.py                        # Algorithmes RO (Postier Chinois, Euler)
+    └── weather.py                        # Facteurs météo (neige 2.5cm à 15cm)
 
 ```
 
