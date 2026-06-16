@@ -4,6 +4,7 @@ import pandas as pd
 import os
 import json
 import networkx as nx
+import random
 
 def check_and_create_data_dir():
     """
@@ -37,6 +38,7 @@ def save_graph_to_json(G, short_name, output_dir="data"):
             "target": str(v),
             "key": k,
             "length_km": data.get("length_km", data.get("length", 0) / 1000.0),
+            "h_neige": data.get("h_neige", 0.0),
             "highway": data.get("highway", "residential"),
             "is_crit_security_social": data.get("is_crit_security_social", False),
             "is_crit_economique": data.get("is_crit_economique", False)
@@ -99,6 +101,9 @@ def annotate_graph_priorities(G):
         
         # Ensure length is available in kilometers
         data['length_km'] = data.get('length', 0) / 1000.0
+
+        # Stochastic snow depth: 0.0 to 20.0 cm
+        data['h_neige'] = round(random.uniform(0.0, 20.0), 2)
         
     return G
 
@@ -124,7 +129,7 @@ def get_street_network(quartier_name, short_name):
         edges_gdf = edges_gdf.reset_index()
         
         # Select relevant columns for the final dataset
-        cols = ['u', 'v', 'key', 'geometry', 'highway', 'length_km', 'is_crit_security_social', 'is_crit_economique']
+        cols = ['u', 'v', 'key', 'geometry', 'highway', 'length_km', 'h_neige', 'is_crit_security_social', 'is_crit_economique']
         existing_cols = [c for c in cols if c in edges_gdf.columns]
         edges_filtered = edges_gdf[existing_cols].copy()
         edges_filtered['quartier'] = short_name
