@@ -86,10 +86,14 @@ def annotate_graph_priorities(G):
         nom_rue = str(data.get('name', '')).lower()
         
         # Security & Social criteria: Hospitals, fire stations, schools, major roads
-        is_secu_social_infra = any(keyword in nom_rue for keyword in ['hopital', 'hospital', 'clinique', 'sante', 'pompier', 'ecole', 'school', 'college'])
-        is_major_secu_social = highway_type in ['primary', 'secondary', 'tertiary']
+        is_secu_social_infra = any(keyword in nom_rue for keyword in ['hopital', 'hospital', 'hôpital', 'clinique', 'sante', 'santé', 'pompier', 'ecole', 'école', 'school', 'college', 'caserne'])
         
-        data['is_crit_security_social'] = bool(is_major_secu_social)
+        if highway_type in ['tertiary', 'residential']:
+            is_crit_secu = is_secu_social_infra
+        else:
+            is_crit_secu = highway_type in ['primary', 'secondary']
+        
+        data['is_crit_security_social'] = bool(is_crit_secu)
 
         # Economic criteria: Bus lanes, commercial areas, major economic axes
         is_bus = data.get('bus_guideway') == 'yes' or data.get('lanes:bus') is not None
@@ -228,16 +232,48 @@ def run_data_pipeline():
         if area is not None: 
             all_areas.append(area)
         
-        # 2. Road network and Graph JSONs for solvers
-        streets_gdf, G = get_street_network(full_name, short_name)
-        if streets_gdf is not None: 
-            all_streets.append(streets_gdf)
-            save_graph_to_json(G, short_name)
-        
-        # 3. Infrastructure POIs (Security & Social)
+        # 2. Infrastructure POIs (Security & Social)
         pois = get_infrastructure_pois(full_name, short_name)
         if pois is not None: 
             all_pois.append(pois)
+
+        # 3. Road network and Graph JSONs for solvers
+        streets_gdf, G = get_street_network(full_name, short_name)
+        
+        if streets_gdf is not None and pois is not None:
+            # Spatial logic: neighborhood roads near POIs
+            # Use 150m buffer for "immediate proximity"
+            # We need to project to a metric CRS for accurate buffering
+            pois_metric = pois.to_crs(epsg=32618) # UTM zone 18N for Montreal
+            streets_metric = streets_gdf.to_crs(epsg=32618)
+            
+            poi_buffer = pois_metric.buffer(150).unary_union
+            is_near_poi = streets_metric.intersects(poi_buffer)
+            
+            # Apply rules: primary/secondary always true, others only if near POI
+            def check_crit(row, near_poi):
+                h_type = row['highway']
+                if isinstance(h_type, list): h_type = h_type[0]
+                if h_type in ['primary', 'secondary']:
+                    return True
+                if h_type in ['tertiary', 'residential']:
+                    return near_poi
+                return False
+
+            # Update flags in G and streets_gdf
+            new_flags = []
+            for idx, row in streets_gdf.iterrows():
+                val = bool(check_crit(row, is_near_poi.iloc[idx]))
+                new_flags.append(val)
+                # Update NetworkX graph
+                u, v, k = row['u'], row['v'], row['key']
+                G[u][v][k]['is_crit_security_social'] = val
+            
+            streets_gdf['is_crit_security_social'] = new_flags
+            
+        if streets_gdf is not None:
+            all_streets.append(streets_gdf)
+            save_graph_to_json(G, short_name)
             
     # Export global neighborhood zones
     if all_areas:
