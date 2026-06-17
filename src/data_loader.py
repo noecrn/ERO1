@@ -86,13 +86,10 @@ def annotate_graph_priorities(G):
         nom_rue = str(data.get('name', '')).lower()
         
         # Security & Social criteria: Hospitals, fire stations, schools, major roads
-        is_secu_infra = any(keyword in nom_rue for keyword in ['hopital', 'hospital', 'clinique', 'sante', 'pompier'])
-        is_major_secu = highway_type in ['motorway', 'trunk', 'primary']
+        is_secu_social_infra = any(keyword in nom_rue for keyword in ['hopital', 'hospital', 'clinique', 'sante', 'pompier', 'ecole', 'school', 'college'])
+        is_major_secu_social = highway_type in ['primary', 'secondary', 'tertiary']
         
-        is_social_infra = any(keyword in nom_rue for keyword in ['ecole', 'school', 'college'])
-        is_major_social = highway_type in ['secondary', 'tertiary']
-        
-        data['is_crit_security_social'] = bool(is_secu_infra or is_major_secu or is_social_infra or is_major_social)
+        data['is_crit_security_social'] = bool(is_major_secu_social)
 
         # Economic criteria: Bus lanes, commercial areas, major economic axes
         is_bus = data.get('bus_guideway') == 'yes' or data.get('lanes:bus') is not None
@@ -256,17 +253,23 @@ def run_data_pipeline():
     if all_streets:
         combined_streets = gpd.GeoDataFrame(pd.concat(all_streets, ignore_index=True), crs=all_streets[0].crs)
         
-        # Scenario 1: Security and Social Priority
-        combined_streets['scenario_1'] = (combined_streets['is_crit_security_social'] == True)
+        # 1. On définit les types strictement autorisés pour le Scénario 1
+        types_autorises = ['primary', 'secondary', 'tertiary', 'residential']
         
-        # Scenario 2: Economic Priority
+        # 2. On applique les drapeaux de scénarios
+        combined_streets['scenario_1'] = (combined_streets['is_crit_security_social'] == True) & (combined_streets['highway'].isin(types_autorises))
         combined_streets['scenario_2'] = (combined_streets['is_crit_economique'] == True)
-        
-        # Scenario 3: Baseline (Global Network)
         combined_streets['scenario_3'] = True
         
+        # 3. EXPORT 1 : Le réseau complet (Scénario 3)
         combined_streets.to_file("data/reseau_rues_complet.geojson", driver="GeoJSON")
-        print("\nSUCCESS: Global street network exported with scenario flags.")
+        
+        # 4. EXPORT 2 : Le GeoJSON STRICT pour le scénario Sécurité & Social
+        # Ce filtre supprime physiquement toutes les autres routes du fichier de sortie !
+        geojson_seco_social = combined_streets[combined_streets['scenario_1'] == True].copy()
+        geojson_seco_social.to_file("data/scenario_seco_social_strict.geojson", driver="GeoJSON")
+        
+        print("\nSUCCESS: Fichiers de scénarios exportés.")
         
     print("\nData pipeline completed.")
 
