@@ -29,3 +29,6 @@ data/
 .AppleDouble
 .LSOverride
 ._*
+
+*.pdf
+*.txt
