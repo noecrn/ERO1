@@ -1,139 +1,102 @@
-# Projet ERO1 : Optimisation Hivernale - Ville de Montréal
+# Projet ERO1 - Optimisation du Déneigement à Montréal
 
-## Contexte du projet
+Ce dépôt contient le code source, les configurations et les données pour le projet d'Éléments de Recherche Opérationnelle (ERO1) réalisé par le Groupe 10. L'objectif est de modéliser, d'évaluer et d'optimiser le parcours de déneigement des rues de Montréal à travers différents scénarios d'intervention.
 
-**Objectif principal :** Résoudre un problème d'optimisation de tournées (variante du problème du Postier Chinois / *Chinese Postman Problem*) pour le déneigement des rues de Montréal (secteurs : Outremont, Verdun, Anjou, Rivière-des-prairies-pointe-aux-trembles).
-Le but est de minimiser le coût de déblaiement (basé sur un modèle de coût horaire et kilométrique) tout en respectant **deux types de priorisation** (Sécurité & Social, Économique).
+---
+
+## Contexte & Objectifs
+
+Le déneigement de Montréal représente plus de 10 000 km de routes et un budget annuel d'environ 200 M$. Notre étude se focalise sur les opérations de déblaiement lors de chutes de neige allant de 2.5 cm à 15 cm.
+
+Le but est de minimiser le coût d'exploitation des déneigeuses tout en assurant une couverture totale et prioritaire de certains réseaux selon trois scénarios prédéfinis.
 
 ---
 
 ## Définition des Scénarios de Priorisation
 
-Le projet évalue trois stratégies d'intervention distinctes à partir de deux indicateurs de priorité.
+Le projet évalue trois stratégies d'intervention distinctes à partir de priorités géographiques et sociales :
 
-* **Scénario 1 : Axe Sécurité et Social.** Dégagement en priorité absolue des voies permettant de sauver des vies et de rompre l'isolement (hôpitaux, cliniques, casernes, écoles, infrastructures PMR, résidences aînés).
-* **Scénario 2 : Axe Économique.** Dégagement prioritaire des grands axes, des voies de bus et des zones commerciales pour assurer la continuité du trafic économique.
-* **Scénario 3 : Baseline (Méthode globale).** Déneigement complet de l'ensemble du graphe routier sans priorisation.
+* **Scénario 1 : Axe Sécurité et Social.** Dégagement en priorité absolue des voies permettant de sauver des vies et de rompre l'isolement (accès hôpitaux, cliniques, casernes, écoles, infrastructures PMR, résidences pour aînés).
+* **Scénario 2 : Axe Économique.** Dégagement prioritaire des grands axes routiers, des voies réservées aux bus et des zones commerciales pour assurer le flux économique.
+* **Scénario 3 : Baseline (Méthode globale).** Déneigement complet de l'ensemble du réseau routier sans distinction ni priorisation.
+
+---
+
+## Modèle de Coût (Contraintes Municipales)
+
+Le coût opérationnel quotidien est modélisé selon les paramètres officiels de la municipalité :
+
+* **Coût fixe :** 500 $ / jour par déneigeuse.
+* **Coût kilométrique :** 1.1 $ / km parcouru.
+* **Coût horaire (premières 8h) :** 1.1 $ / h.
+* **Coût horaire supplémentaire (> 8h) :** 1.3 $ / h.
+* **Vitesse moyenne de travail :** 10 km/h.
 
 ---
 
 ## Formalisation Mathématique
 
-Le passage du monde réel à notre modèle algorithmique repose sur plusieurs règles et contraintes strictes :
+Le passage du problème réel à notre modèle algorithmique repose sur plusieurs règles et choix théoriques :
 
-* **Modélisation du réseau :** Le réseau routier est représenté sous la forme d'un graphe mathématique où les intersections sont les nœuds et les rues sont les arcs.
-* **Choix de l'algorithme :** Le problème repose sur la logique du Problème du Postier Chinois (CPP), car l'objectif est de nettoyer l'intégralité des arcs (rues) et non de simplement visiter des points (nœuds).
-* **Contrainte de la neige :** L'accumulation de la neige est générée de manière stochastique. Une rue ne peut être intégrée au parcours de déneigement que si la hauteur de neige est comprise entre 2,5 cm et 15 cm.
-* **Couverture obligatoire :** Toutes les routes identifiées comme prioritaires dans le fichier de configuration du scénario doivent être parcourues au moins une fois par une déneigeuse.
-* **Continuité du trafic :** Si une déneigeuse entre dans une intersection, elle doit obligatoirement en sortir. Aucune "téléportation" de véhicule n'est autorisée d'un point à un autre de la ville.
-
----
-
-## Architecture et Flux de données (Data Flow)
-
-Le projet est divisé en 3 phases distinctes :
-
-### 1. Phase d'Acquisition (Module : `src/data_loader.py`)
-
-**Action :** Requête l'API OpenStreetMap (via `osmnx`) pour récupérer les graphes routiers et les Points d'Intérêt (hôpitaux, écoles, etc.).
-**Inputs :** Noms des quartiers en dur dans le script.
-**Outputs :**
-* `data/scenario_*.geojson` : Tracés des rues par scénario.
-* `data/infrastructures_secours.geojson` : Points d'intérêt (hôpitaux, casernes) séparés.
-* `data/tous_quartiers_zones.geojson` : Limites administratives.
-**Logique métier :** Le script enrichit chaque arête (rue) avec des booléens de priorité et préserve la topologie du graphe (nœuds source `u` et cible `v`).
-
-### 2. Phase de Transformation RO (Module : `src/exporter.py`)
-
-**Action :** Convertit les données géographiques brutes en une structure mathématique de graphe exploitable par nos algorithmes de Recherche Opérationnelle (RO).
-**Inputs :** `data/reseau_rues_complet.geojson`.
-**Outputs :** `data/graph_*.json` (un par quartier)
-**Schéma de données généré (Crucial pour les solvers) :**
-
-```json
-{
-  "id_arc": "int",
-  "source_node": "int",
-  "target_node": "int",
-  "neighborhood": "string",
-  "road_type": "string",
-  "distance_km": "float",
-  "priorities": {
-    "security_social": "bool",
-    "economic": "bool"
-  }
-}
-```
-### 3. Phase d'Optimisation et Calculs (Modules : `src/solvers.py`, `src/metrics.py`, `main.py`)
-
-**Action :** Charge le graphe RO, applique les algorithmes de parcours pour minimiser les distances à vide, et calcule les coûts financiers.
-**Inputs :** `data/graph_*.json` + fichier de configuration `configs/scenarios.json`.
-**Outputs :** Résultats dans la console, itinéraires générés et métriques d'évaluation.
+* **Modélisation du réseau :** Le réseau routier est représenté par un graphe orienté où les intersections sont les nœuds et les rues sont les arcs.
+* **Algorithme de routage :** La recherche du chemin optimal s'appuie sur la logique du Problème du Postier Chinois Orienté (DCPP), l'objectif étant de parcourir (nettoyer) tous les arcs requis au moins une fois tout en minimisant la distance totale parcourue à vide.
+* **Contrainte de la neige :** L'accumulation de la neige est simulée de manière stochastique. Une rue n'est intégrée dans les tâches de déneigement que si la hauteur de neige y est comprise entre 2.5 cm et 15 cm.
+* **Continuité du trafic (Conservation du flux) :** Tout véhicule entrant dans une intersection doit obligatoirement en ressortir.
 
 ---
 
 ## Structure du Rendu
 
-```text
-.
-├── AUTHORS                               # Liste des auteurs
-├── README.md                             # Documentation actuelle
-├── cache/                                # Fichiers de cache générés par OSMnx
-├── configs/                              # Configuration des scénarios
-│   └── scenarios.json                    # Fichier unique de configuration
-├── data/                                 # [INPUTS/OUTPUTS] Données générées
-│   ├── graph_*.json                      # [INPUT SOLVER] Graphes modélisés par quartier
-│   ├── reseau_rues_complet.geojson       # Tracés complets avec flags
-│   ├── infrastructures_secours.geojson   # POIs uniquement (Hôpitaux, écoles, etc.)
-│   └── tous_quartiers_zones.geojson      # Limites géographiques
-├── demo_visualisation.ipynb              # Notebook d'analyse et de visualisation
-├── main.py                               # [ENTRY POINT] Script principal de la démonstration
-├── requirements.txt                      # Dépendances (osmnx, geopandas, networkx, etc.)
-└── src/                                  # [SOURCE CODE] Logique métier
-    ├── __init__.py
-    ├── data_loader.py                    # [ETL] Récupération OSM -> GeoJSON
-    ├── exporter.py                       # [ETL] GeoJSON -> JSON RO
-    ├── metrics.py                        # Calcul des coûts (fixe, km, horaire) et KPIs
-    ├── solvers.py                        # Algorithmes RO (Postier Chinois, Euler)
-    └── weather.py                        # Facteurs météo (neige 2.5cm à 15cm)
+Le projet est structuré de manière modulaire :
 
-```
+- **`main.py`** : Point d'entrée principal pour lancer la démonstration complète.
+- **`requirements.txt`** : Liste des dépendances Python requises.
+- **`AUTHORS`** : Liste des auteurs du projet.
+- **`configs/`** : Contient les configurations des scénarios de priorisation (`scenarios.json`).
+- **`data/`** : Graphes routiers modélisés pour les différents quartiers (`graph_*.json`) et tracés `.geojson`.
+- **`src/`** : Logique métier et algorithmique :
+  - `data_loader.py` & `exporter.py` : Chargement et transformation des données géographiques.
+  - `step5_partition.py` & `step5b_repair.py` : Partitionnement du réseau et garantie de forte connectivité.
+  - `step6_dcpp.py` : Résolution du problème du Postier Chinois Orienté (DCPP).
+  - `step7_output.py` : Calcul des indicateurs de performance, des coûts et génération des métriques de sortie.
+  - `p2.py` & `p2-p3.py` : Modélisation préliminaire et recherche du nombre optimal $K$ de déneigeuses.
+- **`output/`** : Résultats générés (itinéraires et tableaux de bord `.json`).
+- **`tests/`** : Tests unitaires et d'intégration pour chaque étape critique du pipeline.
+- **`cache/`** : Données géographiques temporaires mises en cache pour accélérer les calculs.
 
 ---
 
-## Modèle de Coût (Contraintes Métier)
+## Prérequis et Installation
 
-Lors des calculs dans `metrics.py` ou `solvers.py`, le programme applique les données officielles fournies par la municipalité :
+Assurez-vous d'avoir **Python 3.8 ou supérieur** installé.
 
-* **Coût fixe :** 500 $/jour par déneigeuse.
-* **Coût kilométrique :** 1.1 $/km.
-* **Coût horaire (<= 8h) :** 1.1 $/h.
-* **Coût horaire (> 8h) :** 1.3 $/h.
-* **Vitesse moyenne :** 10 km/h.
+1. **Cloner ou extraire** le projet dans le répertoire de votre choix.
+2. **Ouvrir un terminal** à la racine du projet.
+3. **Créer un environnement virtuel** :
+   ```bash
+   python -m venv venv
+   ```
+4. **Activer l'environnement virtuel** :
+   ```bash
+   source venv/bin/activate
+   ```
+5. **Installer les dépendances** :
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ---
 
-## Instructions d'exécution
+## Exécution et Démonstration
 
-**1. Installation des dépendances**
-
-```bash
-pip install -r requirements.txt
-
-```
-
-**2. Génération du jeu de données (Data Pipeline)**
-Si le dossier `data/` est vide ou obsolète, regénérer les données spatiales et le graphe de RO :
-
-```bash
-python src/data_loader.py
-python src/exporter.py
-
-```
-
-**3. Lancement de la résolution globale**
+Pour lancer le pipeline d'optimisation complet (chargement, filtrage, partitionnement, routage DCPP, calcul des coûts et export) :
 
 ```bash
 python main.py
-
 ```
+
+### Étapes du pipeline exécuté :
+1. **Chargement** : Lecture du graphe du réseau routier et des scénarios.
+2. **Filtrage** : Application de la hauteur de neige stochastique et marquage des rues prioritaires.
+3. **Optimisation** : Découpage du réseau en zones et calcul des parcours minimisant le trajet à vide.
+4. **Exportation** : Génération des itinéraires et indicateurs détaillés dans le dossier `output/`.
