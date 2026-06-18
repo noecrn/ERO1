@@ -6,10 +6,14 @@ Test groups
 T1  — GPS itinerary continuity (end of arc i == start of arc i+1)
 T2  — Itinerary is a closed loop: first and last point == depot position
 T3  — Manual Z_total verification on Zone 2 (known values, zero surcharges)
-T4  — Surcharge decomposition coherence:
+T4  — Surcharge decomposition coherence (CPP):
         surcout_reparation + surcout_dcpp + unique_arc_distance == distance_km
 T5  — Global dashboard aggregation (sum of Z, max of temps_h)
 T6  — JSON files are valid and reloadable
+T7  — Mode CPP : surcout_reparation_km présent, surcout_connecteur_km absent
+T8  — Mode RPP : surcout_connecteur_km présent, surcout_reparation_km absent
+T9  — Cohérence RPP : connecteur + dcpp + arcs_prio_uniques == distance_tournée
+T10 — Global agrège connecteur et réparation séparément
 """
 
 import json
@@ -299,3 +303,191 @@ class TestJSONOutput:
                 )
                 missing = required - data.keys()
                 assert not missing, f"dashboard_zone_{idx}.json missing keys: {missing}"
+
+
+# ===========================================================================
+# Helpers RPP partagés
+# ===========================================================================
+
+def _make_rpp_pipeline():
+    """
+    Construit un circuit RPP complet à partir du fixture _make_rpp_fixture
+    de test_step5b.  Retourne (zone_rpp, circuit, distance_km, dashboard).
+    """
+    import networkx as nx
+    from src.step5b_repair import ensure_strong_connectivity
+    from src.step6_dcpp import compute_tour
+
+    zone = nx.DiGraph()
+    G_full = nx.DiGraph()
+    for n in range(6):
+        zone.add_node(n, x=-73.6 + n * 0.01, y=45.5)
+        G_full.add_node(n, x=-73.6 + n * 0.01, y=45.5)
+
+    zone.add_edge(0, 1, weight=1.0, priority=True)
+    zone.add_edge(1, 0, weight=1.0, priority=True)
+    zone.add_edge(3, 4, weight=1.0, priority=True)
+    zone.add_edge(4, 3, weight=1.0, priority=True)
+    zone.add_edge(0, 2, weight=0.5, priority=False)
+    zone.add_edge(2, 3, weight=0.5, priority=False)
+    zone.add_edge(4, 5, weight=0.5, priority=False)
+    zone.add_edge(5, 0, weight=0.5, priority=False)
+
+    G_full.add_edges_from(zone.edges(data=True))
+    G_full.add_edge(3, 2, weight=0.3, priority=False)
+    G_full.add_edge(2, 1, weight=0.3, priority=False)
+
+    zone_rpp = ensure_strong_connectivity(zone, G_full, priority_only=True)
+    circuit, distance_km = compute_tour(zone_rpp, depot=0)
+    dashboard = build_dashboard(0, circuit, distance_km, zone_rpp)
+    return zone_rpp, circuit, distance_km, dashboard
+
+
+# ---------------------------------------------------------------------------
+# T7 — Mode CPP : surcout_reparation_km présent, surcout_connecteur_km absent
+# ---------------------------------------------------------------------------
+
+class TestCPPModeKeys:
+    def test_cpp_has_surcout_reparation(self):
+        """Un dashboard CPP (arcs repair=True) doit avoir surcout_reparation_km."""
+        for idx, dash in _pipe.dashboards.items():
+            assert "surcout_reparation_km" in dash, (
+                f"Zone {idx}: clé surcout_reparation_km absente en mode CPP"
+            )
+
+    def test_cpp_has_no_surcout_connecteur(self):
+        """Un dashboard CPP ne doit PAS avoir surcout_connecteur_km."""
+        for idx, dash in _pipe.dashboards.items():
+            assert "surcout_connecteur_km" not in dash, (
+                f"Zone {idx}: clé surcout_connecteur_km présente en mode CPP — inattendu"
+            )
+
+    def test_cpp_zone1_reparation_nonzero(self):
+        """Zone 1 a des arcs repair=True → surcoût réparation > 0."""
+        assert _pipe.dashboards[1]["surcout_reparation_km"] > 0
+
+
+# ---------------------------------------------------------------------------
+# T8 — Mode RPP : surcout_connecteur_km présent, surcout_reparation_km absent
+# ---------------------------------------------------------------------------
+
+class TestRPPModeKeys:
+    def test_rpp_has_surcout_connecteur(self):
+        _, _, _, dash = _make_rpp_pipeline()
+        assert "surcout_connecteur_km" in dash, (
+            "Dashboard RPP doit contenir surcout_connecteur_km"
+        )
+
+    def test_rpp_has_no_surcout_reparation(self):
+        _, _, _, dash = _make_rpp_pipeline()
+        assert "surcout_reparation_km" not in dash, (
+            "Dashboard RPP ne doit PAS contenir surcout_reparation_km"
+        )
+
+    def test_rpp_connecteur_km_nonnegative(self):
+        _, _, _, dash = _make_rpp_pipeline()
+        assert dash["surcout_connecteur_km"] >= 0
+
+    def test_rpp_connecteur_km_nonzero_when_connectors_exist(self):
+        """Le fixture RPP a deux îlots → des connecteurs doivent exister."""
+        zone_rpp, _, _, dash = _make_rpp_pipeline()
+        has_connectors = any(
+            d.get("connector") for _, _, d in zone_rpp.edges(data=True)
+        )
+        if has_connectors:
+            assert dash["surcout_connecteur_km"] > 0, (
+                "Des arcs connector=True existent mais surcout_connecteur_km == 0"
+            )
+
+
+# ---------------------------------------------------------------------------
+# T9 — Cohérence RPP : connecteur + dcpp + arcs_prio_uniques == distance_tournée
+# ---------------------------------------------------------------------------
+
+class TestRPPCoherence:
+    def test_rpp_distance_decomposition(self):
+        """
+        Pour un circuit RPP :
+          distance_km == unique_prio_km + surcout_connecteur_km + surcout_dcpp_km
+
+        unique_prio_km  = somme des poids des arcs priority=True du résultat
+                          (chacun compté une fois).
+        surcout_connecteur_km = somme des poids des arcs connector=True
+                                (chacun compté une fois).
+        surcout_dcpp_km = repassages d'équilibrage.
+        """
+        zone_rpp, circuit, distance_km, dash = _make_rpp_pipeline()
+
+        unique_prio_km = sum(
+            d["weight"] for _, _, d in zone_rpp.edges(data=True)
+            if d.get("priority")
+        )
+        connector_km = dash["surcout_connecteur_km"]
+        dcpp_km      = dash["surcout_dcpp_km"]
+
+        assert distance_km == pytest.approx(
+            unique_prio_km + connector_km + dcpp_km, rel=1e-6
+        ), (
+            f"Décomposition RPP incohérente : "
+            f"distance={distance_km:.4f}  "
+            f"prio={unique_prio_km:.4f}  "
+            f"conn={connector_km:.4f}  "
+            f"dcpp={dcpp_km:.4f}"
+        )
+
+    def test_rpp_dcpp_nonnegative(self):
+        _, _, _, dash = _make_rpp_pipeline()
+        assert dash["surcout_dcpp_km"] >= 0
+
+
+# ---------------------------------------------------------------------------
+# T10 — Global agrège connecteur et réparation séparément
+# ---------------------------------------------------------------------------
+
+class TestGlobalDashboardRPPAggregation:
+    def _mixed_dashes(self):
+        """Deux dashboards CPP + un dashboard RPP."""
+        cpp_dashes = list(_pipe.dashboards.values())[:2]
+        _, _, _, rpp_dash = _make_rpp_pipeline()
+        return cpp_dashes + [rpp_dash]
+
+    def test_global_has_surcout_reparation_total(self):
+        dashes = self._mixed_dashes()
+        global_dash = _build_global_dashboard(dashes)
+        assert "surcout_reparation_total_km" in global_dash
+
+    def test_global_has_surcout_connecteur_total(self):
+        dashes = self._mixed_dashes()
+        global_dash = _build_global_dashboard(dashes)
+        assert "surcout_connecteur_total_km" in global_dash
+
+    def test_global_reparation_sums_cpp_only(self):
+        """La somme de réparation ne doit compter que les dashboards CPP."""
+        cpp_dashes = list(_pipe.dashboards.values())[:2]
+        _, _, _, rpp_dash = _make_rpp_pipeline()
+        dashes = cpp_dashes + [rpp_dash]
+        global_dash = _build_global_dashboard(dashes)
+
+        expected = sum(d.get("surcout_reparation_km", 0.0) for d in dashes)
+        assert global_dash["surcout_reparation_total_km"] == pytest.approx(expected)
+
+    def test_global_connecteur_sums_rpp_only(self):
+        """La somme de connecteur ne doit compter que les dashboards RPP."""
+        cpp_dashes = list(_pipe.dashboards.values())[:2]
+        _, _, _, rpp_dash = _make_rpp_pipeline()
+        dashes = cpp_dashes + [rpp_dash]
+        global_dash = _build_global_dashboard(dashes)
+
+        expected = sum(d.get("surcout_connecteur_km", 0.0) for d in dashes)
+        assert global_dash["surcout_connecteur_total_km"] == pytest.approx(expected)
+
+    def test_rpp_summary_printout(self, capsys):
+        _, _, distance_km, dash = _make_rpp_pipeline()
+        print("\n--- Décomptes surcoût fixture RPP ---")
+        print(f"  distance_tournée          : {distance_km:.4f} km")
+        print(f"  surcout_connecteur_km     : {dash['surcout_connecteur_km']:.4f} km")
+        print(f"  surcout_dcpp_km           : {dash['surcout_dcpp_km']:.4f} km")
+        print(f"  CO2_kg                    : {dash['CO2_kg']:.4f} kg")
+        print(f"  Z_total                   : {dash['Z_total']:.4f} $")
+        captured = capsys.readouterr()
+        print(captured.out)

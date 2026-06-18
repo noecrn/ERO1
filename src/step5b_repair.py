@@ -35,27 +35,43 @@ import networkx as nx
 def ensure_strong_connectivity(
     zone: nx.DiGraph,
     G_full: nx.DiGraph,
+    priority_only: bool = False,
 ) -> nx.DiGraph:
     """
-    Return a copy of *zone* augmented with repair arcs from *G_full* so that
-    the result is strongly connected.
+    Return a strongly connected DiGraph ready for DCPP (step 6).
+
+    Mode CPP classique (priority_only=False, défaut)
+    -------------------------------------------------
+    Augmente *zone* avec des arcs de réparation depuis *G_full* jusqu'à
+    obtenir la connexité forte.  Arcs ajoutés : repair=True.
+
+    Mode RPP (priority_only=True)
+    ------------------------------
+    Extrait le sous-graphe des arcs priority=True de *zone*, puis le rend
+    fortement connexe en greffant des connecteurs depuis *G_full*.
+    Arcs greffés : connector=True.  Les arcs priority originaux conservent
+    leurs attributs inchangés.  Les arcs non-prioritaires de *zone* sont
+    exclus du résultat sauf s'ils apparaissent comme connecteurs.
 
     Parameters
     ----------
-    zone   : DiGraph produced by step 5; must be a subgraph of G_full.
-    G_full : the complete filtered network from steps 1-4.
+    zone          : DiGraph produit par step 5 ; doit être un sous-graphe de G_full.
+    G_full        : réseau complet issu des étapes 1-4 (garanti SC par graph_adapter).
+    priority_only : si True, active le mode RPP décrit ci-dessus.
 
     Returns
     -------
-    A new DiGraph (zone never mutated).  Added arcs carry repair=True.
-    Original arcs keep their attributes unchanged (repair is absent or False).
+    Nouveau DiGraph (zone jamais muté).
 
     Raises
     ------
-    ValueError  if G_full itself does not contain a path that closes some
-                strongly connected component pair — genuine dead-end in the
-                source data.
+    ValueError  si G_full ne contient pas de chemin pour relier deux SCCs
+                (cul-de-sac réel dans les données source).
+    ValueError  si priority_only=True et qu'aucun arc prioritaire n'est présent.
     """
+    if priority_only:
+        return _ensure_sc_priority_only(zone, G_full)
+
     repaired = zone.copy()
 
     if nx.is_strongly_connected(repaired):
@@ -161,3 +177,81 @@ def _graft_path(repaired: nx.DiGraph, path: list, G_full: nx.DiGraph) -> None:
             attrs = dict(G_full.edges[u, v])
             attrs["repair"] = True
             repaired.add_edge(u, v, **attrs)
+
+
+def _graft_path_as_connector(
+    result: nx.DiGraph, path: list, G_full: nx.DiGraph
+) -> None:
+    """
+    Greffe les arcs de *path* dans *result* avec connector=True.
+    Arcs déjà présents (prioritaires) conservent leurs attributs.
+    Mutates *result* in place.
+    """
+    for u, v in zip(path, path[1:]):
+        if u not in result:
+            result.add_node(u, **G_full.nodes[u])
+        if v not in result:
+            result.add_node(v, **G_full.nodes[v])
+        if not result.has_edge(u, v):
+            attrs = dict(G_full.edges[u, v])
+            attrs["connector"] = True
+            result.add_edge(u, v, **attrs)
+
+
+def _ensure_sc_priority_only(zone: nx.DiGraph, G_full: nx.DiGraph) -> nx.DiGraph:
+    """
+    Mode RPP : extrait les arcs priority=True de *zone*, les rend fortement
+    connexes en greffant des connecteurs depuis *G_full*.
+
+    Raises ValueError si aucun arc prioritaire ou si G_full ne peut pas relier
+    deux SCCs (cul-de-sac réel dans le réseau source).
+    """
+    # Extraire le sous-graphe prioritaire
+    prio_edges = [(u, v, d) for u, v, d in zone.edges(data=True) if d.get("priority")]
+    if not prio_edges:
+        raise ValueError(
+            "priority_only=True mais aucun arc prioritaire dans la zone. "
+            "Vérifier le flag 'priority' sur les arcs de la zone."
+        )
+
+    result = nx.DiGraph()
+    for u, v, d in prio_edges:
+        if u not in result:
+            result.add_node(u, **zone.nodes[u])
+        if v not in result:
+            result.add_node(v, **zone.nodes[v])
+        result.add_edge(u, v, **d)
+
+    if nx.is_strongly_connected(result):
+        return result
+
+    # Même algorithme que le mode CPP — sink→source itératif — mais sur le
+    # sous-graphe prioritaire et avec _graft_path_as_connector.
+    max_iter = result.number_of_nodes() + G_full.number_of_nodes()
+
+    for _ in range(max_iter):
+        if nx.is_strongly_connected(result):
+            break
+
+        cond = nx.condensation(result)
+        from_idx, to_idx = _pick_sink_source_pair(cond)
+
+        from_nodes = cond.nodes[from_idx]["members"]
+        to_nodes   = cond.nodes[to_idx]["members"]
+
+        path = _shortest_path_between_sets(G_full, from_nodes, to_nodes)
+        if path is None:
+            raise ValueError(
+                "Impossible de relier les composantes fortement connexes via "
+                "G_full — cul-de-sac réel dans le réseau source.  "
+                f"Aucun chemin de {from_nodes} vers {to_nodes} dans G_full."
+            )
+
+        _graft_path_as_connector(result, path, G_full)
+    else:
+        if not nx.is_strongly_connected(result):
+            raise ValueError(
+                "Réparation RPP non convergée après le nombre maximal d'itérations."
+            )
+
+    return result

@@ -10,6 +10,8 @@ T4  — distance lower bound: tour distance ≥ sum of unique arc weights
 T5  — already-Eulerian graph with known exact distance
 T6  — ValueError on non-strongly-connected zone
 T7  — integration smoke-test on the 3 zones from the mock (step 5 output)
+T8  — régression : arcs portant un attribut 'key' (graphes OSM réels) ne
+      bloquent pas la duplication dans MultiDiGraph (_balance bug)
 """
 
 import pytest
@@ -265,3 +267,45 @@ class TestIntegrationMockZones:
             )
         captured = capsys.readouterr()
         print(captured.out)
+
+
+# ---------------------------------------------------------------------------
+# T8 — Régression : attribut 'key' dans les données d'arc (graphes OSM)
+# ---------------------------------------------------------------------------
+
+class TestKeyAttributeRegression:
+    def _zone_with_key_attr(self):
+        """
+        Zone SC non-Eulérien dont les arcs portent un attribut 'key': 0
+        (présent dans tous les graphes OSM chargés par graph_adapter).
+        Sans le fix, _balance échoue à dupliquer les arcs → NetworkXError.
+        """
+        G = nx.DiGraph()
+        for n in range(4):
+            G.add_node(n, x=-73.5 - n * 0.01, y=45.5)
+        # Tous les arcs portent key=0 comme dans les vrais graphes OSM
+        for u, v in [(0, 1), (1, 2), (2, 0), (1, 3), (3, 2)]:
+            G.add_edge(u, v, weight=1.0, key=0, highway="primary")
+        return G
+
+    def test_compute_tour_succeeds_with_key_attr(self):
+        """compute_tour ne doit pas lever NetworkXError même si les arcs ont key=0."""
+        zone = self._zone_with_key_attr()
+        assert nx.is_strongly_connected(zone)
+        # Sans le fix : NetworkXError "G is not Eulerian"
+        circuit, total_km = compute_tour(zone, depot=0)
+        assert len(circuit) > 0
+        assert total_km > 0
+
+    def test_arc_coverage_with_key_attr(self):
+        zone = self._zone_with_key_attr()
+        circuit, _ = compute_tour(zone, depot=0)
+        traversed = set(circuit)
+        for u, v in zone.edges():
+            assert (u, v) in traversed, f"Arc ({u},{v}) non couvert avec attribut key=0"
+
+    def test_closed_circuit_with_key_attr(self):
+        zone = self._zone_with_key_attr()
+        circuit, _ = compute_tour(zone, depot=0)
+        assert circuit[0][0] == 0
+        assert circuit[-1][1] == 0

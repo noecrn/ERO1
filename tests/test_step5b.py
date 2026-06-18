@@ -1,7 +1,7 @@
 """
-Tests for step 5b — ensure_strong_connectivity.
+Tests for step 5b — ensure_strong_connectivity + priority_only mode (RPP).
 
-Test groups
+Test groups (mode classique CPP — backward-compatible)
 -----------
 T1  — Zone 1 (broken) is strongly connected after repair
 T2  — Original arcs of Zone 1 are all preserved (repair only adds, never removes)
@@ -10,6 +10,17 @@ T4  — Repair arc count for Zone 1 is reported (regression anchor)
 T5  — compute_tour raises ValueError if a NON-repaired zone is passed (guard-rail intact)
 T6  — End-to-end: partition → repair → compute_tour produces valid tours for all 3 zones
 T7  — ValueError when G_full has no return path (genuine dead-end)
+
+Test groups (mode RPP — priority_only=True)
+-------------------------------------------
+T8  — résultat contient exactement les arcs priority=True de la zone + connecteurs
+T9  — résultat est fortement connexe
+T10 — arcs connecteurs portent connector=True, arcs originaux pas de repair/connector
+T11 — si tous les arcs prio sont déjà SC, aucun connecteur ajouté
+T12 — si aucun arc prioritaire dans la zone, ValueError explicite
+T13 — connecteurs viennent uniquement de G_full (pas inventés)
+T14 — end-to-end : priority_only zone → compute_tour produit un circuit valide
+T15 — backward compat : priority_only=False == comportement actuel
 """
 
 import pytest
@@ -253,3 +264,252 @@ class TestGenuineDeadEnd:
 
         with pytest.raises(ValueError, match="cul-de-sac réel"):
             ensure_strong_connectivity(zone, G_full)
+
+
+# ===========================================================================
+# Tests RPP — priority_only=True
+# ===========================================================================
+
+def _make_rpp_fixture():
+    """
+    Graphe de test pour le mode RPP.
+
+    Zone (sous-graphe d'une déneigeuse) :
+        Arcs prioritaires (priority=True) :
+            0→1  w=1.0   (îlot A)
+            1→0  w=1.0   (îlot A — bidirectionnel → déjà SC en lui-même)
+            3→4  w=1.0   (îlot B — isolé du reste)
+            4→3  w=1.0   (îlot B — bidirectionnel)
+        Arcs non prioritaires (priority=False) :
+            0→2  w=0.5
+            2→3  w=0.5   ← pont potentiel A→B dans G_full
+            4→5  w=0.5
+            5→0  w=0.5   ← pont potentiel B→A dans G_full
+
+    G_full = zone + arcs de retour qui permettent de relier B→A :
+        3→2  w=0.3  (non prioritaire)
+        2→1  w=0.3  (non prioritaire)
+
+    Après priority_only : on extrait {0→1, 1→0, 3→4, 4→3}, deux îlots SC.
+    On greffe des connecteurs depuis G_full pour relier A↔B.
+    Le résultat doit être SC et contenir des arcs connector=True.
+    """
+    zone = nx.DiGraph()
+    for n in range(6):
+        zone.add_node(n, x=-73.6 + n * 0.01, y=45.5)
+
+    # Prioritaires — deux îlots SC
+    zone.add_edge(0, 1, weight=1.0, priority=True)
+    zone.add_edge(1, 0, weight=1.0, priority=True)
+    zone.add_edge(3, 4, weight=1.0, priority=True)
+    zone.add_edge(4, 3, weight=1.0, priority=True)
+    # Non prioritaires
+    zone.add_edge(0, 2, weight=0.5, priority=False)
+    zone.add_edge(2, 3, weight=0.5, priority=False)
+    zone.add_edge(4, 5, weight=0.5, priority=False)
+    zone.add_edge(5, 0, weight=0.5, priority=False)
+
+    # G_full = zone + arcs retour supplémentaires
+    G_full = zone.copy()
+    G_full.add_edge(3, 2, weight=0.3, priority=False)
+    G_full.add_edge(2, 1, weight=0.3, priority=False)
+
+    return zone, G_full
+
+
+# ---------------------------------------------------------------------------
+# T8 — résultat contient exactement les arcs priority=True + connecteurs
+# ---------------------------------------------------------------------------
+
+class TestPriorityOnlyContainsPriorityArcs:
+    def test_all_original_priority_arcs_present(self):
+        zone, G_full = _make_rpp_fixture()
+        result = ensure_strong_connectivity(zone, G_full, priority_only=True)
+        for u, v, d in zone.edges(data=True):
+            if d.get("priority"):
+                assert result.has_edge(u, v), f"Arc prioritaire ({u},{v}) absent du résultat"
+
+    def test_no_non_priority_zone_arcs_in_result(self):
+        """Les arcs non-prioritaires de la zone ne doivent PAS être dans le résultat
+        (sauf s'ils sont greffés comme connecteurs depuis G_full)."""
+        zone, G_full = _make_rpp_fixture()
+        result = ensure_strong_connectivity(zone, G_full, priority_only=True)
+        for u, v, d in zone.edges(data=True):
+            if not d.get("priority") and result.has_edge(u, v):
+                # Toléré seulement si marqué connector=True
+                assert result.edges[u, v].get("connector") is True, (
+                    f"Arc non-prioritaire ({u},{v}) présent sans marqueur connector=True"
+                )
+
+
+# ---------------------------------------------------------------------------
+# T9 — résultat fortement connexe
+# ---------------------------------------------------------------------------
+
+class TestPriorityOnlyResultIsStronglyConnected:
+    def test_result_sc(self):
+        zone, G_full = _make_rpp_fixture()
+        result = ensure_strong_connectivity(zone, G_full, priority_only=True)
+        assert nx.is_strongly_connected(result), (
+            "Le sous-graphe prioritaire augmenté doit être fortement connexe"
+        )
+
+
+# ---------------------------------------------------------------------------
+# T10 — connecteurs portent connector=True, originaux pas de repair/connector
+# ---------------------------------------------------------------------------
+
+class TestConnectorMarkers:
+    def test_added_arcs_have_connector_true(self):
+        zone, G_full = _make_rpp_fixture()
+        result = ensure_strong_connectivity(zone, G_full, priority_only=True)
+        prio_arcs = {(u, v) for u, v, d in zone.edges(data=True) if d.get("priority")}
+        for u, v, d in result.edges(data=True):
+            if (u, v) not in prio_arcs:
+                assert d.get("connector") is True, (
+                    f"Arc ajouté ({u},{v}) ne porte pas connector=True"
+                )
+
+    def test_original_priority_arcs_not_marked_connector(self):
+        zone, G_full = _make_rpp_fixture()
+        result = ensure_strong_connectivity(zone, G_full, priority_only=True)
+        for u, v, d in zone.edges(data=True):
+            if d.get("priority") and result.has_edge(u, v):
+                assert result.edges[u, v].get("connector") is not True, (
+                    f"Arc prioritaire original ({u},{v}) marqué à tort connector=True"
+                )
+
+    def test_no_repair_marker_in_priority_only_mode(self):
+        """En mode priority_only, on utilise connector=True, jamais repair=True."""
+        zone, G_full = _make_rpp_fixture()
+        result = ensure_strong_connectivity(zone, G_full, priority_only=True)
+        repair_arcs = [(u, v) for u, v, d in result.edges(data=True) if d.get("repair")]
+        assert repair_arcs == [], (
+            f"Mode priority_only ne doit pas poser repair=True : {repair_arcs}"
+        )
+
+
+# ---------------------------------------------------------------------------
+# T11 — si arcs prio déjà SC, aucun connecteur ajouté
+# ---------------------------------------------------------------------------
+
+class TestNoConnectorWhenAlreadySC:
+    def test_no_connector_when_prio_already_sc(self):
+        """Deux arcs prioritaires formant un cycle — déjà SC, pas de connecteur."""
+        zone = nx.DiGraph()
+        G_full = nx.DiGraph()
+        for n in range(3):
+            zone.add_node(n, x=-73.6 + n * 0.01, y=45.5)
+            G_full.add_node(n, x=-73.6 + n * 0.01, y=45.5)
+        # Cycle prioritaire SC
+        zone.add_edge(0, 1, weight=1.0, priority=True)
+        zone.add_edge(1, 2, weight=1.0, priority=True)
+        zone.add_edge(2, 0, weight=1.0, priority=True)
+        G_full.add_edge(0, 1, weight=1.0, priority=True)
+        G_full.add_edge(1, 2, weight=1.0, priority=True)
+        G_full.add_edge(2, 0, weight=1.0, priority=True)
+
+        result = ensure_strong_connectivity(zone, G_full, priority_only=True)
+        connector_arcs = [(u, v) for u, v, d in result.edges(data=True) if d.get("connector")]
+        assert connector_arcs == [], (
+            f"Aucun connecteur attendu si le sous-graphe prio est déjà SC : {connector_arcs}"
+        )
+
+
+# ---------------------------------------------------------------------------
+# T12 — aucun arc prioritaire → ValueError explicite
+# ---------------------------------------------------------------------------
+
+class TestNoPriorityArcsRaisesValueError:
+    def test_raises_when_no_priority_arcs(self):
+        zone = nx.DiGraph()
+        G_full = nx.DiGraph()
+        for n in range(2):
+            zone.add_node(n, x=-73.6 + n * 0.01, y=45.5)
+            G_full.add_node(n, x=-73.6 + n * 0.01, y=45.5)
+        zone.add_edge(0, 1, weight=1.0, priority=False)
+        G_full.add_edge(0, 1, weight=1.0, priority=False)
+        G_full.add_edge(1, 0, weight=1.0, priority=False)
+
+        with pytest.raises(ValueError, match="prioritaire"):
+            ensure_strong_connectivity(zone, G_full, priority_only=True)
+
+
+# ---------------------------------------------------------------------------
+# T13 — connecteurs viennent de G_full (pas d'arcs inventés)
+# ---------------------------------------------------------------------------
+
+class TestConnectorsFromGFull:
+    def test_connector_arcs_exist_in_gfull(self):
+        zone, G_full = _make_rpp_fixture()
+        result = ensure_strong_connectivity(zone, G_full, priority_only=True)
+        prio_arcs = {(u, v) for u, v, d in zone.edges(data=True) if d.get("priority")}
+        for u, v, d in result.edges(data=True):
+            if (u, v) not in prio_arcs:
+                assert G_full.has_edge(u, v), (
+                    f"Arc connecteur ({u},{v}) absent de G_full — inventé de nulle part"
+                )
+
+
+# ---------------------------------------------------------------------------
+# T14 — end-to-end priority_only → compute_tour produit un circuit valide
+# ---------------------------------------------------------------------------
+
+class TestPriorityOnlyEndToEnd:
+    def test_compute_tour_on_priority_only_result(self):
+        zone, G_full = _make_rpp_fixture()
+        result = ensure_strong_connectivity(zone, G_full, priority_only=True)
+        # depot = nœud 0 (dans l'îlot A)
+        circuit, total_km = compute_tour(result, depot=0)
+
+        # Circuit fermé
+        assert circuit[0][0] == 0
+        assert circuit[-1][1] == 0
+
+        # Continuité
+        for i in range(len(circuit) - 1):
+            assert circuit[i][1] == circuit[i + 1][0]
+
+        # Couverture : tous les arcs prioritaires originaux
+        traversed = set(circuit)
+        for u, v, d in zone.edges(data=True):
+            if d.get("priority"):
+                assert (u, v) in traversed, f"Arc prioritaire ({u},{v}) non couvert"
+
+        # Borne inférieure de distance
+        assert total_km > 0
+
+    def test_print_rpp_summary(self, capsys):
+        zone, G_full = _make_rpp_fixture()
+        result = ensure_strong_connectivity(zone, G_full, priority_only=True)
+        circuit, total_km = compute_tour(result, depot=0)
+
+        nb_prio  = sum(1 for _, _, d in zone.edges(data=True) if d.get("priority"))
+        nb_conn  = sum(1 for _, _, d in result.edges(data=True) if d.get("connector"))
+        print(f"\n--- RPP fixture end-to-end ---")
+        print(f"  Arcs prioritaires : {nb_prio}")
+        print(f"  Arcs connecteurs  : {nb_conn}")
+        print(f"  Arcs dans résultat: {result.number_of_edges()}")
+        print(f"  Longueur tournée  : {total_km:.3f} km")
+        captured = capsys.readouterr()
+        print(captured.out)
+
+
+# ---------------------------------------------------------------------------
+# T15 — backward compat : priority_only=False == comportement actuel
+# ---------------------------------------------------------------------------
+
+class TestBackwardCompatibility:
+    def test_false_is_default_behavior(self):
+        """priority_only=False doit se comporter exactement comme avant."""
+        G, _, zones = _get_zones_and_full()
+        result_default = ensure_strong_connectivity(zones[1], G)
+        result_explicit = ensure_strong_connectivity(zones[1], G, priority_only=False)
+        assert set(result_default.edges()) == set(result_explicit.edges())
+
+    def test_false_preserves_repair_marker(self):
+        G, _, zones = _get_zones_and_full()
+        result = ensure_strong_connectivity(zones[1], G, priority_only=False)
+        added = set(result.edges()) - set(zones[1].edges())
+        for u, v in added:
+            assert result.edges[u, v].get("repair") is True

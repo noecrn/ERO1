@@ -66,19 +66,26 @@ def build_dashboard(
     """
     Compute cost metrics for one snowplow zone.
 
+    Le mode est détecté automatiquement depuis les attributs d'arcs de G :
+    - Mode CPP (arcs repair=True présents)    → clé surcout_reparation_km
+    - Mode RPP (arcs connector=True présents) → clé surcout_connecteur_km
+    Les deux modes sont mutuellement exclusifs dans la clé de surcoût retournée.
+    surcout_dcpp_km est présent dans les deux modes.
+
     Parameters
     ----------
     zone_id     : integer zone index (0-based, matching partition_network keys).
-    circuit     : ordered arc list from compute_tour (on the *repaired* zone).
+    circuit     : ordered arc list from compute_tour (on the zone DiGraph).
     distance_km : total tour distance returned by compute_tour.
-    G           : the *repaired* zone DiGraph (needed to read repair flags and
-                  edge weights for surcharge decomposition).
+    G           : zone DiGraph avec arcs repair=True (CPP) ou connector=True (RPP).
 
     Returns
     -------
-    dict with keys:
+    dict avec les clés communes :
         zone_id, distance_km, temps_h, cout_fixe, cout_km, cout_horaire,
-        Z_total, CO2_kg, surcout_reparation_km, surcout_dcpp_km.
+        Z_total, CO2_kg, surcout_dcpp_km
+    + en mode CPP : surcout_reparation_km
+    + en mode RPP : surcout_connecteur_km
     """
     T = distance_km / 10.0
     cout_horaire = 1.1 * min(T, 8.0) + 1.3 * max(0.0, T - 8.0)
@@ -87,15 +94,6 @@ def build_dashboard(
     Z_total      = cout_fixe + cout_km + cout_horaire
     CO2_kg       = 0.27 * distance_km
 
-    # Surcharge decomposition ------------------------------------------------
-    # repair km: repair=True arcs, counted once (regardless of DCPP repeats).
-    repair_arcs = {
-        (u, v)
-        for u, v, d in G.edges(data=True)
-        if d.get("repair") is True
-    }
-    surcout_reparation_km = sum(G.edges[u, v]["weight"] for u, v in repair_arcs)
-
     # DCPP extra km: repeated traversals only (each arc beyond the 1st pass).
     arc_counts = Counter(circuit)
     surcout_dcpp_km = sum(
@@ -103,18 +101,35 @@ def build_dashboard(
         for (u, v), cnt in arc_counts.items()
     )
 
-    return {
-        "zone_id":               zone_id,
-        "distance_km":           round(distance_km, 4),
-        "temps_h":               round(T, 4),
-        "cout_fixe":             round(cout_fixe, 4),
-        "cout_km":               round(cout_km, 4),
-        "cout_horaire":          round(cout_horaire, 4),
-        "Z_total":               round(Z_total, 4),
-        "CO2_kg":                round(CO2_kg, 4),
-        "surcout_reparation_km": round(surcout_reparation_km, 4),
-        "surcout_dcpp_km":       round(surcout_dcpp_km, 4),
+    base = {
+        "zone_id":       zone_id,
+        "distance_km":   round(distance_km, 4),
+        "temps_h":       round(T, 4),
+        "cout_fixe":     round(cout_fixe, 4),
+        "cout_km":       round(cout_km, 4),
+        "cout_horaire":  round(cout_horaire, 4),
+        "Z_total":       round(Z_total, 4),
+        "CO2_kg":        round(CO2_kg, 4),
+        "surcout_dcpp_km": round(surcout_dcpp_km, 4),
     }
+
+    # Détection du mode — connector=True → RPP, sinon CPP par défaut.
+    is_rpp = any(d.get("connector") is True for _, _, d in G.edges(data=True))
+
+    if is_rpp:
+        connector_arcs = {
+            (u, v) for u, v, d in G.edges(data=True) if d.get("connector") is True
+        }
+        surcout_connecteur_km = sum(G.edges[u, v]["weight"] for u, v in connector_arcs)
+        base["surcout_connecteur_km"] = round(surcout_connecteur_km, 4)
+    else:
+        repair_arcs = {
+            (u, v) for u, v, d in G.edges(data=True) if d.get("repair") is True
+        }
+        surcout_reparation_km = sum(G.edges[u, v]["weight"] for u, v in repair_arcs)
+        base["surcout_reparation_km"] = round(surcout_reparation_km, 4)
+
+    return base
 
 
 # ---------------------------------------------------------------------------
@@ -164,13 +179,16 @@ def run_pipeline(output_dir: str = ".") -> dict:
 def _build_global_dashboard(zone_dashboards: list) -> dict:
     """Aggregate per-zone dashboards into a fleet-level summary."""
     return {
-        "nb_deneigeuses":        len(zone_dashboards),
-        "distance_totale_km":    round(sum(d["distance_km"] for d in zone_dashboards), 4),
-        "Z_total_flotte":        round(sum(d["Z_total"]     for d in zone_dashboards), 4),
-        "CO2_total_kg":          round(sum(d["CO2_kg"]      for d in zone_dashboards), 4),
+        "nb_deneigeuses":               len(zone_dashboards),
+        "distance_totale_km":           round(sum(d["distance_km"] for d in zone_dashboards), 4),
+        "Z_total_flotte":               round(sum(d["Z_total"]     for d in zone_dashboards), 4),
+        "CO2_total_kg":                 round(sum(d["CO2_kg"]      for d in zone_dashboards), 4),
         # Snowplows run in parallel → operation ends when the slowest finishes.
-        "temps_operation_h":     round(max(d["temps_h"]     for d in zone_dashboards), 4),
-        "zones":                 zone_dashboards,
+        "temps_operation_h":            round(max(d["temps_h"]     for d in zone_dashboards), 4),
+        # Surcharges agrégées séparément par mode
+        "surcout_reparation_total_km":  round(sum(d.get("surcout_reparation_km", 0.0) for d in zone_dashboards), 4),
+        "surcout_connecteur_total_km":  round(sum(d.get("surcout_connecteur_km", 0.0) for d in zone_dashboards), 4),
+        "zones":                        zone_dashboards,
     }
 
 

@@ -1,0 +1,23 @@
+{
+  "nb_deneigeuses": 1,
+  "distance_totale_km": 124.345,
+  "Z_total_flotte": 651.3444,
+  "CO2_total_kg": 33.5732,
+  "temps_operation_h": 12.4345,
+  "surcout_reparation_total_km": 0.0,
+  "surcout_connecteur_total_km": 9.9649,
+  "zones": [
+    {
+      "zone_id": 0,
+      "distance_km": 124.345,
+      "temps_h": 12.4345,
+      "cout_fixe": 500.0,
+      "cout_km": 136.7795,
+      "cout_horaire": 14.5649,
+      "Z_total": 651.3444,
+      "CO2_kg": 33.5732,
+      "surcout_dcpp_km": 41.8657,
+      "surcout_connecteur_km": 9.9649
+    }
+  ]
+}

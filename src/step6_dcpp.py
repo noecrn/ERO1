@@ -119,6 +119,9 @@ def _balance(zone: nx.DiGraph, imbalances: dict) -> nx.MultiDiGraph:
     flow = nx.min_cost_flow(flow_net)
 
     # Duplicate arcs along the chosen shortest paths.
+    # NOTE: strip 'key' from edge attrs — present in OSM-derived graphs and
+    # interpreted by MultiDiGraph as the multi-edge key, which would silently
+    # update the existing edge instead of adding a new duplicate arc.
     balanced = nx.MultiDiGraph(zone)
     for s in sources:
         for t, fval in flow.get(s, {}).items():
@@ -128,6 +131,7 @@ def _balance(zone: nx.DiGraph, imbalances: dict) -> nx.MultiDiGraph:
             for _ in range(int(fval)):
                 for i in range(len(path) - 1):
                     u, v = path[i], path[i + 1]
-                    balanced.add_edge(u, v, **zone.edges[u, v])
+                    attrs = {k: val for k, val in zone.edges[u, v].items() if k != "key"}
+                    balanced.add_edge(u, v, **attrs)
 
     return balanced

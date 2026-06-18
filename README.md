@@ -66,19 +66,131 @@ Le projet est structuré de manière modulaire :
 
 ---
 
-## Prérequis et Installation
+## Installation
 
-Assurez-vous d'avoir **Python 3.8 ou supérieur** installé.
+Assurez-vous d'avoir **Python 3.10 ou supérieur** installé.
+
+```bash
+# Cloner le dépôt et se placer à la racine
+python -m venv .venv
+source .venv/bin/activate          # Windows : .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+---
+
+## Utilisation — Pipeline déneigement (étapes 5 → 7)
+
+```bash
+# Scénario Sécurité & Social (Rural Postman Problem)
+python src/run_pipeline.py --quartier anjou --scenario securite
+
+# Scénario Économique (Chinese Postman Problem)
+python src/run_pipeline.py --quartier anjou --scenario economique
+
+# Scénario Baseline — réseau complet
+python src/run_pipeline.py --quartier anjou --scenario baseline
+```
+
+**Quartiers disponibles :** `anjou`, `outremont`, `verdun`, `riviere_des_prairies`
+
+Les fichiers sont écrits dans `output/{quartier}/{scenario}/`.
+
+---
+
+## Structure du rendu
+
+```
+output/
+└── {quartier}/
+    └── {scenario}/
+        ├── dashboard_global.json     — synthèse flotte (coût, CO₂, temps)
+        ├── dashboard_zone_0.json     — métriques par déneigeuse
+        ├── dashboard_zone_1.json
+        ├── itineraire_zone_0.json    — liste ordonnée de waypoints GPS
+        └── itineraire_zone_1.json
+
+src/
+├── graph_adapter.py      — couche anti-corruption (format étapes 1-4 → pipeline)
+├── run_pipeline.py       — point d'entrée CLI (étapes 5→7)
+├── step5_partition.py    — partitionnement par dépôt (Dijkstra)
+├── step5b_repair.py      — connexité forte + mode RPP (connecteurs)
+├── step6_dcpp.py         — Postier Chinois Orienté (min-cost flow + Euler)
+├── step7_output.py       — dashboard coûts, itinéraires GPS
+├── p2.py                 — calcul K optimal + placement dépôts (KMeans)
+├── data_loader.py        — acquisition OSMnx + annotation priorités (étapes 1-4)
+└── graph_{quartier}.json — graphes pré-calculés (Anjou, Outremont, Verdun, RDP)
+
+tests/                    — 164 tests unitaires et d'intégration
+```
+
+---
+
+## Contrat d'interface — Format attendu en entrée (étapes 1-4)
+
+Les collègues qui branchent leurs étapes 1-4 doivent produire un fichier
+`graph_{quartier}.json` respectant ce schéma exact :
+
+```json
+{
+  "quartier": "anjou",
+  "nodes": {
+    "<osmid>": { "lat": 45.6234, "lon": -73.5841 }
+  },
+  "edges": [
+    {
+      "source": "<osmid>",
+      "target": "<osmid>",
+      "key": 0,
+      "length_km": 0.277,
+      "highway": "primary",
+      "is_crit_security_social": true,
+      "is_crit_economique": true
+    }
+  ]
+}
+```
+
+**Attributs obligatoires :**
+
+| Champ | Type | Description |
+|-------|------|-------------|
+| `nodes[id].lat` | float | Latitude (WGS84) |
+| `nodes[id].lon` | float | Longitude (WGS84) |
+| `edges[].source` / `target` | string | OSM node IDs |
+| `edges[].length_km` | float > 0 | Longueur du segment en km |
+| `edges[].is_crit_security_social` | bool | Vrai si l'arc est prioritaire scénario sécurité |
+| `edges[].is_crit_economique` | bool | Vrai si l'arc est prioritaire scénario économique |
+
+`graph_adapter.py` traduit automatiquement `length_km → weight`, `lat/lon → y/x`,
+`is_crit_security_social → priority`. Tous les attributs originaux sont conservés.
+
+---
+
+## Limitations connues
+
+| Limitation | Impact | Fichier concerné |
+|---|---|---|
+| Arcs hors grande SCC écartés (bretelles motorway, impasses) | Anjou : 16 arcs prio écartés (3 %) ; Verdun : 145 (26 %) | `graph_adapter.py` — warning émis au chargement |
+| `h_neige` absent des JSON réels | Hauteur de neige non exploitée dans le routage | `data_loader.py` — non exporté par `save_graph_to_json` |
+| Surcoût DCPP ~37 % sur Anjou | Le réseau prio n'est pas eulérien — l'équilibrage min-cost flow ajoute des repassages | Inhérent au DCPP sur graphes orientés non-eulériens |
+| Verdun : grande SCC = 55.7 % des nœuds | Forte fragmentation due aux sens uniques OSM — 145 arcs prioritaires perdus | Structure OSM, pas un bug de fusion |
+
+---
+
+## Prérequis et Installation (version complète)
+
+Assurez-vous d'avoir **Python 3.10 ou supérieur** installé.
 
 1. **Cloner ou extraire** le projet dans le répertoire de votre choix.
 2. **Ouvrir un terminal** à la racine du projet.
 3. **Créer un environnement virtuel** :
    ```bash
-   python -m venv venv
+   python -m venv .venv
    ```
 4. **Activer l'environnement virtuel** :
    ```bash
-   source venv/bin/activate
+   source .venv/bin/activate
    ```
 5. **Installer les dépendances** :
    ```bash
@@ -87,16 +199,15 @@ Assurez-vous d'avoir **Python 3.8 ou supérieur** installé.
 
 ---
 
-## Exécution et Démonstration
+## Exécution complète (étapes 1-4 incluses)
 
-Pour lancer le pipeline d'optimisation complet (chargement, filtrage, partitionnement, routage DCPP, calcul des coûts et export) :
+Pour régénérer les graphes depuis OSMnx (nécessite une connexion internet) :
 
 ```bash
 python main.py
 ```
 
 ### Étapes du pipeline exécuté :
-1. **Chargement** : Lecture du graphe du réseau routier et des scénarios.
-2. **Filtrage** : Application de la hauteur de neige stochastique et marquage des rues prioritaires.
-3. **Optimisation** : Découpage du réseau en zones et calcul des parcours minimisant le trajet à vide.
-4. **Exportation** : Génération des itinéraires et indicateurs détaillés dans le dossier `output/`.
+1. **Chargement** : Récupération OSMnx + annotation priorités (`data_loader.py`).
+2. **Optimisation K** : Calcul du nombre optimal de déneigeuses (`p2.py`).
+3. **Routage** : Partitionnement, connexité, DCPP/RPP, export (`src/run_pipeline.py`).
