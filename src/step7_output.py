@@ -15,6 +15,7 @@ Billing conventions (fixed, do not alter):
 import json
 from collections import Counter
 from pathlib import Path
+from xml.etree.ElementTree import Element, SubElement, ElementTree
 
 import networkx as nx
 
@@ -55,6 +56,42 @@ def build_itinerary(circuit: list, G: nx.DiGraph) -> list:
     last_v = circuit[-1][1]
     waypoints.append({"lat": G.nodes[last_v]["y"], "lon": G.nodes[last_v]["x"]})
     return waypoints
+
+
+def build_gpx(circuit: list, G: nx.DiGraph, track_name: str = "Itinéraire déneigeuse") -> str:
+    """
+    Convert an ordered arc list into a standard GPX 1.1 track (<trk>/<trkseg>/<trkpt>),
+    importable by any GPS device or mapping software (Garmin, OsmAnd, QGIS, etc.).
+
+    Parameters
+    ----------
+    circuit    : ordered list of (u, v) arcs, as returned by compute_tour.
+    G          : any DiGraph containing all nodes in the circuit with x/y attrs.
+    track_name : <name> shown by the GPS device/software for this track.
+
+    Returns
+    -------
+    GPX 1.1 XML document as a string (UTF-8, includes XML declaration).
+    """
+    gpx = Element("gpx", {
+        "version": "1.1",
+        "creator": "ERO1",
+        "xmlns": "http://www.topografix.com/GPX/1/1",
+    })
+    trk = SubElement(gpx, "trk")
+    SubElement(trk, "name").text = track_name
+    trkseg = SubElement(trk, "trkseg")
+
+    waypoints = build_itinerary(circuit, G)
+    for wp in waypoints:
+        SubElement(trkseg, "trkpt", {"lat": str(wp["lat"]), "lon": str(wp["lon"])})
+
+    from xml.dom import minidom
+    rough = ElementTree(gpx)
+    import io
+    buf = io.BytesIO()
+    rough.write(buf, encoding="utf-8", xml_declaration=True)
+    return minidom.parseString(buf.getvalue()).toprettyxml(indent="  ")
 
 
 def build_dashboard(
@@ -101,16 +138,26 @@ def build_dashboard(
         for (u, v), cnt in arc_counts.items()
     )
 
+    # distance_deneigee_km : arcs réellement requis (ni connecteur RPP, ni
+    # réparation CPP), comptés une seule fois même si traversés plusieurs fois
+    # par le DCPP — c'est la neige effectivement enlevée, pas la route parcourue.
+    distance_deneigee_km = sum(
+        d["weight"] for _, _, d in G.edges(data=True)
+        if not d.get("connector") and not d.get("repair")
+    )
+
     base = {
-        "zone_id":       zone_id,
-        "distance_km":   round(distance_km, 4),
-        "temps_h":       round(T, 4),
-        "cout_fixe":     round(cout_fixe, 4),
-        "cout_km":       round(cout_km, 4),
-        "cout_horaire":  round(cout_horaire, 4),
-        "Z_total":       round(Z_total, 4),
-        "CO2_kg":        round(CO2_kg, 4),
-        "surcout_dcpp_km": round(surcout_dcpp_km, 4),
+        "zone_id":              zone_id,
+        "distance_parcourue_km": round(distance_km, 4),
+        "distance_deneigee_km":  round(distance_deneigee_km, 4),
+        "distance_km":          round(distance_km, 4),  # alias rétro-compat
+        "temps_h":              round(T, 4),
+        "cout_fixe":            round(cout_fixe, 4),
+        "cout_km":              round(cout_km, 4),
+        "cout_horaire":         round(cout_horaire, 4),
+        "Z_total":              round(Z_total, 4),
+        "CO2_kg":               round(CO2_kg, 4),
+        "surcout_dcpp_km":      round(surcout_dcpp_km, 4),
     }
 
     # Détection du mode — connector=True → RPP, sinon CPP par défaut.
@@ -181,6 +228,8 @@ def _build_global_dashboard(zone_dashboards: list) -> dict:
     return {
         "nb_deneigeuses":               len(zone_dashboards),
         "distance_totale_km":           round(sum(d["distance_km"] for d in zone_dashboards), 4),
+        "distance_parcourue_totale_km": round(sum(d["distance_parcourue_km"] for d in zone_dashboards), 4),
+        "distance_deneigee_totale_km":  round(sum(d["distance_deneigee_km"]  for d in zone_dashboards), 4),
         "Z_total_flotte":               round(sum(d["Z_total"]     for d in zone_dashboards), 4),
         "CO2_total_kg":                 round(sum(d["CO2_kg"]      for d in zone_dashboards), 4),
         # Snowplows run in parallel → operation ends when the slowest finishes.

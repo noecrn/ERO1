@@ -4,8 +4,19 @@ et le pipeline interne (étapes 5-7).
 
 Traductions appliquées
 ----------------------
-Arcs  : length_km               → weight   (poids de routage Dijkstra)
-        is_crit_security_social → priority (flag RPP, même filtre que p2.py)
+Arcs  : length_km               → weight        (poids de routage Dijkstra)
+        is_crit_security_social → priority      (flag RPP, critère paramétrable
+                                                  via priority_field)
+        priority + h_neige      → needs_clearing (l'arc est-il VRAIMENT à déneiger
+                                                  aujourd'hui : prioritaire ET
+                                                  couvert par 2.5–15 cm de neige).
+                                                  Sous ce seuil, trop peu de neige
+                                                  pour justifier un passage ; au-delà,
+                                                  hors capacité d'une passe normale.
+                                                  Un arc priority=True mais
+                                                  needs_clearing=False reste
+                                                  traversable (transit), juste pas
+                                                  compté dans la distance déneigée.
 Nœuds : lon                     → x        (longitude, convention NetworkX/OSMnx)
         lat                     → y        (latitude,  convention NetworkX/OSMnx)
 
@@ -17,12 +28,6 @@ Par défaut (restrict_to_main_scc=True), load_graph ne retourne que la plus
 grande composante fortement connexe.  Les arcs écartés sont loggés via
 warnings.warn.  Cette restriction garantit que step5b et step6 reçoivent
 toujours un graphe fortement connexe.
-
-Limitation connue (à signaler à l'équipe)
------------------------------------------
-h_neige n'est pas exporté par save_graph_to_json dans data_loader.py — les arcs
-du graphe réel n'ont donc pas cet attribut.  Le pipeline interne n'en a pas
-besoin ; si une étape future l'utilise il faudra l'ajouter à l'export.
 """
 
 import json
@@ -30,6 +35,9 @@ import warnings
 from pathlib import Path
 
 import networkx as nx
+
+SEUIL_NEIGE_MIN_CM = 2.5
+SEUIL_NEIGE_MAX_CM = 15.0
 
 
 def extract_main_scc(G: nx.DiGraph) -> nx.DiGraph:
@@ -116,6 +124,10 @@ def load_graph(
         attrs = {k: v for k, v in edge.items() if k not in ("source", "target")}
         attrs["weight"] = float(edge["length_km"])
         attrs["priority"] = bool(edge.get(priority_field, False))
+        h_neige = edge.get("h_neige", 0.0)
+        attrs["needs_clearing"] = bool(
+            attrs["priority"] and SEUIL_NEIGE_MIN_CM <= h_neige <= SEUIL_NEIGE_MAX_CM
+        )
         G.add_edge(u, v, **attrs)
 
     if restrict_to_main_scc:

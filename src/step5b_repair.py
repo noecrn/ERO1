@@ -47,11 +47,13 @@ def ensure_strong_connectivity(
 
     Mode RPP (priority_only=True)
     ------------------------------
-    Extrait le sous-graphe des arcs priority=True de *zone*, puis le rend
-    fortement connexe en greffant des connecteurs depuis *G_full*.
-    Arcs greffés : connector=True.  Les arcs priority originaux conservent
-    leurs attributs inchangés.  Les arcs non-prioritaires de *zone* sont
-    exclus du résultat sauf s'ils apparaissent comme connecteurs.
+    Extrait le sous-graphe des arcs needs_clearing=True de *zone* (prioritaires
+    ET dans le seuil de neige 2.5–15 cm), puis le rend fortement connexe en
+    greffant des connecteurs depuis *G_full*.  Arcs greffés : connector=True.
+    Les arcs needs_clearing originaux conservent leurs attributs inchangés.
+    Les autres arcs de *zone* (non-prioritaires, ou prioritaires mais hors
+    seuil de neige) sont exclus du résultat sauf s'ils apparaissent comme
+    connecteurs.
 
     Parameters
     ----------
@@ -202,18 +204,23 @@ def _graft_path_as_connector(
 
 def _ensure_sc_priority_only(zone: nx.DiGraph, G_full: nx.DiGraph) -> nx.DiGraph:
     """
-    Mode RPP : extrait les arcs priority=True de *zone*, les rend fortement
-    connexes en greffant des connecteurs depuis *G_full*.
+    Mode RPP : extrait les arcs needs_clearing=True de *zone* (prioritaires ET
+    couverts par 2.5–15 cm de neige — voir graph_adapter.py), les rend
+    fortement connexes en greffant des connecteurs depuis *G_full*.
 
-    Raises ValueError si aucun arc prioritaire ou si G_full ne peut pas relier
+    Un arc prioritaire mais hors seuil de neige (trop peu ou trop pour une
+    passe) n'est pas exigé ici ; il peut néanmoins être greffé comme
+    connecteur s'il raccourcit un trajet entre deux arcs à déneiger.
+
+    Raises ValueError si aucun arc à déneiger ou si G_full ne peut pas relier
     deux SCCs (cul-de-sac réel dans le réseau source).
     """
-    # Extraire le sous-graphe prioritaire
-    prio_edges = [(u, v, d) for u, v, d in zone.edges(data=True) if d.get("priority")]
+    # Extraire le sous-graphe des arcs réellement à déneiger
+    prio_edges = [(u, v, d) for u, v, d in zone.edges(data=True) if d.get("needs_clearing")]
     if not prio_edges:
         raise ValueError(
-            "priority_only=True mais aucun arc prioritaire dans la zone. "
-            "Vérifier le flag 'priority' sur les arcs de la zone."
+            "priority_only=True mais aucun arc à déneiger dans la zone "
+            "(needs_clearing=True). Vérifier les flags 'priority'/'h_neige'."
         )
 
     result = nx.DiGraph()

@@ -35,7 +35,7 @@ from src.p2 import charger_et_filtrer, construire_graphe, trouver_K_optimal, pla
 from src.step5_partition import partition_network
 from src.step5b_repair import ensure_strong_connectivity
 from src.step6_dcpp import compute_tour
-from src.step7_output import build_dashboard, build_itinerary, _build_global_dashboard
+from src.step7_output import build_dashboard, build_gpx, build_itinerary, _build_global_dashboard
 
 # Mapping CLI scenario → p2 scenario name + deadline + RPP flag + critère priority
 _SCENARIO_MAP = {
@@ -117,9 +117,13 @@ def run_pipeline(
         # 6
         circuit, distance_km = compute_tour(zone_sc, depot)
 
-        # 7 — itinéraire
+        # 7 — itinéraire (JSON interne + GPX standard pour GPS déneigeuse)
         itinerary = build_itinerary(circuit, G)
         _write_json(out_dir / f"itineraire_zone_{idx}.json", itinerary)
+
+        gpx_xml = build_gpx(circuit, G, track_name=f"{quartier} — {scenario} — zone {idx}")
+        with open(out_dir / f"itineraire_zone_{idx}.gpx", "w", encoding="utf-8") as fh:
+            fh.write(gpx_xml)
 
         # 7 — dashboard de zone
         dash = build_dashboard(idx, circuit, distance_km, zone_sc)
