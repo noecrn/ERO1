@@ -37,11 +37,11 @@ from src.step5b_repair import ensure_strong_connectivity
 from src.step6_dcpp import compute_tour
 from src.step7_output import build_dashboard, build_itinerary, _build_global_dashboard
 
-# Mapping CLI scenario → p2 scenario name + deadline + RPP flag
+# Mapping CLI scenario → p2 scenario name + deadline + RPP flag + critère priority
 _SCENARIO_MAP = {
-    "securite":  {"p2": "securitaire", "deadline": 10, "priority_only": True},
-    "economique": {"p2": "economique",  "deadline": 10, "priority_only": False},
-    "baseline":  {"p2": "baseline",    "deadline": 15, "priority_only": False},
+    "securite":  {"p2": "securitaire", "deadline": 10, "priority_only": True,  "priority_field": "is_crit_security_social"},
+    "economique": {"p2": "economique",  "deadline": 10, "priority_only": True,  "priority_field": "is_crit_economique"},
+    "baseline":  {"p2": "baseline",    "deadline": 15, "priority_only": False, "priority_field": "is_crit_security_social"},
 }
 
 
@@ -71,12 +71,12 @@ def run_pipeline(
         )
 
     cfg = _SCENARIO_MAP[scenario]
-    graph_path = f"src/graph_{quartier}.json"
+    graph_path = f"data/graph_{quartier}.json"
 
     # ── Étape A : chargement du graphe (restriction grande SCC) ──────────────
     with warnings.catch_warnings(record=True) as scc_warns:
         warnings.simplefilter("always")
-        G = load_graph(graph_path)
+        G = load_graph(graph_path, priority_field=cfg["priority_field"])
     for w in scc_warns:
         print(f"  [adapter] {w.message}")
 

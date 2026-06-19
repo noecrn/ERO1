@@ -147,12 +147,14 @@ def _shortest_path_between_sets(
     best_length = math.inf
     best_path: list | None = None
 
-    for s in from_set:
+    # frozenset iteration order is hash-randomized per process (str node IDs) —
+    # sort first so tie-breaks (equal-length paths) are reproducible across runs.
+    for s in sorted(from_set):
         try:
             lengths, paths = nx.single_source_dijkstra(G, s, weight="weight")
         except nx.NodeNotFound:
             continue
-        for t in to_set:
+        for t in sorted(to_set):
             d = lengths.get(t, math.inf)
             if d < best_length:
                 best_length = d

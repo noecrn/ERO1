@@ -92,8 +92,11 @@ def partition_network(G: nx.DiGraph, depots: list) -> dict[int, nx.DiGraph]:
     subgraphs: dict[int, nx.DiGraph] = {}
     for i, arc_list in buckets.items():
         sg = nx.DiGraph()
-        # Collect all nodes touched by this zone's arcs.
-        nodes_in_zone = {n for arc in arc_list for n in arc}
+        # Collect all nodes touched by this zone's arcs.  Sorted (not raw set
+        # iteration) so node insertion order — and everything derived from it
+        # downstream (SCC condensation numbering in step5b) — is reproducible
+        # across runs/processes regardless of str hash randomization.
+        nodes_in_zone = sorted({n for arc in arc_list for n in arc})
         for node in nodes_in_zone:
             sg.add_node(node, **G.nodes[node])
         for u, v in arc_list:

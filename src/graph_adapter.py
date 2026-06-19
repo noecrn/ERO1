@@ -67,7 +67,11 @@ def extract_main_scc(G: nx.DiGraph) -> nx.DiGraph:
     return result
 
 
-def load_graph(json_path, restrict_to_main_scc: bool = True) -> nx.DiGraph:
+def load_graph(
+    json_path,
+    restrict_to_main_scc: bool = True,
+    priority_field: str = "is_crit_security_social",
+) -> nx.DiGraph:
     """
     Lire un graph_{quartier}.json et retourner un nx.DiGraph avec les
     attributs canoniques du pipeline interne.
@@ -76,6 +80,9 @@ def load_graph(json_path, restrict_to_main_scc: bool = True) -> nx.DiGraph:
     ----------
     json_path           : str or Path — chemin vers le JSON produit par data_loader.py.
     restrict_to_main_scc: si True (défaut), restreint le graphe à la plus grande SCC.
+    priority_field       : nom du champ booléen source du flag `priority` (RPP).
+                            "is_crit_security_social" pour le scénario sécuritaire,
+                            "is_crit_economique" pour le scénario économique.
 
     Returns
     -------
@@ -108,7 +115,7 @@ def load_graph(json_path, restrict_to_main_scc: bool = True) -> nx.DiGraph:
         v = edge["target"]
         attrs = {k: v for k, v in edge.items() if k not in ("source", "target")}
         attrs["weight"] = float(edge["length_km"])
-        attrs["priority"] = bool(edge.get("is_crit_security_social", False))
+        attrs["priority"] = bool(edge.get(priority_field, False))
         G.add_edge(u, v, **attrs)
 
     if restrict_to_main_scc:
