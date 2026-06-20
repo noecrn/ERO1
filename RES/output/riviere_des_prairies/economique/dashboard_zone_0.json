@@ -1,0 +1,14 @@
+{
+  "zone_id": 0,
+  "distance_parcourue_km": 134.2756,
+  "distance_deneigee_km": 41.334,
+  "distance_km": 134.2756,
+  "temps_h": 13.4276,
+  "cout_fixe": 500.0,
+  "cout_km": 147.7032,
+  "cout_horaire": 15.8558,
+  "Z_total": 663.559,
+  "CO2_kg": 36.2544,
+  "surcout_dcpp_km": 57.6805,
+  "surcout_connecteur_km": 35.2611
+}

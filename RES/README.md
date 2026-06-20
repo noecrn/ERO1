@@ -2,7 +2,7 @@
 
 Ce rendu contient les résultats, les données et la visualisation du projet d'Éléments de Recherche Opérationnelle (ERO1) réalisé par le Groupe 10. L'objectif était de modéliser, d'évaluer et d'optimiser le parcours de déneigement des rues de Montréal à travers différents scénarios d'intervention.
 
-**Ce rendu ne contient pas le code source du pipeline** (algorithmes de partitionnement, DCPP/RPP, etc.) : il regroupe le rapport, les données d'entrée, les résultats déjà calculés et une démo de visualisation à ouvrir dans un navigateur.
+**Ce rendu ne contient pas le code source du pipeline** (algorithmes de partitionnement, DCPP/RPP, etc.) : il regroupe uniquement les données d'entrée, les résultats déjà calculés et une démo de visualisation à ouvrir dans un navigateur.
 
 ---
 
@@ -54,7 +54,6 @@ Ce rendu contient uniquement les éléments suivants :
 
 - **`README.md`** : ce document.
 - **`AUTHORS`** : liste des auteurs du projet.
-- **`Rapport_ERO1.pdf`** : rapport complet du projet (formalisation mathématique détaillée, analyse éthique, recommandations, résultats par arrondissement). Le présent README en résume les points essentiels ; se référer au rapport pour le détail et la justification complète.
 - **`configs/`** : configurations des scénarios de priorisation (`scenarios.json`).
 - **`data/`** : graphes routiers par quartier et exports géographiques utilisés en entrée du pipeline (voir détail ci-dessous).
 - **`output/`** : résultats calculés — itinéraires GPS et tableaux de bord de coûts pour chaque combinaison quartier/scénario (voir détail ci-dessous).
@@ -64,10 +63,9 @@ Ce rendu contient uniquement les éléments suivants :
 
 ## Comment consulter les résultats
 
-1. **Rapport complet :** lire `Rapport_ERO1.pdf` pour la formalisation mathématique détaillée, l'analyse éthique et les recommandations.
-2. **Visualisation interactive :** ouvrir `demo_visualisation.html` dans un navigateur (double-clic, ou clic droit → "Ouvrir avec..."). Elle charge les données de `data/` et `output/` pour afficher la carte et l'animation du trajet.
-3. **Données chiffrées détaillées :** consulter directement les fichiers `.json` dans `output/{quartier}/{scenario}/` (voir structure ci-dessous).
-4. **Itinéraire GPS brut :** les fichiers `.gpx` dans `output/{quartier}/{scenario}/` sont importables dans n'importe quel logiciel ou appareil GPS standard (Garmin, OsmAnd, QGIS, etc.).
+1. **Visualisation interactive :** ouvrir `demo_visualisation.html` dans un navigateur (double-clic, ou clic droit → "Ouvrir avec..."). Elle charge les données de `data/` et `output/` pour afficher la carte et l'animation du trajet.
+2. **Données chiffrées détaillées :** consulter directement les fichiers `.json` dans `output/{quartier}/{scenario}/` (voir structure ci-dessous).
+3. **Itinéraire GPS brut :** les fichiers `.gpx` dans `output/{quartier}/{scenario}/` sont importables dans n'importe quel logiciel ou appareil GPS standard (Garmin, OsmAnd, QGIS, etc.).
 
 ---
 
@@ -112,4 +110,5 @@ Chaque `dashboard_zone_{id}.json` distingue notamment :
 - `Z_total`, `CO2_kg`, `temps_h`, `cout_fixe`, `cout_km`, `cout_horaire` : détail du coût selon le modèle municipal ci-dessus.
 
 `dashboard_global.json` agrège ces métriques sur l'ensemble des déneigeuses du quartier/scénario.
+
 
