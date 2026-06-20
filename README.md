@@ -111,13 +111,4 @@ Chaque `dashboard_zone_{id}.json` distingue notamment :
 
 `dashboard_global.json` agrège ces métriques sur l'ensemble des déneigeuses du quartier/scénario.
 
----
 
-## Limitations connues
-
-| Limitation | Impact |
-|---|---|
-| Arcs hors de la plus grande composante fortement connexe du réseau écartés (bretelles, impasses) | Anjou : 16 arcs prioritaires écartés (3 %) ; Verdun : 145 (26 %) |
-| Hauteur de neige (`h_neige`) parfois absente des données sources | Une rue prioritaire mais sans hauteur de neige connue n'est jamais comptée comme déneigée (seuil 2.5–15 cm non atteint par défaut) |
-| Surcoût de l'algorithme de routage ~37 % sur Anjou | Le réseau prioritaire n'est pas eulérien — l'équilibrage du circuit ajoute des repassages |
-| Verdun : plus grande composante connexe = 55.7 % des nœuds | Forte fragmentation due aux sens uniques du réseau — 145 arcs prioritaires perdus |
