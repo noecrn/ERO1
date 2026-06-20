@@ -87,10 +87,10 @@
 <div class="hud">
   <h1 id="hudTitle">Parcours déneigement</h1>
   <div class="meta" id="hudMeta">Anjou — Sécurité &amp; Social</div>
-  <div class="stat-row"><span class="k">Distance dégagée</span><span class="v" id="statDist">0.0 / 0.0 km</span></div>
+  <div class="stat-row"><span class="k">Distance parcourue (en cours)</span><span class="v" id="statDist">0.0 / 0.0 km</span></div>
   <div class="stat-row"><span class="k">Progression</span><span class="v" id="statPct">0 %</span></div>
   <div class="stat-row"><span class="k">Temps simulé (10 km/h)</span><span class="v" id="statTime">0 h 00</span></div>
-  <div class="stat-row"><span class="k">Parcourue vs déneigée</span><span class="v" id="statParcourueDeneigee">0.0 / 0.0 km</span></div>
+  <div class="stat-row"><span class="k">Parcouru / déneigé (en cours)</span><span class="v" id="statParcourueDeneigee">0.0 / 0.0 km</span></div>
   <div class="legend">
     <span><i class="sw sw-net"></i>Réseau du quartier</span>
     <span><i class="sw sw-plan"></i>Trajet prévu</span>
@@ -132,7 +132,9 @@
   let totalDist = 0;
   let playing = false;
   let progressKm = 0;     // distance parcourue actuelle (km)
-  let deneigeeDist = 0;   // distance déneigée (segments uniques, km)
+  let deneigeeDist = 0;   // distance déneigée totale (arcs uniques, km)
+  let cumDeneigee = [0];  // distance déneigée cumulée jusqu'au point i (km)
+  let segIsFirst = [false]; // segIsFirst[i] : route[i-1]->route[i] est-il un arc inédit ?
   let lastTs = null;
   const V_DEMO_BASE = 6;  // km/h "virtuel" de base, multiplié par le slider
 
@@ -187,20 +189,24 @@
     }
     totalDist = cumDist[cumDist.length-1];
 
-    // Distance déneigée = somme des segments uniques (chaque rue comptée une
-    // seule fois même si le DCPP repasse plusieurs fois dessus).
+    // Distance déneigée cumulative = somme des arcs orientés uniques jusqu'à
+    // chaque point. Un aller et un retour sur une rue à double sens sont deux
+    // arcs distincts (comptés chacun) ; seule une vraie repasse du même arc
+    // dans le même sens (DCPP/connecteur) n'est pas recomptée. segIsFirst[i]
+    // dit si le segment route[i-1]->route[i] est sa première occurrence,
+    // pour pouvoir suivre la progression en live pendant la lecture.
     const seen = new Set();
-    deneigeeDist = 0;
+    cumDeneigee = [0];
+    segIsFirst = [false];
     for(let i=1;i<route.length;i++){
       const a = route[i-1], b = route[i];
-      const key = a.lat < b.lat || (a.lat === b.lat && a.lon < b.lon)
-        ? `${a.lat},${a.lon}|${b.lat},${b.lon}`
-        : `${b.lat},${b.lon}|${a.lat},${a.lon}`;
-      if(!seen.has(key)){
-        seen.add(key);
-        deneigeeDist += haversine(a, b);
-      }
+      const key = `${a.lat},${a.lon}->${b.lat},${b.lon}`;
+      const isFirst = !seen.has(key);
+      if(isFirst) seen.add(key);
+      segIsFirst.push(isFirst);
+      cumDeneigee.push(cumDeneigee[i-1] + (isFirst ? haversine(a, b) : 0));
     }
+    deneigeeDist = cumDeneigee[cumDeneigee.length-1];
 
     progressKm = 0; playing = false; lastTs = null;
     document.getElementById('playBtn').textContent = '▶';
@@ -233,6 +239,15 @@
     return { lat: a.lat + (b.lat-a.lat)*t, lon: a.lon + (b.lon-a.lon)*t, idx: i, t };
   }
 
+  function deneigeeAt(km){
+    const pos = positionAt(km);
+    if(km <= 0) return 0;
+    if(km >= totalDist) return deneigeeDist;
+    const i = pos.idx;
+    const partial = segIsFirst[i] ? pos.t * (cumDist[i] - cumDist[i-1]) : 0;
+    return cumDeneigee[i-1] + partial;
+  }
+
   function clearedPolylineUpTo(km){
     const out = [];
     for(let i=0;i<route.length;i++){
@@ -261,7 +276,7 @@
     document.getElementById('statTime').textContent = fmtTime(progressKm / 10); // V_MOY = 10km/h du modèle
     document.getElementById('progressFill').style.width = pct + '%';
     document.getElementById('statParcourueDeneigee').textContent =
-      `${totalDist.toFixed(1)} / ${deneigeeDist.toFixed(1)} km`;
+      `${progressKm.toFixed(1)} / ${deneigeeAt(progressKm).toFixed(1)} km`;
   }
 
   function tick(ts){
