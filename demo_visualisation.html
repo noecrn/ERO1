@@ -90,6 +90,7 @@
   <div class="stat-row"><span class="k">Distance dégagée</span><span class="v" id="statDist">0.0 / 0.0 km</span></div>
   <div class="stat-row"><span class="k">Progression</span><span class="v" id="statPct">0 %</span></div>
   <div class="stat-row"><span class="k">Temps simulé (10 km/h)</span><span class="v" id="statTime">0 h 00</span></div>
+  <div class="stat-row"><span class="k">Parcourue vs déneigée</span><span class="v" id="statParcourueDeneigee">0.0 / 0.0 km</span></div>
   <div class="legend">
     <span><i class="sw sw-net"></i>Réseau du quartier</span>
     <span><i class="sw sw-plan"></i>Trajet prévu</span>
@@ -131,6 +132,7 @@
   let totalDist = 0;
   let playing = false;
   let progressKm = 0;     // distance parcourue actuelle (km)
+  let deneigeeDist = 0;   // distance déneigée (segments uniques, km)
   let lastTs = null;
   const V_DEMO_BASE = 6;  // km/h "virtuel" de base, multiplié par le slider
 
@@ -184,6 +186,22 @@
       cumDist.push(cumDist[i-1] + haversine(route[i-1], route[i]));
     }
     totalDist = cumDist[cumDist.length-1];
+
+    // Distance déneigée = somme des segments uniques (chaque rue comptée une
+    // seule fois même si le DCPP repasse plusieurs fois dessus).
+    const seen = new Set();
+    deneigeeDist = 0;
+    for(let i=1;i<route.length;i++){
+      const a = route[i-1], b = route[i];
+      const key = a.lat < b.lat || (a.lat === b.lat && a.lon < b.lon)
+        ? `${a.lat},${a.lon}|${b.lat},${b.lon}`
+        : `${b.lat},${b.lon}|${a.lat},${a.lon}`;
+      if(!seen.has(key)){
+        seen.add(key);
+        deneigeeDist += haversine(a, b);
+      }
+    }
+
     progressKm = 0; playing = false; lastTs = null;
     document.getElementById('playBtn').textContent = '▶';
 
@@ -242,6 +260,8 @@
     document.getElementById('statPct').textContent = `${pct.toFixed(0)} %`;
     document.getElementById('statTime').textContent = fmtTime(progressKm / 10); // V_MOY = 10km/h du modèle
     document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('statParcourueDeneigee').textContent =
+      `${totalDist.toFixed(1)} / ${deneigeeDist.toFixed(1)} km`;
   }
 
   function tick(ts){
