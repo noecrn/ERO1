@@ -1,0 +1,83 @@
+{
+  "nb_deneigeuses": 5,
+  "distance_totale_km": 823.0113,
+  "distance_parcourue_totale_km": 823.0113,
+  "distance_deneigee_totale_km": 692.47,
+  "Z_total_flotte": 3504.304,
+  "CO2_total_kg": 222.2131,
+  "temps_operation_h": 28.2666,
+  "surcout_reparation_total_km": 31.517,
+  "surcout_connecteur_total_km": 0.0,
+  "zones": [
+    {
+      "zone_id": 0,
+      "distance_parcourue_km": 91.0348,
+      "distance_deneigee_km": 79.0988,
+      "distance_km": 91.0348,
+      "temps_h": 9.1035,
+      "cout_fixe": 500.0,
+      "cout_km": 100.1383,
+      "cout_horaire": 10.2345,
+      "Z_total": 610.3729,
+      "CO2_kg": 24.5794,
+      "surcout_dcpp_km": 5.3033,
+      "surcout_reparation_km": 6.6327
+    },
+    {
+      "zone_id": 1,
+      "distance_parcourue_km": 175.9566,
+      "distance_deneigee_km": 147.2301,
+      "distance_km": 175.9566,
+      "temps_h": 17.5957,
+      "cout_fixe": 500.0,
+      "cout_km": 193.5522,
+      "cout_horaire": 21.2744,
+      "Z_total": 714.8266,
+      "CO2_kg": 47.5083,
+      "surcout_dcpp_km": 22.7446,
+      "surcout_reparation_km": 5.9819
+    },
+    {
+      "zone_id": 2,
+      "distance_parcourue_km": 282.6662,
+      "distance_deneigee_km": 242.7322,
+      "distance_km": 282.6662,
+      "temps_h": 28.2666,
+      "cout_fixe": 500.0,
+      "cout_km": 310.9328,
+      "cout_horaire": 35.1466,
+      "Z_total": 846.0794,
+      "CO2_kg": 76.3199,
+      "surcout_dcpp_km": 33.3883,
+      "surcout_reparation_km": 6.5457
+    },
+    {
+      "zone_id": 3,
+      "distance_parcourue_km": 167.2955,
+      "distance_deneigee_km": 137.4756,
+      "distance_km": 167.2955,
+      "temps_h": 16.7296,
+      "cout_fixe": 500.0,
+      "cout_km": 184.0251,
+      "cout_horaire": 20.1484,
+      "Z_total": 704.1735,
+      "CO2_kg": 45.1698,
+      "surcout_dcpp_km": 24.6461,
+      "surcout_reparation_km": 5.1738
+    },
+    {
+      "zone_id": 4,
+      "distance_parcourue_km": 106.0582,
+      "distance_deneigee_km": 85.9333,
+      "distance_km": 106.0582,
+      "temps_h": 10.6058,
+      "cout_fixe": 500.0,
+      "cout_km": 116.6641,
+      "cout_horaire": 12.1876,
+      "Z_total": 628.8516,
+      "CO2_kg": 28.6357,
+      "surcout_dcpp_km": 12.942,
+      "surcout_reparation_km": 7.1829
+    }
+  ]
+}

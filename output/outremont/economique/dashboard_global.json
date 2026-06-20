@@ -1,0 +1,27 @@
+{
+  "nb_deneigeuses": 1,
+  "distance_totale_km": 25.2466,
+  "distance_parcourue_totale_km": 25.2466,
+  "distance_deneigee_totale_km": 9.0625,
+  "Z_total_flotte": 530.5483,
+  "CO2_total_kg": 6.8166,
+  "temps_operation_h": 2.5247,
+  "surcout_reparation_total_km": 0.0,
+  "surcout_connecteur_total_km": 6.3999,
+  "zones": [
+    {
+      "zone_id": 0,
+      "distance_parcourue_km": 25.2466,
+      "distance_deneigee_km": 9.0625,
+      "distance_km": 25.2466,
+      "temps_h": 2.5247,
+      "cout_fixe": 500.0,
+      "cout_km": 27.7712,
+      "cout_horaire": 2.7771,
+      "Z_total": 530.5483,
+      "CO2_kg": 6.8166,
+      "surcout_dcpp_km": 9.7842,
+      "surcout_connecteur_km": 6.3999
+    }
+  ]
+}

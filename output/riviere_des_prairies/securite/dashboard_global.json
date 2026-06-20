@@ -1,0 +1,41 @@
+{
+  "nb_deneigeuses": 2,
+  "distance_totale_km": 213.0147,
+  "distance_parcourue_totale_km": 213.0147,
+  "distance_deneigee_totale_km": 62.0019,
+  "Z_total_flotte": 1259.136,
+  "CO2_total_kg": 57.514,
+  "temps_operation_h": 14.9407,
+  "surcout_reparation_total_km": 0.0,
+  "surcout_connecteur_total_km": 82.8513,
+  "zones": [
+    {
+      "zone_id": 0,
+      "distance_parcourue_km": 149.4067,
+      "distance_deneigee_km": 41.9786,
+      "distance_km": 149.4067,
+      "temps_h": 14.9407,
+      "cout_fixe": 500.0,
+      "cout_km": 164.3474,
+      "cout_horaire": 17.8229,
+      "Z_total": 682.1703,
+      "CO2_kg": 40.3398,
+      "surcout_dcpp_km": 51.6566,
+      "surcout_connecteur_km": 55.7715
+    },
+    {
+      "zone_id": 1,
+      "distance_parcourue_km": 63.608,
+      "distance_deneigee_km": 20.0233,
+      "distance_km": 63.608,
+      "temps_h": 6.3608,
+      "cout_fixe": 500.0,
+      "cout_km": 69.9688,
+      "cout_horaire": 6.9969,
+      "Z_total": 576.9657,
+      "CO2_kg": 17.1742,
+      "surcout_dcpp_km": 16.5048,
+      "surcout_connecteur_km": 27.0798
+    }
+  ]
+}

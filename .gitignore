@@ -17,7 +17,7 @@ build/
 
 # Project specific data and cache
 cache/
-data/
+
 .matplotlib/
 
 # Environment secrets

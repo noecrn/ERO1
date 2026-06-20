@@ -1,12 +1,14 @@
 {
   "zone_id": 0,
-  "distance_km": 124.345,
-  "temps_h": 12.4345,
+  "distance_parcourue_km": 86.6346,
+  "distance_deneigee_km": 24.9703,
+  "distance_km": 86.6346,
+  "temps_h": 8.6635,
   "cout_fixe": 500.0,
-  "cout_km": 136.7795,
-  "cout_horaire": 14.5649,
-  "Z_total": 651.3444,
-  "CO2_kg": 33.5732,
-  "surcout_dcpp_km": 41.8657,
-  "surcout_connecteur_km": 9.9649
+  "cout_km": 95.2981,
+  "cout_horaire": 9.6625,
+  "Z_total": 604.9606,
+  "CO2_kg": 23.3913,
+  "surcout_dcpp_km": 25.5652,
+  "surcout_connecteur_km": 36.0992
 }
