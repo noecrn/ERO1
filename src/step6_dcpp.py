@@ -1,65 +1,16 @@
-"""
-Step 6 — Directed Chinese Postman Problem (DCPP) per snowplow zone.
-
-Given a strongly connected DiGraph (one zone from step 5), finds the shortest
-closed walk that traverses every arc at least once, starting and ending at the
-depot node.
-
-Algorithm
----------
-1. Reject zones that are not strongly connected (DCPP is undefined there).
-2. If the zone is already Eulerian (every node has in_degree == out_degree),
-   go directly to nx.eulerian_circuit.
-3. Otherwise, compute the imbalance of each node:
-       imbalance(v) = out_degree(v) − in_degree(v)
-   - imbalance > 0 : node emits more than it absorbs → needs more incoming arcs
-                     → flow *sink*  (demand = +imbalance)
-   - imbalance < 0 : node absorbs more than it emits → needs more outgoing arcs
-                     → flow *source* (demand = imbalance, which is negative)
-4. Build a min-cost flow network whose arc costs equal the shortest directed
-   path lengths (Dijkstra, weight='weight') between each source–sink pair.
-   Solve with nx.min_cost_flow.  Arc costs are scaled to integers (×1 000) for
-   compatibility with NetworkX's network_simplex backend.
-5. For each unit of flow from source s to sink t, duplicate the arcs along the
-   shortest path s → … → t in a MultiDiGraph copy of the zone.
-6. Run nx.eulerian_circuit on the balanced MultiDiGraph, starting at depot.
-7. Return the ordered arc list and the total km (duplicated arcs counted once
-   per traversal — this is the x_ij > 1 of the CPP formulation).
-"""
-
 import math
 
 import networkx as nx
 
 
 def compute_tour(zone: nx.DiGraph, depot) -> tuple[list, float]:
-    """
-    Solve the DCPP on *zone* starting and ending at *depot*.
-
-    Parameters
-    ----------
-    zone   : strongly connected DiGraph produced by step 5; edges carry 'weight'.
-    depot  : node ID that exists in *zone*; the tour departs from and returns
-             to this node.
-
-    Returns
-    -------
-    circuit : list of (u, v) arcs in traversal order.
-    total_km: sum of 'weight' for every traversal (duplicated arcs counted
-              once per pass).
-
-    Raises
-    ------
-    ValueError  if *zone* is not strongly connected.
-    ValueError  if *depot* is absent from *zone*.
-    """
     if depot not in zone:
         raise ValueError(f"Depot {depot!r} absent from zone nodes.")
 
     scc_count = nx.number_strongly_connected_components(zone)
     if scc_count != 1:
         raise ValueError(
-            f"Zone non fortement connexe — DCPP impossible : "
+            f"Zone non fortement connexe - DCPP impossible : "
             f"{scc_count} composantes fortement connexes"
         )
 
@@ -75,31 +26,16 @@ def compute_tour(zone: nx.DiGraph, depot) -> tuple[list, float]:
     # Total distance: use the MultiDiGraph to respect duplicated arc weights.
     total_km = sum(balanced[u][v][k]["weight"] for u, v, k in circuit)
 
-    # Strip keys from the public return value — callers only need (u, v).
+    # Strip keys from the public return value callers only need (u, v).
     return [(u, v) for u, v, _ in circuit], total_km
 
 
-# ---------------------------------------------------------------------------
-# Internal helpers
-# ---------------------------------------------------------------------------
-
 def _balance(zone: nx.DiGraph, imbalances: dict) -> nx.MultiDiGraph:
-    """
-    Return a MultiDiGraph copy of *zone* with extra arc copies added along
-    shortest paths so that every node has in_degree == out_degree.
-
-    Uses min-cost flow (network_simplex backend) to minimise total added km.
-    Arc costs are multiplied by 1 000 and rounded to integers to satisfy
-    NetworkX's integer-weight requirement.
-    """
-    # Nodes that need to shed excess incoming arcs (supply flow outward).
     sources = [v for v, b in imbalances.items() if b < 0]
-    # Nodes that need to absorb excess outgoing arcs (absorb incoming flow).
     sinks = [v for v, b in imbalances.items() if b > 0]
 
     total_supply = sum(b for b in imbalances.values() if b > 0)  # upper bound for capacities
 
-    # Build flow network.
     flow_net = nx.DiGraph()
     for v in zone.nodes():
         flow_net.add_node(v, demand=imbalances[v])
@@ -118,10 +54,8 @@ def _balance(zone: nx.DiGraph, imbalances: dict) -> nx.MultiDiGraph:
 
     flow = nx.min_cost_flow(flow_net)
 
-    # Duplicate arcs along the chosen shortest paths.
-    # NOTE: strip 'key' from edge attrs — present in OSM-derived graphs and
-    # interpreted by MultiDiGraph as the multi-edge key, which would silently
-    # update the existing edge instead of adding a new duplicate arc.
+    # strip 'key' from attrs MultiDiGraph interprets it as multi-edge key and
+    # would update the existing edge instead of adding a duplicate arc
     balanced = nx.MultiDiGraph(zone)
     for s in sources:
         for t, fval in flow.get(s, {}).items():

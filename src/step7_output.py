@@ -1,5 +1,5 @@
 """
-Step 7 — GPS itineraries and cost dashboard.
+Step 7 - GPS itineraries and cost dashboard.
 
 Billing conventions (fixed, do not alter):
   speed          : 10 km/h
@@ -30,22 +30,6 @@ from src.step6_dcpp import compute_tour
 # ---------------------------------------------------------------------------
 
 def build_itinerary(circuit: list, G: nx.DiGraph) -> list:
-    """
-    Convert an ordered arc list into an ordered GPS waypoint list.
-
-    Each waypoint is {"lat": float, "lon": float}, read from node attributes
-    y (latitude) and x (longitude).  The list length is len(circuit) + 1:
-    one point per arc-start plus the final destination of the last arc.
-
-    Parameters
-    ----------
-    circuit : ordered list of (u, v) arcs, as returned by compute_tour.
-    G       : any DiGraph that contains all nodes in the circuit with x/y attrs.
-
-    Returns
-    -------
-    list of {"lat": ..., "lon": ...} dicts, ready for a navigation system.
-    """
     if not circuit:
         return []
 
@@ -58,21 +42,7 @@ def build_itinerary(circuit: list, G: nx.DiGraph) -> list:
     return waypoints
 
 
-def build_gpx(circuit: list, G: nx.DiGraph, track_name: str = "Itinéraire déneigeuse") -> str:
-    """
-    Convert an ordered arc list into a standard GPX 1.1 track (<trk>/<trkseg>/<trkpt>),
-    importable by any GPS device or mapping software (Garmin, OsmAnd, QGIS, etc.).
-
-    Parameters
-    ----------
-    circuit    : ordered list of (u, v) arcs, as returned by compute_tour.
-    G          : any DiGraph containing all nodes in the circuit with x/y attrs.
-    track_name : <name> shown by the GPS device/software for this track.
-
-    Returns
-    -------
-    GPX 1.1 XML document as a string (UTF-8, includes XML declaration).
-    """
+def build_gpx(circuit: list, G: nx.DiGraph, track_name: str = "Itineraire deneigeuse") -> str:
     gpx = Element("gpx", {
         "version": "1.1",
         "creator": "ERO1",
@@ -100,30 +70,6 @@ def build_dashboard(
     distance_km: float,
     G: nx.DiGraph,
 ) -> dict:
-    """
-    Compute cost metrics for one snowplow zone.
-
-    Le mode est détecté automatiquement depuis les attributs d'arcs de G :
-    - Mode CPP (arcs repair=True présents)    → clé surcout_reparation_km
-    - Mode RPP (arcs connector=True présents) → clé surcout_connecteur_km
-    Les deux modes sont mutuellement exclusifs dans la clé de surcoût retournée.
-    surcout_dcpp_km est présent dans les deux modes.
-
-    Parameters
-    ----------
-    zone_id     : integer zone index (0-based, matching partition_network keys).
-    circuit     : ordered arc list from compute_tour (on the zone DiGraph).
-    distance_km : total tour distance returned by compute_tour.
-    G           : zone DiGraph avec arcs repair=True (CPP) ou connector=True (RPP).
-
-    Returns
-    -------
-    dict avec les clés communes :
-        zone_id, distance_km, temps_h, cout_fixe, cout_km, cout_horaire,
-        Z_total, CO2_kg, surcout_dcpp_km
-    + en mode CPP : surcout_reparation_km
-    + en mode RPP : surcout_connecteur_km
-    """
     T = distance_km / 10.0
     cout_horaire = 1.1 * min(T, 8.0) + 1.3 * max(0.0, T - 8.0)
     cout_fixe    = 500.0
@@ -138,9 +84,8 @@ def build_dashboard(
         for (u, v), cnt in arc_counts.items()
     )
 
-    # distance_deneigee_km : arcs réellement requis (ni connecteur RPP, ni
-    # réparation CPP), comptés une seule fois même si traversés plusieurs fois
-    # par le DCPP — c'est la neige effectivement enlevée, pas la route parcourue.
+    # distance_deneigee_km : arcs requis (ni connecteur RPP, ni reparation CPP),
+    # comptes une seule fois meme si traverses plusieurs fois par le DCPP.
     distance_deneigee_km = sum(
         d["weight"] for _, _, d in G.edges(data=True)
         if not d.get("connector") and not d.get("repair")
@@ -150,7 +95,7 @@ def build_dashboard(
         "zone_id":              zone_id,
         "distance_parcourue_km": round(distance_km, 4),
         "distance_deneigee_km":  round(distance_deneigee_km, 4),
-        "distance_km":          round(distance_km, 4),  # alias rétro-compat
+        "distance_km":          round(distance_km, 4),  # alias retro-compat
         "temps_h":              round(T, 4),
         "cout_fixe":            round(cout_fixe, 4),
         "cout_km":              round(cout_km, 4),
@@ -160,7 +105,7 @@ def build_dashboard(
         "surcout_dcpp_km":      round(surcout_dcpp_km, 4),
     }
 
-    # Détection du mode — connector=True → RPP, sinon CPP par défaut.
+    # Detection du mode : connector=True RPP, sinon CPP par defaut.
     is_rpp = any(d.get("connector") is True for _, _, d in G.edges(data=True))
 
     if is_rpp:
@@ -179,21 +124,7 @@ def build_dashboard(
     return base
 
 
-# ---------------------------------------------------------------------------
-# Orchestration
-# ---------------------------------------------------------------------------
-
 def run_pipeline(output_dir: str = ".") -> dict:
-    """
-    Run the full mock pipeline (steps 5 → 5b → 6 → 7) and write output files.
-
-    Files written to *output_dir*:
-        itineraire_zone_{id}.json   — ordered GPS waypoints
-        dashboard_zone_{id}.json    — per-zone cost metrics
-        dashboard_global.json       — aggregated summary
-
-    Returns the global dashboard dict.
-    """
     out = Path(output_dir)
     out.mkdir(parents=True, exist_ok=True)
 
@@ -224,7 +155,6 @@ def run_pipeline(output_dir: str = ".") -> dict:
 
 
 def _build_global_dashboard(zone_dashboards: list) -> dict:
-    """Aggregate per-zone dashboards into a fleet-level summary."""
     return {
         "nb_deneigeuses":               len(zone_dashboards),
         "distance_totale_km":           round(sum(d["distance_km"] for d in zone_dashboards), 4),
@@ -232,9 +162,9 @@ def _build_global_dashboard(zone_dashboards: list) -> dict:
         "distance_deneigee_totale_km":  round(sum(d["distance_deneigee_km"]  for d in zone_dashboards), 4),
         "Z_total_flotte":               round(sum(d["Z_total"]     for d in zone_dashboards), 4),
         "CO2_total_kg":                 round(sum(d["CO2_kg"]      for d in zone_dashboards), 4),
-        # Snowplows run in parallel → operation ends when the slowest finishes.
+        # Snowplows run in parallel operation ends when the slowest finishes.
         "temps_operation_h":            round(max(d["temps_h"]     for d in zone_dashboards), 4),
-        # Surcharges agrégées séparément par mode
+        # Surcharges agregees separement par mode
         "surcout_reparation_total_km":  round(sum(d.get("surcout_reparation_km", 0.0) for d in zone_dashboards), 4),
         "surcout_connecteur_total_km":  round(sum(d.get("surcout_connecteur_km", 0.0) for d in zone_dashboards), 4),
         "zones":                        zone_dashboards,
