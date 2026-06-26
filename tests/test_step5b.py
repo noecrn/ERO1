@@ -262,7 +262,7 @@ class TestGenuineDeadEnd:
         G_full.add_node(1, x=-73.6, y=45.51)
         G_full.add_edge(0, 1, weight=0.5, h_neige=5.0)
 
-        with pytest.raises(ValueError, match="cul-de-sac réel"):
+        with pytest.raises(ValueError, match="cul-de-sac reel"):
             ensure_strong_connectivity(zone, G_full)
 
 
@@ -299,10 +299,10 @@ def _make_rpp_fixture():
         zone.add_node(n, x=-73.6 + n * 0.01, y=45.5)
 
     # Prioritaires — deux îlots SC
-    zone.add_edge(0, 1, weight=1.0, priority=True)
-    zone.add_edge(1, 0, weight=1.0, priority=True)
-    zone.add_edge(3, 4, weight=1.0, priority=True)
-    zone.add_edge(4, 3, weight=1.0, priority=True)
+    zone.add_edge(0, 1, weight=1.0, priority=True, h_neige=8.0, needs_clearing=True)
+    zone.add_edge(1, 0, weight=1.0, priority=True, h_neige=8.0, needs_clearing=True)
+    zone.add_edge(3, 4, weight=1.0, priority=True, h_neige=8.0, needs_clearing=True)
+    zone.add_edge(4, 3, weight=1.0, priority=True, h_neige=8.0, needs_clearing=True)
     # Non prioritaires
     zone.add_edge(0, 2, weight=0.5, priority=False)
     zone.add_edge(2, 3, weight=0.5, priority=False)
@@ -402,12 +402,12 @@ class TestNoConnectorWhenAlreadySC:
             zone.add_node(n, x=-73.6 + n * 0.01, y=45.5)
             G_full.add_node(n, x=-73.6 + n * 0.01, y=45.5)
         # Cycle prioritaire SC
-        zone.add_edge(0, 1, weight=1.0, priority=True)
-        zone.add_edge(1, 2, weight=1.0, priority=True)
-        zone.add_edge(2, 0, weight=1.0, priority=True)
-        G_full.add_edge(0, 1, weight=1.0, priority=True)
-        G_full.add_edge(1, 2, weight=1.0, priority=True)
-        G_full.add_edge(2, 0, weight=1.0, priority=True)
+        zone.add_edge(0, 1, weight=1.0, priority=True, h_neige=8.0, needs_clearing=True)
+        zone.add_edge(1, 2, weight=1.0, priority=True, h_neige=8.0, needs_clearing=True)
+        zone.add_edge(2, 0, weight=1.0, priority=True, h_neige=8.0, needs_clearing=True)
+        G_full.add_edge(0, 1, weight=1.0, priority=True, h_neige=8.0, needs_clearing=True)
+        G_full.add_edge(1, 2, weight=1.0, priority=True, h_neige=8.0, needs_clearing=True)
+        G_full.add_edge(2, 0, weight=1.0, priority=True, h_neige=8.0, needs_clearing=True)
 
         result = ensure_strong_connectivity(zone, G_full, priority_only=True)
         connector_arcs = [(u, v) for u, v, d in result.edges(data=True) if d.get("connector")]
@@ -431,7 +431,7 @@ class TestNoPriorityArcsRaisesValueError:
         G_full.add_edge(0, 1, weight=1.0, priority=False)
         G_full.add_edge(1, 0, weight=1.0, priority=False)
 
-        with pytest.raises(ValueError, match="prioritaire"):
+        with pytest.raises(ValueError, match="deneiger"):
             ensure_strong_connectivity(zone, G_full, priority_only=True)
 
 

@@ -144,11 +144,11 @@ class TestEconomiqueIsCPP:
     def test_has_reparation_not_connecteur(self, tmp_path):
         result = run_pipeline("anjou", "economique", output_dir=str(tmp_path))
         for zone_dash in result["zones"]:
-            assert "surcout_reparation_km" in zone_dash, (
-                "Mode economique doit produire surcout_reparation_km"
+            assert "surcout_connecteur_km" in zone_dash, (
+                "Mode economique doit produire surcout_connecteur_km"
             )
-            assert "surcout_connecteur_km" not in zone_dash, (
-                "Mode economique ne doit PAS avoir surcout_connecteur_km"
+            assert "surcout_reparation_km" not in zone_dash, (
+                "Mode economique ne doit PAS avoir surcout_reparation_km"
             )
 
 
